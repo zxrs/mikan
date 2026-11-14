@@ -7,9 +7,9 @@ mod elf;
 mod uefi;
 
 use crate::{
-    elf::{ElfHeader, calc_load_address_range},
+    elf::{ElfHeader, calc_load_address_range, copy_load_segments},
     uefi::{
-        CChar, EFIFileAttributes, EFIFileInfo, EFIFileMode, EFIGop, EFIHandle,
+        CChar, EFIAllocateType, EFIFileAttributes, EFIFileInfo, EFIFileMode, EFIGop, EFIHandle,
         EFILoadedImageProtocol, EFISimpleFileSystemProtocol, EFISystemTable, WRITER, init_writer,
     },
 };
@@ -82,9 +82,44 @@ fn efi_main(image_handle: EFIHandle, system_table: &'static EFISystemTable) -> !
     let num_pages = (last - first).div_ceil(0x1000);
     println!("{num_pages}");
 
-    loop {
-        x86::halt();
+    let kernel_base_address = system_table.boot_services.allocate_pages(
+        EFIAllocateType::AllocateMaxAddress,
+        EFIMemoryType::LoaderData,
+        num_pages as _,
+        first,
+    );
+
+    println!("0x{:x}", kernel_base_address);
+    println!("0x{:x}", kernel_elf_header.entry_addr());
+
+    copy_load_segments(system_table, kernel_elf_header);
+
+    let entry_point = unsafe {
+        core::mem::transmute::<*const u8, extern "sysv64" fn() -> !>(
+            kernel_elf_header.entry_addr() as *const u8
+        )
+    };
+
+    if !system_table
+        .boot_services
+        .exit_boot_services(image_handle, mmap.map_key)
+        .is_success()
+    {
+        let mmap = system_table.boot_services.get_memory_map();
+        if !system_table
+            .boot_services
+            .exit_boot_services(image_handle, mmap.map_key)
+            .is_success()
+        {
+            panic!("failed to exit boot services");
+        }
     }
+
+    entry_point();
+
+    // loop {
+    //     x86::halt();
+    // }
 }
 
 #[panic_handler]

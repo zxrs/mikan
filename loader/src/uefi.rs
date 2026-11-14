@@ -378,31 +378,52 @@ pub struct EFIBootServices {
     allocate_pool: fn(EFIMemoryType, usize, *mut *mut u8) -> EFIStatus,
 
     #[doc(hidden)]
-    _padding2: [*const u8; 26],
+    _padding2: [*const u8; 20],
+
+    exit_boot_services: fn(EFIHandle, usize) -> EFIStatus,
+
+    #[doc(hidden)]
+    _padding3: [*const u8; 5],
 
     open_protocol:
         fn(EFIHandle, *const EFIGuid, *mut *mut u8, EFIHandle, EFIHandle, u32) -> EFIStatus,
 
     #[doc(hidden)]
-    _padding3: [*const u8; 4],
+    _padding4: [*const u8; 4],
 
     locate_protocol: fn(*const EFIGuid, *const u8, *mut *mut u8) -> EFIStatus,
 
     #[doc(hidden)]
-    _padding4: [*const u8; 3],
+    _padding5: [*const u8; 3],
 
-    pub copy_mem: fn(*mut u8, *const u8, usize) -> EFIStatus,
-    pub set_mem: fn(*const u8, usize, u8) -> EFIStatus,
+    pub copy_mem: fn(*mut u8, *const u8, usize),
+    pub set_mem: fn(*const u8, usize, u8),
 }
 
 const _: () = {
     ["get_memory_map"][offset_of!(EFIBootServices, get_memory_map) - 56];
+    ["exit_boot_services"][offset_of!(EFIBootServices, exit_boot_services) - 232];
     ["open_protocol"][offset_of!(EFIBootServices, open_protocol) - 280];
     ["locate_protocol"][offset_of!(EFIBootServices, locate_protocol) - 320];
 };
 
 impl EFIBootServices {
     const EFI_OPEN_PROTOCOL_BY_HANDLE_PROTOCOL: u32 = 0x00000001;
+
+    pub fn allocate_pages(
+        &self,
+        allocate_type: EFIAllocateType,
+        memory_type: EFIMemoryType,
+        num_pages: usize,
+        address: EFIPhysicalAddress,
+    ) -> EFIPhysicalAddress {
+        let mut address = address;
+        if !(self.allocate_pages)(allocate_type, memory_type, num_pages, &mut address).is_success()
+        {
+            panic!("failed to allocate pages");
+        }
+        address
+    }
 
     pub fn get_memory_map(&self) -> MemoryMap {
         let mut mmap = MemoryMap::default();
@@ -426,6 +447,10 @@ impl EFIBootServices {
             panic!("failed to allocate pool");
         }
         unsafe { slice::from_raw_parts(p, size) }
+    }
+
+    pub fn exit_boot_services(&self, image_handle: EFIHandle, map_key: usize) -> EFIStatus {
+        (self.exit_boot_services)(image_handle, map_key)
     }
 
     pub fn open_protocol<T: Guid>(&self, handle: EFIHandle, agent_handle: EFIHandle) -> &T {

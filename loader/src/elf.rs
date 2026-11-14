@@ -67,25 +67,17 @@ pub fn copy_load_segments(system_table: &EFISystemTable, ehdr: &ElfHeader) {
         }
 
         let segm_in_file = ehdr as *const ElfHeader as usize + phdr.p_offset as usize;
-        if !(system_table.boot_services.copy_mem)(
+        (system_table.boot_services.copy_mem)(
             phdr.p_vaddr as *mut u8,
             segm_in_file as *const u8,
             phdr.p_filesz as usize,
-        )
-        .is_success()
-        {
-            panic!("failed to copy memory");
-        }
+        );
 
         let remain_bytes = phdr.p_memsz - phdr.p_filesz;
-        if !(system_table.boot_services.set_mem)(
+        (system_table.boot_services.set_mem)(
             (phdr.p_vaddr + phdr.p_filesz) as *const u8,
             remain_bytes as usize,
             0,
-        )
-        .is_success()
-        {
-            panic!("failed to set memory");
-        }
+        );
     }
 }

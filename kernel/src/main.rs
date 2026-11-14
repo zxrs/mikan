@@ -4,7 +4,7 @@
 use share::x86;
 
 #[unsafe(no_mangle)]
-fn kernel_main() -> ! {
+extern "C" fn kernel_main() -> ! {
     loop {
         x86::halt();
     }
