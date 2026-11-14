@@ -32,6 +32,14 @@ const EFI_SIMPLE_FILE_SYSTEM_PROTOCOL_GUID: EFIGuid = EFIGuid {
     data3: 0x11d2,
     data4: [0x8e, 0x39, 0x00, 0xa0, 0xc9, 0x69, 0x72, 0x3b],
 };
+
+const EFI_FILE_INFO_GUID: EFIGuid = EFIGuid {
+    data1: 0x09576e92,
+    data2: 0x6d3f,
+    data3: 0x11d2,
+    data4: [0x8e, 0x39, 0x00, 0xa0, 0xc9, 0x69, 0x72, 0x3b],
+};
+
 pub trait Guid {
     fn guid() -> EFIGuid;
 }
@@ -217,6 +225,7 @@ impl Guid for EFILoadedImageProtocol {
     }
 }
 
+#[allow(unused)]
 #[repr(u64)]
 pub enum EFIFileMode {
     Read = 0x0000000000000001,
@@ -224,6 +233,7 @@ pub enum EFIFileMode {
     Create = 0x8000000000000000,
 }
 
+#[allow(unused)]
 #[repr(u64)]
 pub enum EFIFileAttributes {
     Default = 0,
@@ -241,6 +251,16 @@ pub enum EFIFileAttributes {
 pub struct EFIFileProtocol {
     pub revision: u64,
     open: fn(*const EFIFileProtocol, *mut *mut EFIFileProtocol, CChar, u64, u64) -> EFIStatus,
+
+    #[doc(hidden)]
+    _paddin0: [*const u8; 2],
+
+    read: fn() -> EFIStatus,
+
+    #[doc(hidden)]
+    _padding1: [*const u8; 3],
+
+    get_info: fn(*const EFIFileProtocol, *const EFIGuid, *mut usize, *mut u8) -> EFIStatus,
 }
 
 impl EFIFileProtocol {
@@ -255,6 +275,14 @@ impl EFIFileProtocol {
             panic!("failed to open: {}", file_name);
         }
         unsafe { &*(p as *const EFIFileProtocol) }
+    }
+
+    pub fn get_info<T: Guid>(&self, buffer: &mut [u8]) -> &T {
+        let mut size = buffer.len();
+        if !(self.get_info)(self, &T::guid(), &mut size, buffer.as_mut_ptr()).is_success() {
+            panic!("failed to get info");
+        }
+        unsafe { &*(buffer.as_ptr() as *const T) }
     }
 }
 
@@ -279,6 +307,41 @@ impl EFISimpleFileSystemProtocol {
         }
         unsafe { &*(p as *const EFIFileProtocol) }
     }
+}
+
+#[repr(C)]
+#[derive(Debug)]
+pub struct EFIFileInfo {
+    pub size: u64,
+    pub file_size: u64,
+    pub physical_size: u64,
+    pub create_time: EFITime,
+    pub last_access_time: EFITime,
+    pub modification_time: EFITime,
+    pub attributes: u64,
+    pub file_name: CChar,
+}
+
+impl Guid for EFIFileInfo {
+    fn guid() -> EFIGuid {
+        EFI_FILE_INFO_GUID
+    }
+}
+
+#[repr(C)]
+#[derive(Debug)]
+pub struct EFITime {
+    pub year: u16,
+    pub month: u8,
+    pub day: u8,
+    pub hour: u8,
+    pub minute: u8,
+    pub second: u8,
+    _padding0: u8,
+    pub nano_second: u32,
+    pub time_zone: i32,
+    pub day_light: u8,
+    _padding1: u8,
 }
 
 #[repr(C)]

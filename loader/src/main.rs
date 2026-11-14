@@ -6,7 +6,7 @@ mod macros;
 mod uefi;
 
 use crate::uefi::{
-    CChar, EFIFileAttributes, EFIFileMode, EFIGop, EFIHandle, EFILoadedImageProtocol,
+    CChar, EFIFileAttributes, EFIFileInfo, EFIFileMode, EFIGop, EFIHandle, EFILoadedImageProtocol,
     EFISimpleFileSystemProtocol, EFISystemTable, WRITER, init_writer,
 };
 use core::{fmt::Write, slice};
@@ -59,6 +59,13 @@ fn efi_main(image_handle: EFIHandle, system_table: &'static EFISystemTable) -> !
         EFIFileMode::Read,
         EFIFileAttributes::Default,
     );
+
+    const FILE_INFO_SIZE: usize = size_of::<EFIFileInfo>() + size_of::<u16>() * 12;
+    let mut file_info_buffer = [0u8; FILE_INFO_SIZE];
+
+    let file_info: &EFIFileInfo = kernel_file.get_info(&mut file_info_buffer);
+    let kernel_file_size = file_info.file_size;
+    println!("{kernel_file_size}");
 
     loop {
         x86::halt();

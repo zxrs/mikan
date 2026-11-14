@@ -57,7 +57,7 @@ impl Default for MemoryMap {
 }
 
 impl MemoryMap {
-    pub fn iter(&self) -> MemoryMapIter {
+    pub fn iter(&self) -> MemoryMapIter<'_> {
         MemoryMapIter::new(self)
     }
 }
