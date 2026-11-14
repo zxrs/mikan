@@ -1,0 +1,59 @@
+[tasks.ovmf]
+script = '''
+rm -rf ovmf/
+mkdir -p ovmf/
+curl -o ovmf/OVMF_VARS.fd -L https://github.com/uchan-nos/mikanos-build/raw/refs/tags/v2.0/devenv/OVMF_VARS.fd
+curl -o ovmf/OVMF_CODE.fd -L https://github.com/uchan-nos/mikanos-build/raw/refs/tags/v2.0/devenv/OVMF_CODE.fd 
+'''
+
+[tasks.clear]
+script = '''
+rm -f disk.img
+rm -rf ./mnt
+cd loader
+cargo clean
+cd ..
+cd kernel
+cargo clean
+cd ..
+'''
+
+[tasks.loader]
+script = '''
+cd loader
+cargo b
+cd ..
+'''
+
+[tasks.kernel]
+script = '''
+cd kernel
+cargo b
+cd ..
+'''
+
+[tasks.make-image]
+script = '''
+rm -f disk.img
+qemu-img create -f raw disk.img 200M
+mkfs.fat -n "MIKANOS" -s 2 -f 2 -R 32 -F 32 disk.img
+mkdir -p ./mnt
+sudo mount -o loop disk.img ./mnt
+sudo mkdir -p ./mnt/EFI/BOOT
+sudo cp loader/target/x86_64-unknown-uefi/debug/loader.efi ./mnt/EFI/BOOT/BOOTX64.EFI
+sudo cp kernel/target/x86_64-unknown-none/debug/kernel ./mnt/kernel.elf
+sleep 0.5
+sudo umount ./mnt
+'''
+dependencies = ["loader", "kernel"]
+
+[tasks.launch]
+script = '''
+qemu-system-x86_64 \
+    -m 1G \
+    -drive if=pflash,format=raw,readonly,file=./ovmf/OVMF_CODE.fd \
+    -drive if=pflash,format=raw,file=./ovmf/OVMF_VARS.fd \
+    -drive if=ide,index=0,media=disk,format=raw,file=disk.img \
+    -monitor stdio
+'''
+dependencies = ["make-image"]
