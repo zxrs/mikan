@@ -1,6 +1,6 @@
-use core::{cell::RefCell, fmt, mem::offset_of, ptr};
+use core::{cell::RefCell, fmt, mem::offset_of, ptr, slice};
 
-use share::memory_map::{EFIPhysicalAddress, MemoryMap};
+use share::memory_map::{EFIMemoryType, EFIPhysicalAddress, MemoryMap};
 
 pub type EFIHandle = *const u8;
 
@@ -69,7 +69,7 @@ impl<T: Sync> Global<T> {
 pub struct EFIStatus(usize);
 
 impl EFIStatus {
-    fn is_success(&self) -> bool {
+    pub fn is_success(&self) -> bool {
         self.0 == 0
     }
 }
@@ -255,7 +255,7 @@ pub struct EFIFileProtocol {
     #[doc(hidden)]
     _paddin0: [*const u8; 2],
 
-    read: fn() -> EFIStatus,
+    read: fn(*const EFIFileProtocol, *mut usize, *mut u8) -> EFIStatus,
 
     #[doc(hidden)]
     _padding1: [*const u8; 3],
@@ -275,6 +275,13 @@ impl EFIFileProtocol {
             panic!("failed to open: {}", file_name);
         }
         unsafe { &*(p as *const EFIFileProtocol) }
+    }
+
+    pub fn read(&self, buffer: &[u8]) {
+        let mut len = buffer.len();
+        if !(self.read)(self, &mut len, buffer.as_ptr() as *mut _).is_success() {
+            panic!("failed to read");
+        }
     }
 
     pub fn get_info<T: Guid>(&self, buffer: &mut [u8]) -> &T {
@@ -344,24 +351,48 @@ pub struct EFITime {
     _padding1: u8,
 }
 
+#[allow(unused)]
+#[repr(C)]
+#[derive(Debug)]
+pub enum EFIAllocateType {
+    AllocateAnyPages,
+    AllocateMaxAddress,
+    AllocateAddress,
+    MaxAllocateType,
+}
+
 #[repr(C)]
 #[derive(Debug)]
 pub struct EFIBootServices {
     pub header: EFITableHeader,
 
     #[doc(hidden)]
-    _padding0: [*const u8; 4],
+    _padding0: [*const u8; 2],
+
+    allocate_pages: fn(EFIAllocateType, EFIMemoryType, usize, *mut EFIPhysicalAddress) -> EFIStatus,
+
+    #[doc(hidden)]
+    _padding1: [*const u8; 1],
 
     get_memory_map: fn(*mut usize, *mut u8, *mut usize, *mut usize, *mut u32) -> EFIStatus,
+    allocate_pool: fn(EFIMemoryType, usize, *mut *mut u8) -> EFIStatus,
 
-    _padding1: [*const u8; 27],
+    #[doc(hidden)]
+    _padding2: [*const u8; 26],
 
     open_protocol:
         fn(EFIHandle, *const EFIGuid, *mut *mut u8, EFIHandle, EFIHandle, u32) -> EFIStatus,
 
-    _padding2: [*const u8; 4],
+    #[doc(hidden)]
+    _padding3: [*const u8; 4],
 
     locate_protocol: fn(*const EFIGuid, *const u8, *mut *mut u8) -> EFIStatus,
+
+    #[doc(hidden)]
+    _padding4: [*const u8; 3],
+
+    pub copy_mem: fn(*mut u8, *const u8, usize) -> EFIStatus,
+    pub set_mem: fn(*const u8, usize, u8) -> EFIStatus,
 }
 
 const _: () = {
@@ -387,6 +418,14 @@ impl EFIBootServices {
             panic!("failed to get memory map");
         }
         mmap
+    }
+
+    pub fn allocate_pool(&self, typ: EFIMemoryType, size: usize) -> &[u8] {
+        let mut p = ptr::null_mut();
+        if !(self.allocate_pool)(typ, size, &mut p).is_success() {
+            panic!("failed to allocate pool");
+        }
+        unsafe { slice::from_raw_parts(p, size) }
     }
 
     pub fn open_protocol<T: Guid>(&self, handle: EFIHandle, agent_handle: EFIHandle) -> &T {

@@ -3,11 +3,15 @@
 
 #[macro_use]
 mod macros;
+mod elf;
 mod uefi;
 
-use crate::uefi::{
-    CChar, EFIFileAttributes, EFIFileInfo, EFIFileMode, EFIGop, EFIHandle, EFILoadedImageProtocol,
-    EFISimpleFileSystemProtocol, EFISystemTable, WRITER, init_writer,
+use crate::{
+    elf::{ElfHeader, calc_load_address_range},
+    uefi::{
+        CChar, EFIFileAttributes, EFIFileInfo, EFIFileMode, EFIGop, EFIHandle,
+        EFILoadedImageProtocol, EFISimpleFileSystemProtocol, EFISystemTable, WRITER, init_writer,
+    },
 };
 use core::{fmt::Write, slice};
 use share::{memory_map::EFIMemoryType, x86};
@@ -66,6 +70,17 @@ fn efi_main(image_handle: EFIHandle, system_table: &'static EFISystemTable) -> !
     let file_info: &EFIFileInfo = kernel_file.get_info(&mut file_info_buffer);
     let kernel_file_size = file_info.file_size;
     println!("{kernel_file_size}");
+
+    let kernel_buffer = system_table
+        .boot_services
+        .allocate_pool(EFIMemoryType::LoaderData, kernel_file_size as _);
+
+    kernel_file.read(kernel_buffer);
+
+    let kernel_elf_header = unsafe { &*(kernel_buffer.as_ptr() as *const ElfHeader) };
+    let (first, last) = calc_load_address_range(kernel_elf_header);
+    let num_pages = (last - first).div_ceil(0x1000);
+    println!("{num_pages}");
 
     loop {
         x86::halt();
