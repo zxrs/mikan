@@ -3,6 +3,25 @@
 
 use share::{frame_buffer::FrameBufferConfig, x86};
 
+const FONT_A: [u8; 16] = [
+    0b00000000, //
+    0b00011000, //    **
+    0b00011000, //    **
+    0b00011000, //    **
+    0b00011000, //    **
+    0b00100100, //   *  *
+    0b00100100, //   *  *
+    0b00100100, //   *  *
+    0b00100100, //   *  *
+    0b01111110, //  ******
+    0b01000010, //  *    *
+    0b01000010, //  *    *
+    0b01000010, //  *    *
+    0b11100111, // ***  ***
+    0b00000000, //
+    0b00000000, //
+];
+
 #[derive(Debug, Clone, Copy)]
 pub struct PixelColor {
     r: u8,
@@ -49,6 +68,17 @@ impl<'a> PixelWriter<'a> {
         p[2] = c.r;
         Some(())
     }
+
+    pub fn write_ascii(&mut self, x: u32, y: u32, c: char, color: PixelColor) -> Option<()> {
+        for dy in 0..16 {
+            for dx in 0..8 {
+                if (FONT_A[dy as usize] << dx) & 0x80 > 0 {
+                    self.write(x + dx, y + dy, color)?;
+                }
+            }
+        }
+        Some(())
+    }
 }
 
 #[unsafe(no_mangle)]
@@ -60,6 +90,8 @@ extern "C" fn kernel_main(config: &mut FrameBufferConfig) -> ! {
             pixel_writer.write(x, y, PixelColor::BLUE);
         }
     }
+
+    pixel_writer.write_ascii(0, 0, 'A', PixelColor::default());
 
     loop {
         x86::halt();
