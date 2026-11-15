@@ -184,10 +184,21 @@ impl fmt::Write for TextWriter {
 
 #[repr(C)]
 #[derive(Debug)]
-pub struct EFIGopMode {
+pub struct EFIGopModeInfomation {
+    pub version: u32,
+    pub horizontal_resolution: u32,
+    pub vertical_resolution: u32,
+    pub pixel_format: [u32; 4],
+    pub pixel_infomation: u32,
+    pub pixels_per_scanline: u32,
+}
+
+#[repr(C)]
+#[derive(Debug)]
+pub struct EFIGopMode<'a> {
     pub max_mode: u32,
     pub mode: u32,
-    _info: *const u8,
+    pub info: &'a EFIGopModeInfomation,
     pub size_of_info: usize,
     pub frame_buffer_base: EFIPhysicalAddress,
     pub frame_buffer_size: usize,
@@ -199,7 +210,7 @@ pub struct EFIGop<'a> {
     #[doc(hidden)]
     _padding0: [*const u8; 3],
 
-    pub mode: &'a EFIGopMode,
+    pub mode: &'a EFIGopMode<'a>,
 }
 
 impl<'a> Guid for EFIGop<'a> {

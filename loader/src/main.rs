@@ -14,7 +14,7 @@ use crate::{
     },
 };
 use core::{fmt::Write, slice};
-use share::{memory_map::EFIMemoryType, x86};
+use share::{frame_buffer::FrameBufferConfig, memory_map::EFIMemoryType, x86};
 
 #[unsafe(no_mangle)]
 fn efi_main(image_handle: EFIHandle, system_table: &'static EFISystemTable) -> ! {
@@ -33,19 +33,32 @@ fn efi_main(image_handle: EFIHandle, system_table: &'static EFISystemTable) -> !
             gop.mode.frame_buffer_size,
         )
     };
-    frame_buffer.fill(128);
+    // frame_buffer.fill(128);
+    let config = FrameBufferConfig::new(
+        frame_buffer,
+        gop.mode.info.pixels_per_scanline,
+        gop.mode.info.horizontal_resolution,
+        gop.mode.info.vertical_resolution,
+    );
+    println!(
+        "{}, {}, {}, {}",
+        config.frame_buffer.len(),
+        config.pixels_per_scanline,
+        config.horizontal_resolution,
+        config.vertical_resolution
+    );
 
     let mmap = system_table.boot_services.get_memory_map();
-    mmap.iter()
-        .filter(|d| d.typ.eq(&EFIMemoryType::ConventionalMemory))
-        .for_each(|d| {
-            println!("{:?}", d);
-        });
+    // mmap.iter()
+    //     .filter(|d| d.typ.eq(&EFIMemoryType::ConventionalMemory))
+    //     .for_each(|d| {
+    //         println!("{:?}", d);
+    //     });
 
     let loaded_image: &EFILoadedImageProtocol = system_table
         .boot_services
         .open_protocol(image_handle, image_handle);
-    println!("{:x}", loaded_image.revision);
+    // println!("{:x}", loaded_image.revision);
 
     let fs: &EFISimpleFileSystemProtocol = system_table
         .boot_services
@@ -69,7 +82,7 @@ fn efi_main(image_handle: EFIHandle, system_table: &'static EFISystemTable) -> !
 
     let file_info: &EFIFileInfo = kernel_file.get_info(&mut file_info_buffer);
     let kernel_file_size = file_info.file_size;
-    println!("{kernel_file_size}");
+    // println!("{kernel_file_size}");
 
     let kernel_buffer = system_table
         .boot_services
@@ -80,7 +93,7 @@ fn efi_main(image_handle: EFIHandle, system_table: &'static EFISystemTable) -> !
     let kernel_elf_header = unsafe { &*(kernel_buffer.as_ptr() as *const ElfHeader) };
     let (first, last) = calc_load_address_range(kernel_elf_header);
     let num_pages = (last - first).div_ceil(0x1000);
-    println!("{num_pages}");
+    // println!("{num_pages}");
 
     let kernel_base_address = system_table.boot_services.allocate_pages(
         EFIAllocateType::AllocateMaxAddress,
@@ -89,14 +102,14 @@ fn efi_main(image_handle: EFIHandle, system_table: &'static EFISystemTable) -> !
         first,
     );
 
-    println!("0x{:x}", kernel_base_address);
-    println!("0x{:x}", kernel_elf_header.entry_addr());
+    // println!("0x{:x}", kernel_base_address);
+    // println!("0x{:x}", kernel_elf_header.entry_addr());
 
     copy_load_segments(system_table, kernel_elf_header);
 
     let entry_point = unsafe {
-        core::mem::transmute::<*const u8, extern "sysv64" fn() -> !>(
-            kernel_elf_header.entry_addr() as *const u8
+        core::mem::transmute::<*const u8, extern "sysv64" fn(&FrameBufferConfig) -> !>(
+            kernel_elf_header.entry_addr() as *const u8,
         )
     };
 
@@ -115,7 +128,7 @@ fn efi_main(image_handle: EFIHandle, system_table: &'static EFISystemTable) -> !
         }
     }
 
-    entry_point();
+    entry_point(&config);
 
     // loop {
     //     x86::halt();
