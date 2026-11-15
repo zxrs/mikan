@@ -1,6 +1,6 @@
 use share::frame_buffer::FrameBufferConfig;
 
-use crate::font::FONT_A;
+use crate::font::FONT_LUT;
 
 #[derive(Debug, Clone, Copy)]
 pub struct PixelColor {
@@ -55,7 +55,7 @@ impl<'a> PixelWriter<'a> {
     pub fn write_ascii(&mut self, x: u32, y: u32, c: char, color: PixelColor) -> Option<()> {
         for dy in 0..16 {
             for dx in 0..8 {
-                if (FONT_A[dy as usize] << dx) & 0x80 > 0 {
+                if (FONT_LUT[c as usize][dy as usize] << dx) & 0x80 > 0 {
                     self.write(x + dx, y + dy, color)?;
                 }
             }

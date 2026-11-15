@@ -19,7 +19,7 @@ extern "C" fn kernel_main(config: &mut FrameBufferConfig) -> ! {
     }
 
     pixel_writer
-        .write_ascii(0, 0, 'A', PixelColor::default())
+        .write_ascii(0, 0, 'B', PixelColor::default())
         .unwrap();
 
     loop {
