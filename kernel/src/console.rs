@@ -23,7 +23,7 @@ impl<'a> Console<'a> {
             pixel_writer,
             bg_color,
             fg_color,
-            buffer: [[0u8 as _; _]; _],
+            buffer: [['\0'; _]; _],
             cursor_row: 0,
             cursor_col: 0,
         }
@@ -32,7 +32,7 @@ impl<'a> Console<'a> {
     pub fn put_string(&mut self, s: &str) -> Option<()> {
         for c in s.chars() {
             if c == '\n' {
-                self.new_line();
+                self.new_line()?;
                 return Some(());
             }
             if self.cursor_col < Self::COL {
@@ -49,5 +49,29 @@ impl<'a> Console<'a> {
         Some(())
     }
 
-    fn new_line(&self) {}
+    fn new_line(&mut self) -> Option<()> {
+        self.cursor_col = 0;
+        if self.cursor_row < Console::ROW - 1 {
+            self.cursor_row += 1;
+        } else {
+            for y in 0..16 * Console::ROW {
+                for x in 0..8 * Console::COL {
+                    self.pixel_writer.write(x, y, PixelColor::BLACK)?;
+                }
+            }
+            self.buffer.rotate_left(1);
+            self.buffer.last_mut()?.fill('\0');
+            self.buffer.iter().enumerate().for_each(|(y, a)| {
+                a.iter().enumerate().for_each(|(x, c)| {
+                    self.pixel_writer.write_ascii(
+                        x as u32 * 8,
+                        y as u32 * 16,
+                        *c,
+                        PixelColor::WHITE,
+                    );
+                });
+            });
+        }
+        Some(())
+    }
 }

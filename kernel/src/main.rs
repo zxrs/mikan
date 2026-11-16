@@ -15,7 +15,10 @@ use crate::{
 #[unsafe(no_mangle)]
 extern "C" fn kernel_main(config: &'static mut FrameBufferConfig) -> ! {
     let mut pixel_writer = PixelWriter::new(config);
-    let mut consol = Console::new(&mut pixel_writer, PixelColor::BLACK, PixelColor::WHITE);
+    let mut console = Console::new(&mut pixel_writer, PixelColor::BLACK, PixelColor::WHITE);
+    for _ in 0..26 {
+        console.put_string("hi\n");
+    }
 
     loop {
         x86::halt();
