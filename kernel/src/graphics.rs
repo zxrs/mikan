@@ -1,12 +1,6 @@
-use share::{Global, frame_buffer::FrameBufferConfig};
+use share::frame_buffer::FrameBufferConfig;
 
 use crate::font::FONT_LUT;
-
-pub static PIXEL_WRITER: Global<PixelWriter> = Global::new();
-
-pub fn init_pixel_writer(config: &'static mut FrameBufferConfig) {
-    *PIXEL_WRITER.inner.borrow_mut() = Some(PixelWriter::new(config));
-}
 
 #[derive(Debug, Clone, Copy)]
 pub struct PixelColor {
@@ -17,16 +11,18 @@ pub struct PixelColor {
 
 impl Default for PixelColor {
     fn default() -> Self {
-        Self {
-            r: 255,
-            g: 255,
-            b: 255,
-        }
+        Self::WHITE
     }
 }
 
 #[allow(unused)]
 impl PixelColor {
+    pub const WHITE: Self = Self {
+        r: 255,
+        g: 255,
+        b: 255,
+    };
+    pub const BLACK: Self = Self { r: 0, g: 0, b: 0 };
     pub const RED: Self = Self { r: 255, g: 0, b: 0 };
     pub const GREEN: Self = Self { r: 0, g: 255, b: 0 };
     pub const BLUE: Self = Self { r: 0, g: 0, b: 255 };
