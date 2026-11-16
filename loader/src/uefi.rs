@@ -1,6 +1,9 @@
-use core::{cell::RefCell, fmt, mem::offset_of, ptr, slice};
+use core::{fmt, mem::offset_of, ptr, slice};
 
-use share::memory_map::{EFIMemoryType, EFIPhysicalAddress, MemoryMap};
+use share::{
+    Global,
+    memory_map::{EFIMemoryType, EFIPhysicalAddress, MemoryMap},
+};
 
 pub type EFIHandle = *const u8;
 
@@ -49,20 +52,6 @@ pub static WRITER: Global<TextWriter> = Global::new();
 pub fn init_writer(system_table: &'static EFISystemTable) {
     let protocol = system_table.con_out;
     *WRITER.inner.borrow_mut() = Some(TextWriter { protocol })
-}
-
-pub struct Global<T: Sync> {
-    pub inner: RefCell<Option<T>>,
-}
-
-unsafe impl<T: Sync> Sync for Global<T> {}
-
-impl<T: Sync> Global<T> {
-    const fn new() -> Self {
-        Self {
-            inner: RefCell::new(None),
-        }
-    }
 }
 
 #[repr(transparent)]

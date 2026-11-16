@@ -1,6 +1,12 @@
-use share::frame_buffer::FrameBufferConfig;
+use share::{Global, frame_buffer::FrameBufferConfig};
 
 use crate::font::FONT_LUT;
+
+pub static PIXEL_WRITER: Global<PixelWriter> = Global::new();
+
+pub fn init_pixel_writer(config: &'static mut FrameBufferConfig) {
+    *PIXEL_WRITER.inner.borrow_mut() = Some(PixelWriter::new(config));
+}
 
 #[derive(Debug, Clone, Copy)]
 pub struct PixelColor {
@@ -27,12 +33,12 @@ impl PixelColor {
 }
 
 #[derive(Debug)]
-pub struct PixelWriter<'a> {
-    config: &'a mut FrameBufferConfig,
+pub struct PixelWriter {
+    config: &'static mut FrameBufferConfig,
 }
 
-impl<'a> PixelWriter<'a> {
-    pub fn new(config: &'a mut FrameBufferConfig) -> Self {
+impl PixelWriter {
+    pub fn new(config: &'static mut FrameBufferConfig) -> Self {
         Self { config }
     }
 
@@ -59,6 +65,14 @@ impl<'a> PixelWriter<'a> {
                     self.write(x + dx, y + dy, color)?;
                 }
             }
+        }
+        Some(())
+    }
+
+    pub fn write_string(&mut self, x: u32, y: u32, s: &str, color: PixelColor) -> Option<()> {
+        for (i, c) in s.chars().enumerate() {
+            let i = i as u32;
+            self.write_ascii(x + i * 8, y, c, color)?;
         }
         Some(())
     }
