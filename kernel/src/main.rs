@@ -5,6 +5,7 @@ mod console;
 mod font;
 mod graphics;
 
+use core::fmt::Write;
 use share::{frame_buffer::FrameBufferConfig, x86};
 
 use crate::{
@@ -16,8 +17,9 @@ use crate::{
 extern "C" fn kernel_main(config: &'static mut FrameBufferConfig) -> ! {
     let mut pixel_writer = PixelWriter::new(config);
     let mut console = Console::new(&mut pixel_writer, PixelColor::BLACK, PixelColor::WHITE);
-    for _ in 0..26 {
-        console.put_string("hi\n");
+    // _ = writeln!(&mut console, "Hello, World!");
+    for i in 0..25 {
+        _ = writeln!(&mut console, "index: {i}");
     }
 
     loop {

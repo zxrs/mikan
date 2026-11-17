@@ -1,3 +1,5 @@
+use core::fmt;
+
 use crate::graphics::{PixelColor, PixelWriter};
 
 #[derive(Debug)]
@@ -73,5 +75,12 @@ impl<'a> Console<'a> {
             });
         }
         Some(())
+    }
+}
+
+impl<'a> fmt::Write for Console<'a> {
+    fn write_str(&mut self, s: &str) -> fmt::Result {
+        self.put_string(s);
+        Ok(())
     }
 }
