@@ -11,6 +11,33 @@ use share::{frame_buffer::FrameBufferConfig, x86};
 
 use crate::{console::CONSOLE, graphics::PixelWriter};
 
+const MOUSE_CURSOR_SHAPE: [&str; 24] = [
+    "@              ",
+    "@@             ",
+    "@.@            ",
+    "@..@           ",
+    "@...@          ",
+    "@....@         ",
+    "@.....@        ",
+    "@......@       ",
+    "@.......@      ",
+    "@........@     ",
+    "@.........@    ",
+    "@..........@   ",
+    "@...........@  ",
+    "@............@ ",
+    "@......@@@@@@@@",
+    "@......@       ",
+    "@....@@.@      ",
+    "@...@ @.@      ",
+    "@..@   @.@     ",
+    "@.@    @.@     ",
+    "@@      @.@    ",
+    "@       @.@    ",
+    "         @.@   ",
+    "         @@@   ",
+];
+
 #[unsafe(no_mangle)]
 extern "C" fn kernel_main(config: &'static mut FrameBufferConfig) -> ! {
     let pixel_writer = PixelWriter::new(config);

@@ -13,7 +13,7 @@ use crate::{
         EFILoadedImageProtocol, EFISimpleFileSystemProtocol, EFISystemTable, WRITER, init_writer,
     },
 };
-use core::{fmt::Write, slice};
+use core::fmt::Write;
 use share::{frame_buffer::FrameBufferConfig, memory_map::EFIMemoryType, x86};
 
 #[unsafe(no_mangle)]
@@ -27,25 +27,12 @@ fn efi_main(image_handle: EFIHandle, system_table: &'static EFISystemTable) -> !
     let gop: &EFIGop = system_table.boot_services.locate_protocol();
     println!("{:?}", gop.mode);
 
-    let frame_buffer = unsafe {
-        slice::from_raw_parts_mut(
-            gop.mode.frame_buffer_base as *mut u8,
-            gop.mode.frame_buffer_size,
-        )
-    };
-    // frame_buffer.fill(128);
     let config = FrameBufferConfig::new(
-        frame_buffer,
+        gop.mode.frame_buffer_base as *mut u8,
+        gop.mode.frame_buffer_size,
         gop.mode.info.pixels_per_scanline,
         gop.mode.info.horizontal_resolution,
         gop.mode.info.vertical_resolution,
-    );
-    println!(
-        "{}, {}, {}, {}",
-        config.frame_buffer.len(),
-        config.pixels_per_scanline,
-        config.horizontal_resolution,
-        config.vertical_resolution
     );
 
     let mmap = system_table.boot_services.get_memory_map();
@@ -95,7 +82,7 @@ fn efi_main(image_handle: EFIHandle, system_table: &'static EFISystemTable) -> !
     let num_pages = (last - first).div_ceil(0x1000);
     // println!("{num_pages}");
 
-    let kernel_base_address = system_table.boot_services.allocate_pages(
+    let _kernel_base_address = system_table.boot_services.allocate_pages(
         EFIAllocateType::AllocateMaxAddress,
         EFIMemoryType::LoaderData,
         num_pages as _,

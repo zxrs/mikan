@@ -28,19 +28,21 @@ impl PixelColor {
     pub const BLUE: Self = Self { r: 0, g: 0, b: 255 };
 }
 
-#[derive(Debug)]
+#[derive(Debug, Clone, Copy)]
 pub struct PixelWriter {
-    config: &'static mut FrameBufferConfig,
+    config: &'static FrameBufferConfig,
 }
 
+unsafe impl Sync for PixelWriter {}
+
 impl PixelWriter {
-    pub fn new(config: &'static mut FrameBufferConfig) -> Self {
+    pub fn new(config: &'static FrameBufferConfig) -> Self {
         Self { config }
     }
 
     pub fn pixel_at(&mut self, x: u32, y: u32) -> Option<&mut [u8]> {
         self.config
-            .frame_buffer
+            .frame_buffer()
             .chunks_mut(self.config.pixels_per_scanline as usize * 4)
             .nth(y as _)
             .and_then(|row| row.chunks_mut(4).nth(x as _))
