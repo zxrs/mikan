@@ -1,10 +1,35 @@
 use core::fmt;
 
+use share::Global;
+
 use crate::graphics::{PixelColor, PixelWriter};
 
+pub static CONSOLE: Global<Console> = Global::new();
+
+#[macro_export]
+macro_rules! print {
+    ($($args:tt)*) => {
+        if let Some(console) = CONSOLE.inner.borrow_mut().as_mut() {
+            _ = write!(console, "{}", format_args!($($args)*));
+        }
+    };
+}
+
+#[macro_export]
+macro_rules! println {
+    ($($args:tt)*) => {
+        print!("{}\n", format_args!($($args)*));
+    };
+}
+
+pub fn init(pixel_writer: PixelWriter) {
+    let console = Console::new(pixel_writer, PixelColor::BLACK, PixelColor::WHITE);
+    *CONSOLE.inner.borrow_mut() = Some(console);
+}
+
 #[derive(Debug)]
-pub struct Console<'a> {
-    pixel_writer: &'a mut PixelWriter,
+pub struct Console {
+    pixel_writer: PixelWriter,
     bg_color: PixelColor,
     fg_color: PixelColor,
     buffer: [[char; Console::COL as _]; Console::ROW as _],
@@ -12,15 +37,11 @@ pub struct Console<'a> {
     cursor_col: u32,
 }
 
-impl<'a> Console<'a> {
+impl Console {
     const ROW: u32 = 25;
     const COL: u32 = 80;
 
-    pub fn new(
-        pixel_writer: &'a mut PixelWriter,
-        bg_color: PixelColor,
-        fg_color: PixelColor,
-    ) -> Self {
+    pub fn new(pixel_writer: PixelWriter, bg_color: PixelColor, fg_color: PixelColor) -> Self {
         Self {
             pixel_writer,
             bg_color,
@@ -78,7 +99,7 @@ impl<'a> Console<'a> {
     }
 }
 
-impl<'a> fmt::Write for Console<'a> {
+impl fmt::Write for Console {
     fn write_str(&mut self, s: &str) -> fmt::Result {
         self.put_string(s);
         Ok(())
