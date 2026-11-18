@@ -11,7 +11,7 @@ use share::{frame_buffer::FrameBufferConfig, x86};
 
 use crate::{
     console::CONSOLE,
-    graphics::{PixelColor, PixelWriter},
+    graphics::{PixelColor, PixelWriter, Vector2D},
 };
 
 const MOUSE_CURSOR_SHAPE: [&str; 24] = [
@@ -60,6 +60,8 @@ extern "C" fn kernel_main(config: &'static mut FrameBufferConfig) -> ! {
             }
         });
     });
+
+    pixel_writer.fill_rectangle((200, 150).into(), (200, 150).into(), (128, 0, 128).into());
 
     loop {
         x86::halt();

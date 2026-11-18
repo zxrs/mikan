@@ -1,12 +1,57 @@
+use core::ops::Add;
+
 use share::frame_buffer::FrameBufferConfig;
 
 use crate::font::FONT_LUT;
+
+pub struct Vector2D<T: Add> {
+    x: T,
+    y: T,
+}
+
+impl<T: Add> Vector2D<T> {
+    pub fn new(x: T, y: T) -> Self {
+        Self { x, y }
+    }
+}
+
+impl<T: Add> From<(T, T)> for Vector2D<T> {
+    fn from(value: (T, T)) -> Self {
+        Self {
+            x: value.0,
+            y: value.1,
+        }
+    }
+}
+
+impl<T> Add for Vector2D<T>
+where
+    T: Add<Output = T>,
+{
+    type Output = Vector2D<T>;
+    fn add(self, rhs: Self) -> Self::Output {
+        Self {
+            x: self.x + rhs.x,
+            y: self.y + rhs.y,
+        }
+    }
+}
 
 #[derive(Debug, Clone, Copy)]
 pub struct PixelColor {
     r: u8,
     g: u8,
     b: u8,
+}
+
+impl From<(u8, u8, u8)> for PixelColor {
+    fn from(value: (u8, u8, u8)) -> Self {
+        Self {
+            r: value.0,
+            g: value.1,
+            b: value.2,
+        }
+    }
 }
 
 impl Default for PixelColor {
@@ -73,5 +118,13 @@ impl PixelWriter {
             self.write_ascii(x + i * 8, y, c, color)?;
         }
         Some(())
+    }
+
+    pub fn fill_rectangle(&mut self, pos: Vector2D<u32>, size: Vector2D<u32>, color: PixelColor) {
+        (0..size.y).for_each(|dy| {
+            (0..size.x).for_each(|dx| {
+                self.write(pos.x + dx, pos.y + dy, color);
+            });
+        });
     }
 }
