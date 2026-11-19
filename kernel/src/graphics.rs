@@ -127,4 +127,15 @@ impl PixelWriter {
             });
         });
     }
+
+    pub fn draw_rectangele(&mut self, pos: Vector2D<u32>, size: Vector2D<u32>, color: PixelColor) {
+        (0..size.x).for_each(|dx| {
+            self.write(pos.x + dx, pos.y, color);
+            self.write(pos.x + dx, pos.y + size.y - 1, color);
+        });
+        (0..size.y).for_each(|dy| {
+            self.write(pos.x, pos.y + dy, color);
+            self.write(pos.x + size.x - 1, pos.y + dy, color);
+        });
+    }
 }
