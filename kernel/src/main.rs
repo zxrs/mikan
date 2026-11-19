@@ -13,7 +13,7 @@ use share::{frame_buffer::FrameBufferConfig, x86};
 use crate::{
     console::CONSOLE,
     graphics::{PixelColor, PixelWriter},
-    pci::{DEVICES, read_vendor_id, scan_all_bus},
+    pci::{DEVICES, read_vendor_id, scan_all_bus, usb::Controller},
 };
 
 type Result<T> = core::result::Result<T, &'static str>;
@@ -78,6 +78,8 @@ extern "C" fn kernel_main(config: &'static mut FrameBufferConfig) -> ! {
         let vendor_id = read_vendor_id(d.bus, d.device, d.function);
         println!("0x{:x}", vendor_id);
     });
+
+    // Controller::new(mmio_base);
 
     loop {
         x86::halt();
