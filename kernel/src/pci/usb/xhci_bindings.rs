@@ -535,7 +535,7 @@ pub struct std_iterator_traits {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct std_reverse_iterator<_Iterator> {
-    pub _phantom_0: ::std::marker::PhantomData<::std::cell::UnsafeCell<_Iterator>>,
+    pub _phantom_0: ::core::marker::PhantomData<::core::cell::UnsafeCell<_Iterator>>,
     pub current: _Iterator,
 }
 pub type std_reverse_iterator___traits_type = std_iterator_traits;
@@ -559,8 +559,8 @@ pub type std_array_const_reverse_iterator<_Tp> =
 #[derive(Debug, Copy, Clone)]
 pub struct Error {
     pub code_: Error_Code,
-    pub line_: ::std::os::raw::c_int,
-    pub file_: *const ::std::os::raw::c_char,
+    pub line_: ::core::ffi::c_int,
+    pub file_: *const ::core::ffi::c_char,
 }
 pub const Error_Code_kSuccess: Error_Code = 0;
 pub const Error_Code_kFull: Error_Code = 1;
@@ -583,7 +583,7 @@ pub const Error_Code_kInvalidPhase: Error_Code = 17;
 pub const Error_Code_kUnknownXHCISpeedID: Error_Code = 18;
 pub const Error_Code_kNoWaiter: Error_Code = 19;
 pub const Error_Code_kLastOfCode: Error_Code = 20;
-pub type Error_Code = ::std::os::raw::c_uint;
+pub type Error_Code = ::core::ffi::c_uint;
 unsafe extern "C" {
     #[link_name = "\u{1}_ZN5Error11code_names_E"]
     pub static Error_code_names_: __BindgenOpaqueArray8<[u8; 160usize]>;
@@ -592,19 +592,19 @@ unsafe extern "C" {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct MemMapRegister<T> {
-    pub _phantom_0: ::std::marker::PhantomData<::std::cell::UnsafeCell<T>>,
+    pub _phantom_0: ::core::marker::PhantomData<::core::cell::UnsafeCell<T>>,
     pub value_: T,
 }
 #[repr(C)]
 #[derive(Debug)]
 pub struct DefaultBitmap<T> {
-    pub _phantom_0: ::std::marker::PhantomData<::std::cell::UnsafeCell<T>>,
+    pub _phantom_0: ::core::marker::PhantomData<::core::cell::UnsafeCell<T>>,
     pub data: [T; 1usize],
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ArrayWrapper<T> {
-    pub _phantom_0: ::std::marker::PhantomData<::std::cell::UnsafeCell<T>>,
+    pub _phantom_0: ::core::marker::PhantomData<::core::cell::UnsafeCell<T>>,
     pub array_: *mut ArrayWrapper_ValueType<T>,
     pub size_: usize,
 }
@@ -626,13 +626,13 @@ impl usb_xhci_HCSPARAMS1_Bitmap__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn max_device_slots(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<0usize, 8u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<0usize, 8u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_max_device_slots(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<0usize, 8u8>(val as u64)
         }
     }
@@ -640,9 +640,9 @@ impl usb_xhci_HCSPARAMS1_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn max_device_slots_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(
+            ::core::mem::transmute(
                 <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<0usize, 8u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
+                    ::core::ptr::addr_of!((*this)._bitfield_1),
                 ) as u32,
             )
         }
@@ -651,9 +651,9 @@ impl usb_xhci_HCSPARAMS1_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_max_device_slots_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_set_const::<0usize, 8u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -661,13 +661,13 @@ impl usb_xhci_HCSPARAMS1_Bitmap__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn max_interrupters(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<8usize, 11u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<8usize, 11u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_max_interrupters(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<8usize, 11u8>(val as u64)
         }
     }
@@ -675,20 +675,20 @@ impl usb_xhci_HCSPARAMS1_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn max_interrupters_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(
-                <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<8usize, 11u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
-                ) as u32,
-            )
+            ::core::mem::transmute(<__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<
+                8usize,
+                11u8,
+            >(::core::ptr::addr_of!((*this)._bitfield_1))
+                as u32)
         }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_max_interrupters_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_set_const::<8usize, 11u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -696,13 +696,13 @@ impl usb_xhci_HCSPARAMS1_Bitmap__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn max_ports(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<24usize, 8u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<24usize, 8u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_max_ports(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<24usize, 8u8>(val as u64)
         }
     }
@@ -710,20 +710,20 @@ impl usb_xhci_HCSPARAMS1_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn max_ports_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(
-                <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<24usize, 8u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
-                ) as u32,
-            )
+            ::core::mem::transmute(<__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<
+                24usize,
+                8u8,
+            >(::core::ptr::addr_of!((*this)._bitfield_1))
+                as u32)
         }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_max_ports_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_set_const::<24usize, 8u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -737,15 +737,15 @@ impl usb_xhci_HCSPARAMS1_Bitmap__bindgen_ty_1 {
     ) -> __BindgenBitfieldUnit<[u8; 4usize]> {
         let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 4usize]> = Default::default();
         __bindgen_bitfield_unit.set_const::<0usize, 8u8>({
-            let max_device_slots: u32 = unsafe { ::std::mem::transmute(max_device_slots) };
+            let max_device_slots: u32 = unsafe { ::core::mem::transmute(max_device_slots) };
             max_device_slots as u64
         });
         __bindgen_bitfield_unit.set_const::<8usize, 11u8>({
-            let max_interrupters: u32 = unsafe { ::std::mem::transmute(max_interrupters) };
+            let max_interrupters: u32 = unsafe { ::core::mem::transmute(max_interrupters) };
             max_interrupters as u64
         });
         __bindgen_bitfield_unit.set_const::<24usize, 8u8>({
-            let max_ports: u32 = unsafe { ::std::mem::transmute(max_ports) };
+            let max_ports: u32 = unsafe { ::core::mem::transmute(max_ports) };
             max_ports as u64
         });
         __bindgen_bitfield_unit
@@ -766,13 +766,13 @@ impl usb_xhci_HCSPARAMS2_Bitmap__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn isochronous_scheduling_threshold(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<0usize, 4u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<0usize, 4u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_isochronous_scheduling_threshold(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<0usize, 4u8>(val as u64)
         }
     }
@@ -780,9 +780,9 @@ impl usb_xhci_HCSPARAMS2_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn isochronous_scheduling_threshold_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(
+            ::core::mem::transmute(
                 <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<0usize, 4u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
+                    ::core::ptr::addr_of!((*this)._bitfield_1),
                 ) as u32,
             )
         }
@@ -791,9 +791,9 @@ impl usb_xhci_HCSPARAMS2_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_isochronous_scheduling_threshold_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_set_const::<0usize, 4u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -801,13 +801,13 @@ impl usb_xhci_HCSPARAMS2_Bitmap__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn event_ring_segment_table_max(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<4usize, 4u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<4usize, 4u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_event_ring_segment_table_max(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<4usize, 4u8>(val as u64)
         }
     }
@@ -815,9 +815,9 @@ impl usb_xhci_HCSPARAMS2_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn event_ring_segment_table_max_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(
+            ::core::mem::transmute(
                 <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<4usize, 4u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
+                    ::core::ptr::addr_of!((*this)._bitfield_1),
                 ) as u32,
             )
         }
@@ -826,9 +826,9 @@ impl usb_xhci_HCSPARAMS2_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_event_ring_segment_table_max_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_set_const::<4usize, 4u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -836,13 +836,13 @@ impl usb_xhci_HCSPARAMS2_Bitmap__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn max_scratchpad_buffers_high(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<21usize, 5u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<21usize, 5u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_max_scratchpad_buffers_high(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<21usize, 5u8>(val as u64)
         }
     }
@@ -850,20 +850,20 @@ impl usb_xhci_HCSPARAMS2_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn max_scratchpad_buffers_high_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(
-                <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<21usize, 5u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
-                ) as u32,
-            )
+            ::core::mem::transmute(<__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<
+                21usize,
+                5u8,
+            >(::core::ptr::addr_of!((*this)._bitfield_1))
+                as u32)
         }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_max_scratchpad_buffers_high_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_set_const::<21usize, 5u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -871,13 +871,13 @@ impl usb_xhci_HCSPARAMS2_Bitmap__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn scratchpad_restore(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<26usize, 1u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<26usize, 1u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_scratchpad_restore(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<26usize, 1u8>(val as u64)
         }
     }
@@ -885,20 +885,20 @@ impl usb_xhci_HCSPARAMS2_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn scratchpad_restore_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(
-                <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<26usize, 1u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
-                ) as u32,
-            )
+            ::core::mem::transmute(<__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<
+                26usize,
+                1u8,
+            >(::core::ptr::addr_of!((*this)._bitfield_1))
+                as u32)
         }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_scratchpad_restore_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_set_const::<26usize, 1u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -906,13 +906,13 @@ impl usb_xhci_HCSPARAMS2_Bitmap__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn max_scratchpad_buffers_low(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<27usize, 5u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<27usize, 5u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_max_scratchpad_buffers_low(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<27usize, 5u8>(val as u64)
         }
     }
@@ -920,20 +920,20 @@ impl usb_xhci_HCSPARAMS2_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn max_scratchpad_buffers_low_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(
-                <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<27usize, 5u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
-                ) as u32,
-            )
+            ::core::mem::transmute(<__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<
+                27usize,
+                5u8,
+            >(::core::ptr::addr_of!((*this)._bitfield_1))
+                as u32)
         }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_max_scratchpad_buffers_low_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_set_const::<27usize, 5u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -950,26 +950,26 @@ impl usb_xhci_HCSPARAMS2_Bitmap__bindgen_ty_1 {
         let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 4usize]> = Default::default();
         __bindgen_bitfield_unit.set_const::<0usize, 4u8>({
             let isochronous_scheduling_threshold: u32 =
-                unsafe { ::std::mem::transmute(isochronous_scheduling_threshold) };
+                unsafe { ::core::mem::transmute(isochronous_scheduling_threshold) };
             isochronous_scheduling_threshold as u64
         });
         __bindgen_bitfield_unit.set_const::<4usize, 4u8>({
             let event_ring_segment_table_max: u32 =
-                unsafe { ::std::mem::transmute(event_ring_segment_table_max) };
+                unsafe { ::core::mem::transmute(event_ring_segment_table_max) };
             event_ring_segment_table_max as u64
         });
         __bindgen_bitfield_unit.set_const::<21usize, 5u8>({
             let max_scratchpad_buffers_high: u32 =
-                unsafe { ::std::mem::transmute(max_scratchpad_buffers_high) };
+                unsafe { ::core::mem::transmute(max_scratchpad_buffers_high) };
             max_scratchpad_buffers_high as u64
         });
         __bindgen_bitfield_unit.set_const::<26usize, 1u8>({
-            let scratchpad_restore: u32 = unsafe { ::std::mem::transmute(scratchpad_restore) };
+            let scratchpad_restore: u32 = unsafe { ::core::mem::transmute(scratchpad_restore) };
             scratchpad_restore as u64
         });
         __bindgen_bitfield_unit.set_const::<27usize, 5u8>({
             let max_scratchpad_buffers_low: u32 =
-                unsafe { ::std::mem::transmute(max_scratchpad_buffers_low) };
+                unsafe { ::core::mem::transmute(max_scratchpad_buffers_low) };
             max_scratchpad_buffers_low as u64
         });
         __bindgen_bitfield_unit
@@ -990,13 +990,13 @@ impl usb_xhci_HCSPARAMS3_Bitmap__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn u1_device_eixt_latency(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<0usize, 8u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<0usize, 8u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_u1_device_eixt_latency(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<0usize, 8u8>(val as u64)
         }
     }
@@ -1004,9 +1004,9 @@ impl usb_xhci_HCSPARAMS3_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn u1_device_eixt_latency_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(
+            ::core::mem::transmute(
                 <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<0usize, 8u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
+                    ::core::ptr::addr_of!((*this)._bitfield_1),
                 ) as u32,
             )
         }
@@ -1015,9 +1015,9 @@ impl usb_xhci_HCSPARAMS3_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_u1_device_eixt_latency_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_set_const::<0usize, 8u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -1025,13 +1025,13 @@ impl usb_xhci_HCSPARAMS3_Bitmap__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn u2_device_eixt_latency(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<16usize, 16u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<16usize, 16u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_u2_device_eixt_latency(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<16usize, 16u8>(val as u64)
         }
     }
@@ -1039,10 +1039,10 @@ impl usb_xhci_HCSPARAMS3_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn u2_device_eixt_latency_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(<__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<
+            ::core::mem::transmute(<__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<
                 16usize,
                 16u8,
-            >(::std::ptr::addr_of!((*this)._bitfield_1))
+            >(::core::ptr::addr_of!((*this)._bitfield_1))
                 as u32)
         }
     }
@@ -1050,9 +1050,9 @@ impl usb_xhci_HCSPARAMS3_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_u2_device_eixt_latency_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_set_const::<16usize, 16u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -1066,12 +1066,12 @@ impl usb_xhci_HCSPARAMS3_Bitmap__bindgen_ty_1 {
         let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 4usize]> = Default::default();
         __bindgen_bitfield_unit.set_const::<0usize, 8u8>({
             let u1_device_eixt_latency: u32 =
-                unsafe { ::std::mem::transmute(u1_device_eixt_latency) };
+                unsafe { ::core::mem::transmute(u1_device_eixt_latency) };
             u1_device_eixt_latency as u64
         });
         __bindgen_bitfield_unit.set_const::<16usize, 16u8>({
             let u2_device_eixt_latency: u32 =
-                unsafe { ::std::mem::transmute(u2_device_eixt_latency) };
+                unsafe { ::core::mem::transmute(u2_device_eixt_latency) };
             u2_device_eixt_latency as u64
         });
         __bindgen_bitfield_unit
@@ -1092,13 +1092,13 @@ impl usb_xhci_HCCPARAMS1_Bitmap__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn addressing_capability_64(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<0usize, 1u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<0usize, 1u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_addressing_capability_64(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<0usize, 1u8>(val as u64)
         }
     }
@@ -1106,9 +1106,9 @@ impl usb_xhci_HCCPARAMS1_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn addressing_capability_64_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(
+            ::core::mem::transmute(
                 <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<0usize, 1u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
+                    ::core::ptr::addr_of!((*this)._bitfield_1),
                 ) as u32,
             )
         }
@@ -1117,9 +1117,9 @@ impl usb_xhci_HCCPARAMS1_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_addressing_capability_64_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_set_const::<0usize, 1u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -1127,13 +1127,13 @@ impl usb_xhci_HCCPARAMS1_Bitmap__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn bw_negotiation_capability(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<1usize, 1u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<1usize, 1u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_bw_negotiation_capability(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<1usize, 1u8>(val as u64)
         }
     }
@@ -1141,9 +1141,9 @@ impl usb_xhci_HCCPARAMS1_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn bw_negotiation_capability_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(
+            ::core::mem::transmute(
                 <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<1usize, 1u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
+                    ::core::ptr::addr_of!((*this)._bitfield_1),
                 ) as u32,
             )
         }
@@ -1152,9 +1152,9 @@ impl usb_xhci_HCCPARAMS1_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_bw_negotiation_capability_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_set_const::<1usize, 1u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -1162,13 +1162,13 @@ impl usb_xhci_HCCPARAMS1_Bitmap__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn context_size(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<2usize, 1u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<2usize, 1u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_context_size(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<2usize, 1u8>(val as u64)
         }
     }
@@ -1176,9 +1176,9 @@ impl usb_xhci_HCCPARAMS1_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn context_size_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(
+            ::core::mem::transmute(
                 <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<2usize, 1u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
+                    ::core::ptr::addr_of!((*this)._bitfield_1),
                 ) as u32,
             )
         }
@@ -1187,9 +1187,9 @@ impl usb_xhci_HCCPARAMS1_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_context_size_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_set_const::<2usize, 1u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -1197,13 +1197,13 @@ impl usb_xhci_HCCPARAMS1_Bitmap__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn port_power_control(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<3usize, 1u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<3usize, 1u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_port_power_control(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<3usize, 1u8>(val as u64)
         }
     }
@@ -1211,9 +1211,9 @@ impl usb_xhci_HCCPARAMS1_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn port_power_control_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(
+            ::core::mem::transmute(
                 <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<3usize, 1u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
+                    ::core::ptr::addr_of!((*this)._bitfield_1),
                 ) as u32,
             )
         }
@@ -1222,9 +1222,9 @@ impl usb_xhci_HCCPARAMS1_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_port_power_control_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_set_const::<3usize, 1u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -1232,13 +1232,13 @@ impl usb_xhci_HCCPARAMS1_Bitmap__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn port_indicators(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<4usize, 1u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<4usize, 1u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_port_indicators(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<4usize, 1u8>(val as u64)
         }
     }
@@ -1246,9 +1246,9 @@ impl usb_xhci_HCCPARAMS1_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn port_indicators_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(
+            ::core::mem::transmute(
                 <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<4usize, 1u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
+                    ::core::ptr::addr_of!((*this)._bitfield_1),
                 ) as u32,
             )
         }
@@ -1257,9 +1257,9 @@ impl usb_xhci_HCCPARAMS1_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_port_indicators_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_set_const::<4usize, 1u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -1267,13 +1267,13 @@ impl usb_xhci_HCCPARAMS1_Bitmap__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn light_hc_reset_capability(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<5usize, 1u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<5usize, 1u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_light_hc_reset_capability(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<5usize, 1u8>(val as u64)
         }
     }
@@ -1281,9 +1281,9 @@ impl usb_xhci_HCCPARAMS1_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn light_hc_reset_capability_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(
+            ::core::mem::transmute(
                 <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<5usize, 1u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
+                    ::core::ptr::addr_of!((*this)._bitfield_1),
                 ) as u32,
             )
         }
@@ -1292,9 +1292,9 @@ impl usb_xhci_HCCPARAMS1_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_light_hc_reset_capability_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_set_const::<5usize, 1u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -1302,13 +1302,13 @@ impl usb_xhci_HCCPARAMS1_Bitmap__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn latency_tolerance_messaging_capability(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<6usize, 1u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<6usize, 1u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_latency_tolerance_messaging_capability(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<6usize, 1u8>(val as u64)
         }
     }
@@ -1316,9 +1316,9 @@ impl usb_xhci_HCCPARAMS1_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn latency_tolerance_messaging_capability_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(
+            ::core::mem::transmute(
                 <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<6usize, 1u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
+                    ::core::ptr::addr_of!((*this)._bitfield_1),
                 ) as u32,
             )
         }
@@ -1327,9 +1327,9 @@ impl usb_xhci_HCCPARAMS1_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_latency_tolerance_messaging_capability_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_set_const::<6usize, 1u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -1337,13 +1337,13 @@ impl usb_xhci_HCCPARAMS1_Bitmap__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn no_secondary_sid_support(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<7usize, 1u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<7usize, 1u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_no_secondary_sid_support(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<7usize, 1u8>(val as u64)
         }
     }
@@ -1351,9 +1351,9 @@ impl usb_xhci_HCCPARAMS1_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn no_secondary_sid_support_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(
+            ::core::mem::transmute(
                 <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<7usize, 1u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
+                    ::core::ptr::addr_of!((*this)._bitfield_1),
                 ) as u32,
             )
         }
@@ -1362,9 +1362,9 @@ impl usb_xhci_HCCPARAMS1_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_no_secondary_sid_support_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_set_const::<7usize, 1u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -1372,13 +1372,13 @@ impl usb_xhci_HCCPARAMS1_Bitmap__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn parse_all_event_data(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<8usize, 1u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<8usize, 1u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_parse_all_event_data(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<8usize, 1u8>(val as u64)
         }
     }
@@ -1386,9 +1386,9 @@ impl usb_xhci_HCCPARAMS1_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn parse_all_event_data_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(
+            ::core::mem::transmute(
                 <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<8usize, 1u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
+                    ::core::ptr::addr_of!((*this)._bitfield_1),
                 ) as u32,
             )
         }
@@ -1397,9 +1397,9 @@ impl usb_xhci_HCCPARAMS1_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_parse_all_event_data_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_set_const::<8usize, 1u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -1407,13 +1407,13 @@ impl usb_xhci_HCCPARAMS1_Bitmap__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn stopped_short_packet_capability(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<9usize, 1u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<9usize, 1u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_stopped_short_packet_capability(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<9usize, 1u8>(val as u64)
         }
     }
@@ -1421,9 +1421,9 @@ impl usb_xhci_HCCPARAMS1_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn stopped_short_packet_capability_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(
+            ::core::mem::transmute(
                 <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<9usize, 1u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
+                    ::core::ptr::addr_of!((*this)._bitfield_1),
                 ) as u32,
             )
         }
@@ -1432,9 +1432,9 @@ impl usb_xhci_HCCPARAMS1_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_stopped_short_packet_capability_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_set_const::<9usize, 1u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -1442,13 +1442,13 @@ impl usb_xhci_HCCPARAMS1_Bitmap__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn stopped_edtla_capability(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<10usize, 1u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<10usize, 1u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_stopped_edtla_capability(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<10usize, 1u8>(val as u64)
         }
     }
@@ -1456,20 +1456,20 @@ impl usb_xhci_HCCPARAMS1_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn stopped_edtla_capability_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(
-                <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<10usize, 1u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
-                ) as u32,
-            )
+            ::core::mem::transmute(<__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<
+                10usize,
+                1u8,
+            >(::core::ptr::addr_of!((*this)._bitfield_1))
+                as u32)
         }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_stopped_edtla_capability_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_set_const::<10usize, 1u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -1477,13 +1477,13 @@ impl usb_xhci_HCCPARAMS1_Bitmap__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn contiguous_frame_id_capability(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<11usize, 1u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<11usize, 1u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_contiguous_frame_id_capability(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<11usize, 1u8>(val as u64)
         }
     }
@@ -1491,20 +1491,20 @@ impl usb_xhci_HCCPARAMS1_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn contiguous_frame_id_capability_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(
-                <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<11usize, 1u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
-                ) as u32,
-            )
+            ::core::mem::transmute(<__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<
+                11usize,
+                1u8,
+            >(::core::ptr::addr_of!((*this)._bitfield_1))
+                as u32)
         }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_contiguous_frame_id_capability_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_set_const::<11usize, 1u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -1512,13 +1512,13 @@ impl usb_xhci_HCCPARAMS1_Bitmap__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn maximum_primary_stream_array_size(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<12usize, 4u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<12usize, 4u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_maximum_primary_stream_array_size(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<12usize, 4u8>(val as u64)
         }
     }
@@ -1526,20 +1526,20 @@ impl usb_xhci_HCCPARAMS1_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn maximum_primary_stream_array_size_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(
-                <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<12usize, 4u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
-                ) as u32,
-            )
+            ::core::mem::transmute(<__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<
+                12usize,
+                4u8,
+            >(::core::ptr::addr_of!((*this)._bitfield_1))
+                as u32)
         }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_maximum_primary_stream_array_size_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_set_const::<12usize, 4u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -1547,13 +1547,13 @@ impl usb_xhci_HCCPARAMS1_Bitmap__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn xhci_extended_capabilities_pointer(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<16usize, 16u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<16usize, 16u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_xhci_extended_capabilities_pointer(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<16usize, 16u8>(val as u64)
         }
     }
@@ -1561,10 +1561,10 @@ impl usb_xhci_HCCPARAMS1_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn xhci_extended_capabilities_pointer_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(<__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<
+            ::core::mem::transmute(<__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<
                 16usize,
                 16u8,
-            >(::std::ptr::addr_of!((*this)._bitfield_1))
+            >(::core::ptr::addr_of!((*this)._bitfield_1))
                 as u32)
         }
     }
@@ -1572,9 +1572,9 @@ impl usb_xhci_HCCPARAMS1_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_xhci_extended_capabilities_pointer_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_set_const::<16usize, 16u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -1600,68 +1600,68 @@ impl usb_xhci_HCCPARAMS1_Bitmap__bindgen_ty_1 {
         let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 4usize]> = Default::default();
         __bindgen_bitfield_unit.set_const::<0usize, 1u8>({
             let addressing_capability_64: u32 =
-                unsafe { ::std::mem::transmute(addressing_capability_64) };
+                unsafe { ::core::mem::transmute(addressing_capability_64) };
             addressing_capability_64 as u64
         });
         __bindgen_bitfield_unit.set_const::<1usize, 1u8>({
             let bw_negotiation_capability: u32 =
-                unsafe { ::std::mem::transmute(bw_negotiation_capability) };
+                unsafe { ::core::mem::transmute(bw_negotiation_capability) };
             bw_negotiation_capability as u64
         });
         __bindgen_bitfield_unit.set_const::<2usize, 1u8>({
-            let context_size: u32 = unsafe { ::std::mem::transmute(context_size) };
+            let context_size: u32 = unsafe { ::core::mem::transmute(context_size) };
             context_size as u64
         });
         __bindgen_bitfield_unit.set_const::<3usize, 1u8>({
-            let port_power_control: u32 = unsafe { ::std::mem::transmute(port_power_control) };
+            let port_power_control: u32 = unsafe { ::core::mem::transmute(port_power_control) };
             port_power_control as u64
         });
         __bindgen_bitfield_unit.set_const::<4usize, 1u8>({
-            let port_indicators: u32 = unsafe { ::std::mem::transmute(port_indicators) };
+            let port_indicators: u32 = unsafe { ::core::mem::transmute(port_indicators) };
             port_indicators as u64
         });
         __bindgen_bitfield_unit.set_const::<5usize, 1u8>({
             let light_hc_reset_capability: u32 =
-                unsafe { ::std::mem::transmute(light_hc_reset_capability) };
+                unsafe { ::core::mem::transmute(light_hc_reset_capability) };
             light_hc_reset_capability as u64
         });
         __bindgen_bitfield_unit.set_const::<6usize, 1u8>({
             let latency_tolerance_messaging_capability: u32 =
-                unsafe { ::std::mem::transmute(latency_tolerance_messaging_capability) };
+                unsafe { ::core::mem::transmute(latency_tolerance_messaging_capability) };
             latency_tolerance_messaging_capability as u64
         });
         __bindgen_bitfield_unit.set_const::<7usize, 1u8>({
             let no_secondary_sid_support: u32 =
-                unsafe { ::std::mem::transmute(no_secondary_sid_support) };
+                unsafe { ::core::mem::transmute(no_secondary_sid_support) };
             no_secondary_sid_support as u64
         });
         __bindgen_bitfield_unit.set_const::<8usize, 1u8>({
-            let parse_all_event_data: u32 = unsafe { ::std::mem::transmute(parse_all_event_data) };
+            let parse_all_event_data: u32 = unsafe { ::core::mem::transmute(parse_all_event_data) };
             parse_all_event_data as u64
         });
         __bindgen_bitfield_unit.set_const::<9usize, 1u8>({
             let stopped_short_packet_capability: u32 =
-                unsafe { ::std::mem::transmute(stopped_short_packet_capability) };
+                unsafe { ::core::mem::transmute(stopped_short_packet_capability) };
             stopped_short_packet_capability as u64
         });
         __bindgen_bitfield_unit.set_const::<10usize, 1u8>({
             let stopped_edtla_capability: u32 =
-                unsafe { ::std::mem::transmute(stopped_edtla_capability) };
+                unsafe { ::core::mem::transmute(stopped_edtla_capability) };
             stopped_edtla_capability as u64
         });
         __bindgen_bitfield_unit.set_const::<11usize, 1u8>({
             let contiguous_frame_id_capability: u32 =
-                unsafe { ::std::mem::transmute(contiguous_frame_id_capability) };
+                unsafe { ::core::mem::transmute(contiguous_frame_id_capability) };
             contiguous_frame_id_capability as u64
         });
         __bindgen_bitfield_unit.set_const::<12usize, 4u8>({
             let maximum_primary_stream_array_size: u32 =
-                unsafe { ::std::mem::transmute(maximum_primary_stream_array_size) };
+                unsafe { ::core::mem::transmute(maximum_primary_stream_array_size) };
             maximum_primary_stream_array_size as u64
         });
         __bindgen_bitfield_unit.set_const::<16usize, 16u8>({
             let xhci_extended_capabilities_pointer: u32 =
-                unsafe { ::std::mem::transmute(xhci_extended_capabilities_pointer) };
+                unsafe { ::core::mem::transmute(xhci_extended_capabilities_pointer) };
             xhci_extended_capabilities_pointer as u64
         });
         __bindgen_bitfield_unit
@@ -1682,13 +1682,13 @@ impl usb_xhci_DBOFF_Bitmap__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn doorbell_array_offset(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<2usize, 30u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<2usize, 30u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_doorbell_array_offset(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<2usize, 30u8>(val as u64)
         }
     }
@@ -1696,20 +1696,20 @@ impl usb_xhci_DBOFF_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn doorbell_array_offset_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(
-                <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<2usize, 30u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
-                ) as u32,
-            )
+            ::core::mem::transmute(<__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<
+                2usize,
+                30u8,
+            >(::core::ptr::addr_of!((*this)._bitfield_1))
+                as u32)
         }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_doorbell_array_offset_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_set_const::<2usize, 30u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -1720,7 +1720,7 @@ impl usb_xhci_DBOFF_Bitmap__bindgen_ty_1 {
         let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 4usize]> = Default::default();
         __bindgen_bitfield_unit.set_const::<2usize, 30u8>({
             let doorbell_array_offset: u32 =
-                unsafe { ::std::mem::transmute(doorbell_array_offset) };
+                unsafe { ::core::mem::transmute(doorbell_array_offset) };
             doorbell_array_offset as u64
         });
         __bindgen_bitfield_unit
@@ -1741,13 +1741,13 @@ impl usb_xhci_RTSOFF_Bitmap__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn runtime_register_space_offset(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<5usize, 27u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<5usize, 27u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_runtime_register_space_offset(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<5usize, 27u8>(val as u64)
         }
     }
@@ -1755,20 +1755,20 @@ impl usb_xhci_RTSOFF_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn runtime_register_space_offset_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(
-                <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<5usize, 27u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
-                ) as u32,
-            )
+            ::core::mem::transmute(<__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<
+                5usize,
+                27u8,
+            >(::core::ptr::addr_of!((*this)._bitfield_1))
+                as u32)
         }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_runtime_register_space_offset_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_set_const::<5usize, 27u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -1781,7 +1781,7 @@ impl usb_xhci_RTSOFF_Bitmap__bindgen_ty_1 {
         let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 4usize]> = Default::default();
         __bindgen_bitfield_unit.set_const::<5usize, 27u8>({
             let runtime_register_space_offset: u32 =
-                unsafe { ::std::mem::transmute(runtime_register_space_offset) };
+                unsafe { ::core::mem::transmute(runtime_register_space_offset) };
             runtime_register_space_offset as u64
         });
         __bindgen_bitfield_unit
@@ -1802,13 +1802,13 @@ impl usb_xhci_HCCPARAMS2_Bitmap__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn u3_entry_capability(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<0usize, 1u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<0usize, 1u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_u3_entry_capability(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<0usize, 1u8>(val as u64)
         }
     }
@@ -1816,9 +1816,9 @@ impl usb_xhci_HCCPARAMS2_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn u3_entry_capability_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(
+            ::core::mem::transmute(
                 <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<0usize, 1u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
+                    ::core::ptr::addr_of!((*this)._bitfield_1),
                 ) as u32,
             )
         }
@@ -1827,9 +1827,9 @@ impl usb_xhci_HCCPARAMS2_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_u3_entry_capability_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_set_const::<0usize, 1u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -1837,7 +1837,7 @@ impl usb_xhci_HCCPARAMS2_Bitmap__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn configure_endpoint_command_max_exit_latency_too_large_capability(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<1usize, 1u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<1usize, 1u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
@@ -1846,7 +1846,7 @@ impl usb_xhci_HCCPARAMS2_Bitmap__bindgen_ty_1 {
         val: u32,
     ) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<1usize, 1u8>(val as u64)
         }
     }
@@ -1856,9 +1856,9 @@ impl usb_xhci_HCCPARAMS2_Bitmap__bindgen_ty_1 {
         this: *const Self,
     ) -> u32 {
         unsafe {
-            ::std::mem::transmute(
+            ::core::mem::transmute(
                 <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<1usize, 1u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
+                    ::core::ptr::addr_of!((*this)._bitfield_1),
                 ) as u32,
             )
         }
@@ -1870,9 +1870,9 @@ impl usb_xhci_HCCPARAMS2_Bitmap__bindgen_ty_1 {
         val: u32,
     ) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_set_const::<1usize, 1u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -1880,13 +1880,13 @@ impl usb_xhci_HCCPARAMS2_Bitmap__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn force_save_context_capability(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<2usize, 1u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<2usize, 1u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_force_save_context_capability(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<2usize, 1u8>(val as u64)
         }
     }
@@ -1894,9 +1894,9 @@ impl usb_xhci_HCCPARAMS2_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn force_save_context_capability_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(
+            ::core::mem::transmute(
                 <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<2usize, 1u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
+                    ::core::ptr::addr_of!((*this)._bitfield_1),
                 ) as u32,
             )
         }
@@ -1905,9 +1905,9 @@ impl usb_xhci_HCCPARAMS2_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_force_save_context_capability_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_set_const::<2usize, 1u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -1915,13 +1915,13 @@ impl usb_xhci_HCCPARAMS2_Bitmap__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn compliance_transition_capability(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<3usize, 1u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<3usize, 1u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_compliance_transition_capability(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<3usize, 1u8>(val as u64)
         }
     }
@@ -1929,9 +1929,9 @@ impl usb_xhci_HCCPARAMS2_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn compliance_transition_capability_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(
+            ::core::mem::transmute(
                 <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<3usize, 1u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
+                    ::core::ptr::addr_of!((*this)._bitfield_1),
                 ) as u32,
             )
         }
@@ -1940,9 +1940,9 @@ impl usb_xhci_HCCPARAMS2_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_compliance_transition_capability_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_set_const::<3usize, 1u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -1950,13 +1950,13 @@ impl usb_xhci_HCCPARAMS2_Bitmap__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn large_esit_payload_capability(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<4usize, 1u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<4usize, 1u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_large_esit_payload_capability(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<4usize, 1u8>(val as u64)
         }
     }
@@ -1964,9 +1964,9 @@ impl usb_xhci_HCCPARAMS2_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn large_esit_payload_capability_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(
+            ::core::mem::transmute(
                 <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<4usize, 1u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
+                    ::core::ptr::addr_of!((*this)._bitfield_1),
                 ) as u32,
             )
         }
@@ -1975,9 +1975,9 @@ impl usb_xhci_HCCPARAMS2_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_large_esit_payload_capability_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_set_const::<4usize, 1u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -1985,13 +1985,13 @@ impl usb_xhci_HCCPARAMS2_Bitmap__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn configuration_information_capability(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<5usize, 1u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<5usize, 1u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_configuration_information_capability(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<5usize, 1u8>(val as u64)
         }
     }
@@ -1999,9 +1999,9 @@ impl usb_xhci_HCCPARAMS2_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn configuration_information_capability_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(
+            ::core::mem::transmute(
                 <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<5usize, 1u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
+                    ::core::ptr::addr_of!((*this)._bitfield_1),
                 ) as u32,
             )
         }
@@ -2010,9 +2010,9 @@ impl usb_xhci_HCCPARAMS2_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_configuration_information_capability_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_set_const::<5usize, 1u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -2029,12 +2029,12 @@ impl usb_xhci_HCCPARAMS2_Bitmap__bindgen_ty_1 {
     ) -> __BindgenBitfieldUnit<[u8; 4usize]> {
         let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 4usize]> = Default::default();
         __bindgen_bitfield_unit.set_const::<0usize, 1u8>({
-            let u3_entry_capability: u32 = unsafe { ::std::mem::transmute(u3_entry_capability) };
+            let u3_entry_capability: u32 = unsafe { ::core::mem::transmute(u3_entry_capability) };
             u3_entry_capability as u64
         });
         __bindgen_bitfield_unit.set_const::<1usize, 1u8>({
             let configure_endpoint_command_max_exit_latency_too_large_capability: u32 = unsafe {
-                ::std::mem::transmute(
+                ::core::mem::transmute(
                     configure_endpoint_command_max_exit_latency_too_large_capability,
                 )
             };
@@ -2042,22 +2042,22 @@ impl usb_xhci_HCCPARAMS2_Bitmap__bindgen_ty_1 {
         });
         __bindgen_bitfield_unit.set_const::<2usize, 1u8>({
             let force_save_context_capability: u32 =
-                unsafe { ::std::mem::transmute(force_save_context_capability) };
+                unsafe { ::core::mem::transmute(force_save_context_capability) };
             force_save_context_capability as u64
         });
         __bindgen_bitfield_unit.set_const::<3usize, 1u8>({
             let compliance_transition_capability: u32 =
-                unsafe { ::std::mem::transmute(compliance_transition_capability) };
+                unsafe { ::core::mem::transmute(compliance_transition_capability) };
             compliance_transition_capability as u64
         });
         __bindgen_bitfield_unit.set_const::<4usize, 1u8>({
             let large_esit_payload_capability: u32 =
-                unsafe { ::std::mem::transmute(large_esit_payload_capability) };
+                unsafe { ::core::mem::transmute(large_esit_payload_capability) };
             large_esit_payload_capability as u64
         });
         __bindgen_bitfield_unit.set_const::<5usize, 1u8>({
             let configuration_information_capability: u32 =
-                unsafe { ::std::mem::transmute(configuration_information_capability) };
+                unsafe { ::core::mem::transmute(configuration_information_capability) };
             configuration_information_capability as u64
         });
         __bindgen_bitfield_unit
@@ -2091,13 +2091,13 @@ impl usb_xhci_USBCMD_Bitmap__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn run_stop(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<0usize, 1u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<0usize, 1u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_run_stop(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<0usize, 1u8>(val as u64)
         }
     }
@@ -2105,9 +2105,9 @@ impl usb_xhci_USBCMD_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn run_stop_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(
+            ::core::mem::transmute(
                 <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<0usize, 1u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
+                    ::core::ptr::addr_of!((*this)._bitfield_1),
                 ) as u32,
             )
         }
@@ -2116,9 +2116,9 @@ impl usb_xhci_USBCMD_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_run_stop_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_set_const::<0usize, 1u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -2126,13 +2126,13 @@ impl usb_xhci_USBCMD_Bitmap__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn host_controller_reset(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<1usize, 1u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<1usize, 1u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_host_controller_reset(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<1usize, 1u8>(val as u64)
         }
     }
@@ -2140,9 +2140,9 @@ impl usb_xhci_USBCMD_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn host_controller_reset_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(
+            ::core::mem::transmute(
                 <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<1usize, 1u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
+                    ::core::ptr::addr_of!((*this)._bitfield_1),
                 ) as u32,
             )
         }
@@ -2151,9 +2151,9 @@ impl usb_xhci_USBCMD_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_host_controller_reset_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_set_const::<1usize, 1u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -2161,13 +2161,13 @@ impl usb_xhci_USBCMD_Bitmap__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn interrupter_enable(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<2usize, 1u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<2usize, 1u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_interrupter_enable(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<2usize, 1u8>(val as u64)
         }
     }
@@ -2175,9 +2175,9 @@ impl usb_xhci_USBCMD_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn interrupter_enable_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(
+            ::core::mem::transmute(
                 <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<2usize, 1u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
+                    ::core::ptr::addr_of!((*this)._bitfield_1),
                 ) as u32,
             )
         }
@@ -2186,9 +2186,9 @@ impl usb_xhci_USBCMD_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_interrupter_enable_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_set_const::<2usize, 1u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -2196,13 +2196,13 @@ impl usb_xhci_USBCMD_Bitmap__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn host_system_error_enable(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<3usize, 1u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<3usize, 1u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_host_system_error_enable(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<3usize, 1u8>(val as u64)
         }
     }
@@ -2210,9 +2210,9 @@ impl usb_xhci_USBCMD_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn host_system_error_enable_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(
+            ::core::mem::transmute(
                 <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<3usize, 1u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
+                    ::core::ptr::addr_of!((*this)._bitfield_1),
                 ) as u32,
             )
         }
@@ -2221,9 +2221,9 @@ impl usb_xhci_USBCMD_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_host_system_error_enable_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_set_const::<3usize, 1u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -2231,13 +2231,13 @@ impl usb_xhci_USBCMD_Bitmap__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn lignt_host_controller_reset(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<7usize, 1u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<7usize, 1u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_lignt_host_controller_reset(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<7usize, 1u8>(val as u64)
         }
     }
@@ -2245,9 +2245,9 @@ impl usb_xhci_USBCMD_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn lignt_host_controller_reset_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(
+            ::core::mem::transmute(
                 <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<7usize, 1u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
+                    ::core::ptr::addr_of!((*this)._bitfield_1),
                 ) as u32,
             )
         }
@@ -2256,9 +2256,9 @@ impl usb_xhci_USBCMD_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_lignt_host_controller_reset_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_set_const::<7usize, 1u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -2266,13 +2266,13 @@ impl usb_xhci_USBCMD_Bitmap__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn controller_save_state(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<8usize, 1u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<8usize, 1u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_controller_save_state(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<8usize, 1u8>(val as u64)
         }
     }
@@ -2280,9 +2280,9 @@ impl usb_xhci_USBCMD_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn controller_save_state_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(
+            ::core::mem::transmute(
                 <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<8usize, 1u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
+                    ::core::ptr::addr_of!((*this)._bitfield_1),
                 ) as u32,
             )
         }
@@ -2291,9 +2291,9 @@ impl usb_xhci_USBCMD_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_controller_save_state_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_set_const::<8usize, 1u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -2301,13 +2301,13 @@ impl usb_xhci_USBCMD_Bitmap__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn controller_restore_state(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<9usize, 1u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<9usize, 1u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_controller_restore_state(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<9usize, 1u8>(val as u64)
         }
     }
@@ -2315,9 +2315,9 @@ impl usb_xhci_USBCMD_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn controller_restore_state_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(
+            ::core::mem::transmute(
                 <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<9usize, 1u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
+                    ::core::ptr::addr_of!((*this)._bitfield_1),
                 ) as u32,
             )
         }
@@ -2326,9 +2326,9 @@ impl usb_xhci_USBCMD_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_controller_restore_state_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_set_const::<9usize, 1u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -2336,13 +2336,13 @@ impl usb_xhci_USBCMD_Bitmap__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn enable_wrap_event(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<10usize, 1u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<10usize, 1u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_enable_wrap_event(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<10usize, 1u8>(val as u64)
         }
     }
@@ -2350,20 +2350,20 @@ impl usb_xhci_USBCMD_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn enable_wrap_event_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(
-                <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<10usize, 1u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
-                ) as u32,
-            )
+            ::core::mem::transmute(<__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<
+                10usize,
+                1u8,
+            >(::core::ptr::addr_of!((*this)._bitfield_1))
+                as u32)
         }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_enable_wrap_event_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_set_const::<10usize, 1u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -2371,13 +2371,13 @@ impl usb_xhci_USBCMD_Bitmap__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn enable_u3_mfindex_stop(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<11usize, 1u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<11usize, 1u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_enable_u3_mfindex_stop(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<11usize, 1u8>(val as u64)
         }
     }
@@ -2385,20 +2385,20 @@ impl usb_xhci_USBCMD_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn enable_u3_mfindex_stop_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(
-                <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<11usize, 1u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
-                ) as u32,
-            )
+            ::core::mem::transmute(<__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<
+                11usize,
+                1u8,
+            >(::core::ptr::addr_of!((*this)._bitfield_1))
+                as u32)
         }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_enable_u3_mfindex_stop_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_set_const::<11usize, 1u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -2406,13 +2406,13 @@ impl usb_xhci_USBCMD_Bitmap__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn stopped_short_packet_enable(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<12usize, 1u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<12usize, 1u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_stopped_short_packet_enable(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<12usize, 1u8>(val as u64)
         }
     }
@@ -2420,20 +2420,20 @@ impl usb_xhci_USBCMD_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn stopped_short_packet_enable_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(
-                <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<12usize, 1u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
-                ) as u32,
-            )
+            ::core::mem::transmute(<__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<
+                12usize,
+                1u8,
+            >(::core::ptr::addr_of!((*this)._bitfield_1))
+                as u32)
         }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_stopped_short_packet_enable_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_set_const::<12usize, 1u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -2441,13 +2441,13 @@ impl usb_xhci_USBCMD_Bitmap__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn cem_enable(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<13usize, 1u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<13usize, 1u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_cem_enable(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<13usize, 1u8>(val as u64)
         }
     }
@@ -2455,20 +2455,20 @@ impl usb_xhci_USBCMD_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn cem_enable_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(
-                <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<13usize, 1u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
-                ) as u32,
-            )
+            ::core::mem::transmute(<__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<
+                13usize,
+                1u8,
+            >(::core::ptr::addr_of!((*this)._bitfield_1))
+                as u32)
         }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_cem_enable_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_set_const::<13usize, 1u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -2490,54 +2490,54 @@ impl usb_xhci_USBCMD_Bitmap__bindgen_ty_1 {
     ) -> __BindgenBitfieldUnit<[u8; 4usize]> {
         let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 4usize]> = Default::default();
         __bindgen_bitfield_unit.set_const::<0usize, 1u8>({
-            let run_stop: u32 = unsafe { ::std::mem::transmute(run_stop) };
+            let run_stop: u32 = unsafe { ::core::mem::transmute(run_stop) };
             run_stop as u64
         });
         __bindgen_bitfield_unit.set_const::<1usize, 1u8>({
             let host_controller_reset: u32 =
-                unsafe { ::std::mem::transmute(host_controller_reset) };
+                unsafe { ::core::mem::transmute(host_controller_reset) };
             host_controller_reset as u64
         });
         __bindgen_bitfield_unit.set_const::<2usize, 1u8>({
-            let interrupter_enable: u32 = unsafe { ::std::mem::transmute(interrupter_enable) };
+            let interrupter_enable: u32 = unsafe { ::core::mem::transmute(interrupter_enable) };
             interrupter_enable as u64
         });
         __bindgen_bitfield_unit.set_const::<3usize, 1u8>({
             let host_system_error_enable: u32 =
-                unsafe { ::std::mem::transmute(host_system_error_enable) };
+                unsafe { ::core::mem::transmute(host_system_error_enable) };
             host_system_error_enable as u64
         });
         __bindgen_bitfield_unit.set_const::<7usize, 1u8>({
             let lignt_host_controller_reset: u32 =
-                unsafe { ::std::mem::transmute(lignt_host_controller_reset) };
+                unsafe { ::core::mem::transmute(lignt_host_controller_reset) };
             lignt_host_controller_reset as u64
         });
         __bindgen_bitfield_unit.set_const::<8usize, 1u8>({
             let controller_save_state: u32 =
-                unsafe { ::std::mem::transmute(controller_save_state) };
+                unsafe { ::core::mem::transmute(controller_save_state) };
             controller_save_state as u64
         });
         __bindgen_bitfield_unit.set_const::<9usize, 1u8>({
             let controller_restore_state: u32 =
-                unsafe { ::std::mem::transmute(controller_restore_state) };
+                unsafe { ::core::mem::transmute(controller_restore_state) };
             controller_restore_state as u64
         });
         __bindgen_bitfield_unit.set_const::<10usize, 1u8>({
-            let enable_wrap_event: u32 = unsafe { ::std::mem::transmute(enable_wrap_event) };
+            let enable_wrap_event: u32 = unsafe { ::core::mem::transmute(enable_wrap_event) };
             enable_wrap_event as u64
         });
         __bindgen_bitfield_unit.set_const::<11usize, 1u8>({
             let enable_u3_mfindex_stop: u32 =
-                unsafe { ::std::mem::transmute(enable_u3_mfindex_stop) };
+                unsafe { ::core::mem::transmute(enable_u3_mfindex_stop) };
             enable_u3_mfindex_stop as u64
         });
         __bindgen_bitfield_unit.set_const::<12usize, 1u8>({
             let stopped_short_packet_enable: u32 =
-                unsafe { ::std::mem::transmute(stopped_short_packet_enable) };
+                unsafe { ::core::mem::transmute(stopped_short_packet_enable) };
             stopped_short_packet_enable as u64
         });
         __bindgen_bitfield_unit.set_const::<13usize, 1u8>({
-            let cem_enable: u32 = unsafe { ::std::mem::transmute(cem_enable) };
+            let cem_enable: u32 = unsafe { ::core::mem::transmute(cem_enable) };
             cem_enable as u64
         });
         __bindgen_bitfield_unit
@@ -2558,13 +2558,13 @@ impl usb_xhci_USBSTS_Bitmap__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn host_controller_halted(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<0usize, 1u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<0usize, 1u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_host_controller_halted(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<0usize, 1u8>(val as u64)
         }
     }
@@ -2572,9 +2572,9 @@ impl usb_xhci_USBSTS_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn host_controller_halted_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(
+            ::core::mem::transmute(
                 <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<0usize, 1u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
+                    ::core::ptr::addr_of!((*this)._bitfield_1),
                 ) as u32,
             )
         }
@@ -2583,9 +2583,9 @@ impl usb_xhci_USBSTS_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_host_controller_halted_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_set_const::<0usize, 1u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -2593,13 +2593,13 @@ impl usb_xhci_USBSTS_Bitmap__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn host_system_error(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<2usize, 1u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<2usize, 1u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_host_system_error(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<2usize, 1u8>(val as u64)
         }
     }
@@ -2607,9 +2607,9 @@ impl usb_xhci_USBSTS_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn host_system_error_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(
+            ::core::mem::transmute(
                 <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<2usize, 1u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
+                    ::core::ptr::addr_of!((*this)._bitfield_1),
                 ) as u32,
             )
         }
@@ -2618,9 +2618,9 @@ impl usb_xhci_USBSTS_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_host_system_error_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_set_const::<2usize, 1u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -2628,13 +2628,13 @@ impl usb_xhci_USBSTS_Bitmap__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn event_interrupt(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<3usize, 1u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<3usize, 1u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_event_interrupt(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<3usize, 1u8>(val as u64)
         }
     }
@@ -2642,9 +2642,9 @@ impl usb_xhci_USBSTS_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn event_interrupt_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(
+            ::core::mem::transmute(
                 <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<3usize, 1u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
+                    ::core::ptr::addr_of!((*this)._bitfield_1),
                 ) as u32,
             )
         }
@@ -2653,9 +2653,9 @@ impl usb_xhci_USBSTS_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_event_interrupt_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_set_const::<3usize, 1u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -2663,13 +2663,13 @@ impl usb_xhci_USBSTS_Bitmap__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn port_change_detect(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<4usize, 1u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<4usize, 1u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_port_change_detect(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<4usize, 1u8>(val as u64)
         }
     }
@@ -2677,9 +2677,9 @@ impl usb_xhci_USBSTS_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn port_change_detect_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(
+            ::core::mem::transmute(
                 <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<4usize, 1u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
+                    ::core::ptr::addr_of!((*this)._bitfield_1),
                 ) as u32,
             )
         }
@@ -2688,9 +2688,9 @@ impl usb_xhci_USBSTS_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_port_change_detect_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_set_const::<4usize, 1u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -2698,13 +2698,13 @@ impl usb_xhci_USBSTS_Bitmap__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn save_state_status(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<8usize, 1u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<8usize, 1u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_save_state_status(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<8usize, 1u8>(val as u64)
         }
     }
@@ -2712,9 +2712,9 @@ impl usb_xhci_USBSTS_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn save_state_status_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(
+            ::core::mem::transmute(
                 <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<8usize, 1u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
+                    ::core::ptr::addr_of!((*this)._bitfield_1),
                 ) as u32,
             )
         }
@@ -2723,9 +2723,9 @@ impl usb_xhci_USBSTS_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_save_state_status_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_set_const::<8usize, 1u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -2733,13 +2733,13 @@ impl usb_xhci_USBSTS_Bitmap__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn restore_state_status(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<9usize, 1u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<9usize, 1u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_restore_state_status(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<9usize, 1u8>(val as u64)
         }
     }
@@ -2747,9 +2747,9 @@ impl usb_xhci_USBSTS_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn restore_state_status_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(
+            ::core::mem::transmute(
                 <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<9usize, 1u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
+                    ::core::ptr::addr_of!((*this)._bitfield_1),
                 ) as u32,
             )
         }
@@ -2758,9 +2758,9 @@ impl usb_xhci_USBSTS_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_restore_state_status_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_set_const::<9usize, 1u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -2768,13 +2768,13 @@ impl usb_xhci_USBSTS_Bitmap__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn save_restore_error(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<10usize, 1u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<10usize, 1u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_save_restore_error(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<10usize, 1u8>(val as u64)
         }
     }
@@ -2782,20 +2782,20 @@ impl usb_xhci_USBSTS_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn save_restore_error_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(
-                <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<10usize, 1u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
-                ) as u32,
-            )
+            ::core::mem::transmute(<__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<
+                10usize,
+                1u8,
+            >(::core::ptr::addr_of!((*this)._bitfield_1))
+                as u32)
         }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_save_restore_error_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_set_const::<10usize, 1u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -2803,13 +2803,13 @@ impl usb_xhci_USBSTS_Bitmap__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn controller_not_ready(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<11usize, 1u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<11usize, 1u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_controller_not_ready(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<11usize, 1u8>(val as u64)
         }
     }
@@ -2817,20 +2817,20 @@ impl usb_xhci_USBSTS_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn controller_not_ready_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(
-                <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<11usize, 1u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
-                ) as u32,
-            )
+            ::core::mem::transmute(<__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<
+                11usize,
+                1u8,
+            >(::core::ptr::addr_of!((*this)._bitfield_1))
+                as u32)
         }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_controller_not_ready_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_set_const::<11usize, 1u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -2838,13 +2838,13 @@ impl usb_xhci_USBSTS_Bitmap__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn host_controller_error(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<12usize, 1u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<12usize, 1u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_host_controller_error(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<12usize, 1u8>(val as u64)
         }
     }
@@ -2852,20 +2852,20 @@ impl usb_xhci_USBSTS_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn host_controller_error_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(
-                <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<12usize, 1u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
-                ) as u32,
-            )
+            ::core::mem::transmute(<__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<
+                12usize,
+                1u8,
+            >(::core::ptr::addr_of!((*this)._bitfield_1))
+                as u32)
         }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_host_controller_error_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_set_const::<12usize, 1u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -2886,40 +2886,40 @@ impl usb_xhci_USBSTS_Bitmap__bindgen_ty_1 {
         let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 4usize]> = Default::default();
         __bindgen_bitfield_unit.set_const::<0usize, 1u8>({
             let host_controller_halted: u32 =
-                unsafe { ::std::mem::transmute(host_controller_halted) };
+                unsafe { ::core::mem::transmute(host_controller_halted) };
             host_controller_halted as u64
         });
         __bindgen_bitfield_unit.set_const::<2usize, 1u8>({
-            let host_system_error: u32 = unsafe { ::std::mem::transmute(host_system_error) };
+            let host_system_error: u32 = unsafe { ::core::mem::transmute(host_system_error) };
             host_system_error as u64
         });
         __bindgen_bitfield_unit.set_const::<3usize, 1u8>({
-            let event_interrupt: u32 = unsafe { ::std::mem::transmute(event_interrupt) };
+            let event_interrupt: u32 = unsafe { ::core::mem::transmute(event_interrupt) };
             event_interrupt as u64
         });
         __bindgen_bitfield_unit.set_const::<4usize, 1u8>({
-            let port_change_detect: u32 = unsafe { ::std::mem::transmute(port_change_detect) };
+            let port_change_detect: u32 = unsafe { ::core::mem::transmute(port_change_detect) };
             port_change_detect as u64
         });
         __bindgen_bitfield_unit.set_const::<8usize, 1u8>({
-            let save_state_status: u32 = unsafe { ::std::mem::transmute(save_state_status) };
+            let save_state_status: u32 = unsafe { ::core::mem::transmute(save_state_status) };
             save_state_status as u64
         });
         __bindgen_bitfield_unit.set_const::<9usize, 1u8>({
-            let restore_state_status: u32 = unsafe { ::std::mem::transmute(restore_state_status) };
+            let restore_state_status: u32 = unsafe { ::core::mem::transmute(restore_state_status) };
             restore_state_status as u64
         });
         __bindgen_bitfield_unit.set_const::<10usize, 1u8>({
-            let save_restore_error: u32 = unsafe { ::std::mem::transmute(save_restore_error) };
+            let save_restore_error: u32 = unsafe { ::core::mem::transmute(save_restore_error) };
             save_restore_error as u64
         });
         __bindgen_bitfield_unit.set_const::<11usize, 1u8>({
-            let controller_not_ready: u32 = unsafe { ::std::mem::transmute(controller_not_ready) };
+            let controller_not_ready: u32 = unsafe { ::core::mem::transmute(controller_not_ready) };
             controller_not_ready as u64
         });
         __bindgen_bitfield_unit.set_const::<12usize, 1u8>({
             let host_controller_error: u32 =
-                unsafe { ::std::mem::transmute(host_controller_error) };
+                unsafe { ::core::mem::transmute(host_controller_error) };
             host_controller_error as u64
         });
         __bindgen_bitfield_unit
@@ -2940,13 +2940,13 @@ impl usb_xhci_CRCR_Bitmap__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn ring_cycle_state(&self) -> u64 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<0usize, 1u8>() as u64) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<0usize, 1u8>() as u64) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_ring_cycle_state(&mut self, val: u64) {
         unsafe {
-            let val: u64 = ::std::mem::transmute(val);
+            let val: u64 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<0usize, 1u8>(val as u64)
         }
     }
@@ -2954,9 +2954,9 @@ impl usb_xhci_CRCR_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn ring_cycle_state_raw(this: *const Self) -> u64 {
         unsafe {
-            ::std::mem::transmute(
+            ::core::mem::transmute(
                 <__BindgenBitfieldUnit<[u8; 8usize]>>::raw_get_const::<0usize, 1u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
+                    ::core::ptr::addr_of!((*this)._bitfield_1),
                 ) as u64,
             )
         }
@@ -2965,9 +2965,9 @@ impl usb_xhci_CRCR_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_ring_cycle_state_raw(this: *mut Self, val: u64) {
         unsafe {
-            let val: u64 = ::std::mem::transmute(val);
+            let val: u64 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 8usize]>>::raw_set_const::<0usize, 1u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -2975,13 +2975,13 @@ impl usb_xhci_CRCR_Bitmap__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn command_stop(&self) -> u64 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<1usize, 1u8>() as u64) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<1usize, 1u8>() as u64) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_command_stop(&mut self, val: u64) {
         unsafe {
-            let val: u64 = ::std::mem::transmute(val);
+            let val: u64 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<1usize, 1u8>(val as u64)
         }
     }
@@ -2989,9 +2989,9 @@ impl usb_xhci_CRCR_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn command_stop_raw(this: *const Self) -> u64 {
         unsafe {
-            ::std::mem::transmute(
+            ::core::mem::transmute(
                 <__BindgenBitfieldUnit<[u8; 8usize]>>::raw_get_const::<1usize, 1u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
+                    ::core::ptr::addr_of!((*this)._bitfield_1),
                 ) as u64,
             )
         }
@@ -3000,9 +3000,9 @@ impl usb_xhci_CRCR_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_command_stop_raw(this: *mut Self, val: u64) {
         unsafe {
-            let val: u64 = ::std::mem::transmute(val);
+            let val: u64 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 8usize]>>::raw_set_const::<1usize, 1u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -3010,13 +3010,13 @@ impl usb_xhci_CRCR_Bitmap__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn command_abort(&self) -> u64 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<2usize, 1u8>() as u64) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<2usize, 1u8>() as u64) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_command_abort(&mut self, val: u64) {
         unsafe {
-            let val: u64 = ::std::mem::transmute(val);
+            let val: u64 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<2usize, 1u8>(val as u64)
         }
     }
@@ -3024,9 +3024,9 @@ impl usb_xhci_CRCR_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn command_abort_raw(this: *const Self) -> u64 {
         unsafe {
-            ::std::mem::transmute(
+            ::core::mem::transmute(
                 <__BindgenBitfieldUnit<[u8; 8usize]>>::raw_get_const::<2usize, 1u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
+                    ::core::ptr::addr_of!((*this)._bitfield_1),
                 ) as u64,
             )
         }
@@ -3035,9 +3035,9 @@ impl usb_xhci_CRCR_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_command_abort_raw(this: *mut Self, val: u64) {
         unsafe {
-            let val: u64 = ::std::mem::transmute(val);
+            let val: u64 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 8usize]>>::raw_set_const::<2usize, 1u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -3045,13 +3045,13 @@ impl usb_xhci_CRCR_Bitmap__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn command_ring_running(&self) -> u64 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<3usize, 1u8>() as u64) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<3usize, 1u8>() as u64) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_command_ring_running(&mut self, val: u64) {
         unsafe {
-            let val: u64 = ::std::mem::transmute(val);
+            let val: u64 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<3usize, 1u8>(val as u64)
         }
     }
@@ -3059,9 +3059,9 @@ impl usb_xhci_CRCR_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn command_ring_running_raw(this: *const Self) -> u64 {
         unsafe {
-            ::std::mem::transmute(
+            ::core::mem::transmute(
                 <__BindgenBitfieldUnit<[u8; 8usize]>>::raw_get_const::<3usize, 1u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
+                    ::core::ptr::addr_of!((*this)._bitfield_1),
                 ) as u64,
             )
         }
@@ -3070,9 +3070,9 @@ impl usb_xhci_CRCR_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_command_ring_running_raw(this: *mut Self, val: u64) {
         unsafe {
-            let val: u64 = ::std::mem::transmute(val);
+            let val: u64 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 8usize]>>::raw_set_const::<3usize, 1u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -3080,13 +3080,13 @@ impl usb_xhci_CRCR_Bitmap__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn command_ring_pointer(&self) -> u64 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<6usize, 58u8>() as u64) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<6usize, 58u8>() as u64) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_command_ring_pointer(&mut self, val: u64) {
         unsafe {
-            let val: u64 = ::std::mem::transmute(val);
+            let val: u64 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<6usize, 58u8>(val as u64)
         }
     }
@@ -3094,20 +3094,20 @@ impl usb_xhci_CRCR_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn command_ring_pointer_raw(this: *const Self) -> u64 {
         unsafe {
-            ::std::mem::transmute(
-                <__BindgenBitfieldUnit<[u8; 8usize]>>::raw_get_const::<6usize, 58u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
-                ) as u64,
-            )
+            ::core::mem::transmute(<__BindgenBitfieldUnit<[u8; 8usize]>>::raw_get_const::<
+                6usize,
+                58u8,
+            >(::core::ptr::addr_of!((*this)._bitfield_1))
+                as u64)
         }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_command_ring_pointer_raw(this: *mut Self, val: u64) {
         unsafe {
-            let val: u64 = ::std::mem::transmute(val);
+            let val: u64 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 8usize]>>::raw_set_const::<6usize, 58u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -3123,23 +3123,23 @@ impl usb_xhci_CRCR_Bitmap__bindgen_ty_1 {
     ) -> __BindgenBitfieldUnit<[u8; 8usize]> {
         let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 8usize]> = Default::default();
         __bindgen_bitfield_unit.set_const::<0usize, 1u8>({
-            let ring_cycle_state: u64 = unsafe { ::std::mem::transmute(ring_cycle_state) };
+            let ring_cycle_state: u64 = unsafe { ::core::mem::transmute(ring_cycle_state) };
             ring_cycle_state as u64
         });
         __bindgen_bitfield_unit.set_const::<1usize, 1u8>({
-            let command_stop: u64 = unsafe { ::std::mem::transmute(command_stop) };
+            let command_stop: u64 = unsafe { ::core::mem::transmute(command_stop) };
             command_stop as u64
         });
         __bindgen_bitfield_unit.set_const::<2usize, 1u8>({
-            let command_abort: u64 = unsafe { ::std::mem::transmute(command_abort) };
+            let command_abort: u64 = unsafe { ::core::mem::transmute(command_abort) };
             command_abort as u64
         });
         __bindgen_bitfield_unit.set_const::<3usize, 1u8>({
-            let command_ring_running: u64 = unsafe { ::std::mem::transmute(command_ring_running) };
+            let command_ring_running: u64 = unsafe { ::core::mem::transmute(command_ring_running) };
             command_ring_running as u64
         });
         __bindgen_bitfield_unit.set_const::<6usize, 58u8>({
-            let command_ring_pointer: u64 = unsafe { ::std::mem::transmute(command_ring_pointer) };
+            let command_ring_pointer: u64 = unsafe { ::core::mem::transmute(command_ring_pointer) };
             command_ring_pointer as u64
         });
         __bindgen_bitfield_unit
@@ -3160,13 +3160,13 @@ impl usb_xhci_DCBAAP_Bitmap__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn device_context_base_address_array_pointer(&self) -> u64 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<6usize, 26u8>() as u64) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<6usize, 26u8>() as u64) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_device_context_base_address_array_pointer(&mut self, val: u64) {
         unsafe {
-            let val: u64 = ::std::mem::transmute(val);
+            let val: u64 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<6usize, 26u8>(val as u64)
         }
     }
@@ -3174,20 +3174,20 @@ impl usb_xhci_DCBAAP_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn device_context_base_address_array_pointer_raw(this: *const Self) -> u64 {
         unsafe {
-            ::std::mem::transmute(
-                <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<6usize, 26u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
-                ) as u64,
-            )
+            ::core::mem::transmute(<__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<
+                6usize,
+                26u8,
+            >(::core::ptr::addr_of!((*this)._bitfield_1))
+                as u64)
         }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_device_context_base_address_array_pointer_raw(this: *mut Self, val: u64) {
         unsafe {
-            let val: u64 = ::std::mem::transmute(val);
+            let val: u64 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_set_const::<6usize, 26u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -3200,7 +3200,7 @@ impl usb_xhci_DCBAAP_Bitmap__bindgen_ty_1 {
         let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 4usize]> = Default::default();
         __bindgen_bitfield_unit.set_const::<6usize, 26u8>({
             let device_context_base_address_array_pointer: u64 =
-                unsafe { ::std::mem::transmute(device_context_base_address_array_pointer) };
+                unsafe { ::core::mem::transmute(device_context_base_address_array_pointer) };
             device_context_base_address_array_pointer as u64
         });
         __bindgen_bitfield_unit
@@ -3221,13 +3221,13 @@ impl usb_xhci_CONFIG_Bitmap__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn max_device_slots_enabled(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<0usize, 8u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<0usize, 8u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_max_device_slots_enabled(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<0usize, 8u8>(val as u64)
         }
     }
@@ -3235,9 +3235,9 @@ impl usb_xhci_CONFIG_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn max_device_slots_enabled_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(
+            ::core::mem::transmute(
                 <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<0usize, 8u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
+                    ::core::ptr::addr_of!((*this)._bitfield_1),
                 ) as u32,
             )
         }
@@ -3246,9 +3246,9 @@ impl usb_xhci_CONFIG_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_max_device_slots_enabled_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_set_const::<0usize, 8u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -3256,13 +3256,13 @@ impl usb_xhci_CONFIG_Bitmap__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn u3_entry_enable(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<8usize, 1u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<8usize, 1u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_u3_entry_enable(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<8usize, 1u8>(val as u64)
         }
     }
@@ -3270,9 +3270,9 @@ impl usb_xhci_CONFIG_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn u3_entry_enable_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(
+            ::core::mem::transmute(
                 <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<8usize, 1u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
+                    ::core::ptr::addr_of!((*this)._bitfield_1),
                 ) as u32,
             )
         }
@@ -3281,9 +3281,9 @@ impl usb_xhci_CONFIG_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_u3_entry_enable_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_set_const::<8usize, 1u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -3291,13 +3291,13 @@ impl usb_xhci_CONFIG_Bitmap__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn configuration_information_enable(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<9usize, 1u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<9usize, 1u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_configuration_information_enable(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<9usize, 1u8>(val as u64)
         }
     }
@@ -3305,9 +3305,9 @@ impl usb_xhci_CONFIG_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn configuration_information_enable_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(
+            ::core::mem::transmute(
                 <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<9usize, 1u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
+                    ::core::ptr::addr_of!((*this)._bitfield_1),
                 ) as u32,
             )
         }
@@ -3316,9 +3316,9 @@ impl usb_xhci_CONFIG_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_configuration_information_enable_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_set_const::<9usize, 1u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -3333,16 +3333,16 @@ impl usb_xhci_CONFIG_Bitmap__bindgen_ty_1 {
         let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 4usize]> = Default::default();
         __bindgen_bitfield_unit.set_const::<0usize, 8u8>({
             let max_device_slots_enabled: u32 =
-                unsafe { ::std::mem::transmute(max_device_slots_enabled) };
+                unsafe { ::core::mem::transmute(max_device_slots_enabled) };
             max_device_slots_enabled as u64
         });
         __bindgen_bitfield_unit.set_const::<8usize, 1u8>({
-            let u3_entry_enable: u32 = unsafe { ::std::mem::transmute(u3_entry_enable) };
+            let u3_entry_enable: u32 = unsafe { ::core::mem::transmute(u3_entry_enable) };
             u3_entry_enable as u64
         });
         __bindgen_bitfield_unit.set_const::<9usize, 1u8>({
             let configuration_information_enable: u32 =
-                unsafe { ::std::mem::transmute(configuration_information_enable) };
+                unsafe { ::core::mem::transmute(configuration_information_enable) };
             configuration_information_enable as u64
         });
         __bindgen_bitfield_unit
@@ -3375,13 +3375,13 @@ impl usb_xhci_PORTSC_Bitmap__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn current_connect_status(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<0usize, 1u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<0usize, 1u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_current_connect_status(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<0usize, 1u8>(val as u64)
         }
     }
@@ -3389,9 +3389,9 @@ impl usb_xhci_PORTSC_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn current_connect_status_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(
+            ::core::mem::transmute(
                 <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<0usize, 1u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
+                    ::core::ptr::addr_of!((*this)._bitfield_1),
                 ) as u32,
             )
         }
@@ -3400,9 +3400,9 @@ impl usb_xhci_PORTSC_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_current_connect_status_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_set_const::<0usize, 1u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -3410,13 +3410,13 @@ impl usb_xhci_PORTSC_Bitmap__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn port_enabled_disabled(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<1usize, 1u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<1usize, 1u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_port_enabled_disabled(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<1usize, 1u8>(val as u64)
         }
     }
@@ -3424,9 +3424,9 @@ impl usb_xhci_PORTSC_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn port_enabled_disabled_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(
+            ::core::mem::transmute(
                 <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<1usize, 1u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
+                    ::core::ptr::addr_of!((*this)._bitfield_1),
                 ) as u32,
             )
         }
@@ -3435,9 +3435,9 @@ impl usb_xhci_PORTSC_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_port_enabled_disabled_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_set_const::<1usize, 1u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -3445,13 +3445,13 @@ impl usb_xhci_PORTSC_Bitmap__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn over_current_active(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<3usize, 1u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<3usize, 1u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_over_current_active(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<3usize, 1u8>(val as u64)
         }
     }
@@ -3459,9 +3459,9 @@ impl usb_xhci_PORTSC_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn over_current_active_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(
+            ::core::mem::transmute(
                 <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<3usize, 1u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
+                    ::core::ptr::addr_of!((*this)._bitfield_1),
                 ) as u32,
             )
         }
@@ -3470,9 +3470,9 @@ impl usb_xhci_PORTSC_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_over_current_active_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_set_const::<3usize, 1u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -3480,13 +3480,13 @@ impl usb_xhci_PORTSC_Bitmap__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn port_reset(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<4usize, 1u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<4usize, 1u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_port_reset(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<4usize, 1u8>(val as u64)
         }
     }
@@ -3494,9 +3494,9 @@ impl usb_xhci_PORTSC_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn port_reset_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(
+            ::core::mem::transmute(
                 <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<4usize, 1u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
+                    ::core::ptr::addr_of!((*this)._bitfield_1),
                 ) as u32,
             )
         }
@@ -3505,9 +3505,9 @@ impl usb_xhci_PORTSC_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_port_reset_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_set_const::<4usize, 1u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -3515,13 +3515,13 @@ impl usb_xhci_PORTSC_Bitmap__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn port_link_state(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<5usize, 4u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<5usize, 4u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_port_link_state(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<5usize, 4u8>(val as u64)
         }
     }
@@ -3529,9 +3529,9 @@ impl usb_xhci_PORTSC_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn port_link_state_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(
+            ::core::mem::transmute(
                 <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<5usize, 4u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
+                    ::core::ptr::addr_of!((*this)._bitfield_1),
                 ) as u32,
             )
         }
@@ -3540,9 +3540,9 @@ impl usb_xhci_PORTSC_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_port_link_state_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_set_const::<5usize, 4u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -3550,13 +3550,13 @@ impl usb_xhci_PORTSC_Bitmap__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn port_power(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<9usize, 1u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<9usize, 1u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_port_power(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<9usize, 1u8>(val as u64)
         }
     }
@@ -3564,9 +3564,9 @@ impl usb_xhci_PORTSC_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn port_power_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(
+            ::core::mem::transmute(
                 <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<9usize, 1u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
+                    ::core::ptr::addr_of!((*this)._bitfield_1),
                 ) as u32,
             )
         }
@@ -3575,9 +3575,9 @@ impl usb_xhci_PORTSC_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_port_power_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_set_const::<9usize, 1u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -3585,13 +3585,13 @@ impl usb_xhci_PORTSC_Bitmap__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn port_speed(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<10usize, 4u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<10usize, 4u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_port_speed(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<10usize, 4u8>(val as u64)
         }
     }
@@ -3599,20 +3599,20 @@ impl usb_xhci_PORTSC_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn port_speed_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(
-                <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<10usize, 4u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
-                ) as u32,
-            )
+            ::core::mem::transmute(<__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<
+                10usize,
+                4u8,
+            >(::core::ptr::addr_of!((*this)._bitfield_1))
+                as u32)
         }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_port_speed_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_set_const::<10usize, 4u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -3620,13 +3620,13 @@ impl usb_xhci_PORTSC_Bitmap__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn port_indicator_control(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<14usize, 2u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<14usize, 2u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_port_indicator_control(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<14usize, 2u8>(val as u64)
         }
     }
@@ -3634,20 +3634,20 @@ impl usb_xhci_PORTSC_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn port_indicator_control_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(
-                <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<14usize, 2u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
-                ) as u32,
-            )
+            ::core::mem::transmute(<__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<
+                14usize,
+                2u8,
+            >(::core::ptr::addr_of!((*this)._bitfield_1))
+                as u32)
         }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_port_indicator_control_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_set_const::<14usize, 2u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -3655,13 +3655,13 @@ impl usb_xhci_PORTSC_Bitmap__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn port_link_state_write_strobe(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<16usize, 1u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<16usize, 1u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_port_link_state_write_strobe(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<16usize, 1u8>(val as u64)
         }
     }
@@ -3669,20 +3669,20 @@ impl usb_xhci_PORTSC_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn port_link_state_write_strobe_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(
-                <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<16usize, 1u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
-                ) as u32,
-            )
+            ::core::mem::transmute(<__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<
+                16usize,
+                1u8,
+            >(::core::ptr::addr_of!((*this)._bitfield_1))
+                as u32)
         }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_port_link_state_write_strobe_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_set_const::<16usize, 1u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -3690,13 +3690,13 @@ impl usb_xhci_PORTSC_Bitmap__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn connect_status_change(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<17usize, 1u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<17usize, 1u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_connect_status_change(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<17usize, 1u8>(val as u64)
         }
     }
@@ -3704,20 +3704,20 @@ impl usb_xhci_PORTSC_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn connect_status_change_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(
-                <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<17usize, 1u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
-                ) as u32,
-            )
+            ::core::mem::transmute(<__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<
+                17usize,
+                1u8,
+            >(::core::ptr::addr_of!((*this)._bitfield_1))
+                as u32)
         }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_connect_status_change_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_set_const::<17usize, 1u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -3725,13 +3725,13 @@ impl usb_xhci_PORTSC_Bitmap__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn port_enabled_disabled_change(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<18usize, 1u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<18usize, 1u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_port_enabled_disabled_change(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<18usize, 1u8>(val as u64)
         }
     }
@@ -3739,20 +3739,20 @@ impl usb_xhci_PORTSC_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn port_enabled_disabled_change_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(
-                <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<18usize, 1u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
-                ) as u32,
-            )
+            ::core::mem::transmute(<__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<
+                18usize,
+                1u8,
+            >(::core::ptr::addr_of!((*this)._bitfield_1))
+                as u32)
         }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_port_enabled_disabled_change_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_set_const::<18usize, 1u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -3760,13 +3760,13 @@ impl usb_xhci_PORTSC_Bitmap__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn warm_port_reset_change(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<19usize, 1u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<19usize, 1u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_warm_port_reset_change(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<19usize, 1u8>(val as u64)
         }
     }
@@ -3774,20 +3774,20 @@ impl usb_xhci_PORTSC_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn warm_port_reset_change_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(
-                <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<19usize, 1u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
-                ) as u32,
-            )
+            ::core::mem::transmute(<__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<
+                19usize,
+                1u8,
+            >(::core::ptr::addr_of!((*this)._bitfield_1))
+                as u32)
         }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_warm_port_reset_change_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_set_const::<19usize, 1u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -3795,13 +3795,13 @@ impl usb_xhci_PORTSC_Bitmap__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn over_current_change(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<20usize, 1u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<20usize, 1u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_over_current_change(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<20usize, 1u8>(val as u64)
         }
     }
@@ -3809,20 +3809,20 @@ impl usb_xhci_PORTSC_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn over_current_change_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(
-                <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<20usize, 1u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
-                ) as u32,
-            )
+            ::core::mem::transmute(<__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<
+                20usize,
+                1u8,
+            >(::core::ptr::addr_of!((*this)._bitfield_1))
+                as u32)
         }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_over_current_change_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_set_const::<20usize, 1u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -3830,13 +3830,13 @@ impl usb_xhci_PORTSC_Bitmap__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn port_reset_change(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<21usize, 1u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<21usize, 1u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_port_reset_change(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<21usize, 1u8>(val as u64)
         }
     }
@@ -3844,20 +3844,20 @@ impl usb_xhci_PORTSC_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn port_reset_change_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(
-                <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<21usize, 1u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
-                ) as u32,
-            )
+            ::core::mem::transmute(<__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<
+                21usize,
+                1u8,
+            >(::core::ptr::addr_of!((*this)._bitfield_1))
+                as u32)
         }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_port_reset_change_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_set_const::<21usize, 1u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -3865,13 +3865,13 @@ impl usb_xhci_PORTSC_Bitmap__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn port_link_state_change(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<22usize, 1u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<22usize, 1u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_port_link_state_change(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<22usize, 1u8>(val as u64)
         }
     }
@@ -3879,20 +3879,20 @@ impl usb_xhci_PORTSC_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn port_link_state_change_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(
-                <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<22usize, 1u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
-                ) as u32,
-            )
+            ::core::mem::transmute(<__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<
+                22usize,
+                1u8,
+            >(::core::ptr::addr_of!((*this)._bitfield_1))
+                as u32)
         }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_port_link_state_change_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_set_const::<22usize, 1u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -3900,13 +3900,13 @@ impl usb_xhci_PORTSC_Bitmap__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn port_config_error_change(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<23usize, 1u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<23usize, 1u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_port_config_error_change(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<23usize, 1u8>(val as u64)
         }
     }
@@ -3914,20 +3914,20 @@ impl usb_xhci_PORTSC_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn port_config_error_change_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(
-                <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<23usize, 1u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
-                ) as u32,
-            )
+            ::core::mem::transmute(<__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<
+                23usize,
+                1u8,
+            >(::core::ptr::addr_of!((*this)._bitfield_1))
+                as u32)
         }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_port_config_error_change_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_set_const::<23usize, 1u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -3935,13 +3935,13 @@ impl usb_xhci_PORTSC_Bitmap__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn cold_attach_status(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<24usize, 1u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<24usize, 1u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_cold_attach_status(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<24usize, 1u8>(val as u64)
         }
     }
@@ -3949,20 +3949,20 @@ impl usb_xhci_PORTSC_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn cold_attach_status_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(
-                <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<24usize, 1u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
-                ) as u32,
-            )
+            ::core::mem::transmute(<__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<
+                24usize,
+                1u8,
+            >(::core::ptr::addr_of!((*this)._bitfield_1))
+                as u32)
         }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_cold_attach_status_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_set_const::<24usize, 1u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -3970,13 +3970,13 @@ impl usb_xhci_PORTSC_Bitmap__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn wake_on_connect_enable(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<25usize, 1u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<25usize, 1u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_wake_on_connect_enable(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<25usize, 1u8>(val as u64)
         }
     }
@@ -3984,20 +3984,20 @@ impl usb_xhci_PORTSC_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn wake_on_connect_enable_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(
-                <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<25usize, 1u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
-                ) as u32,
-            )
+            ::core::mem::transmute(<__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<
+                25usize,
+                1u8,
+            >(::core::ptr::addr_of!((*this)._bitfield_1))
+                as u32)
         }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_wake_on_connect_enable_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_set_const::<25usize, 1u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -4005,13 +4005,13 @@ impl usb_xhci_PORTSC_Bitmap__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn wake_on_disconnect_enable(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<26usize, 1u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<26usize, 1u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_wake_on_disconnect_enable(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<26usize, 1u8>(val as u64)
         }
     }
@@ -4019,20 +4019,20 @@ impl usb_xhci_PORTSC_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn wake_on_disconnect_enable_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(
-                <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<26usize, 1u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
-                ) as u32,
-            )
+            ::core::mem::transmute(<__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<
+                26usize,
+                1u8,
+            >(::core::ptr::addr_of!((*this)._bitfield_1))
+                as u32)
         }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_wake_on_disconnect_enable_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_set_const::<26usize, 1u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -4040,13 +4040,13 @@ impl usb_xhci_PORTSC_Bitmap__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn wake_on_over_current_enable(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<27usize, 1u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<27usize, 1u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_wake_on_over_current_enable(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<27usize, 1u8>(val as u64)
         }
     }
@@ -4054,20 +4054,20 @@ impl usb_xhci_PORTSC_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn wake_on_over_current_enable_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(
-                <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<27usize, 1u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
-                ) as u32,
-            )
+            ::core::mem::transmute(<__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<
+                27usize,
+                1u8,
+            >(::core::ptr::addr_of!((*this)._bitfield_1))
+                as u32)
         }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_wake_on_over_current_enable_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_set_const::<27usize, 1u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -4075,13 +4075,13 @@ impl usb_xhci_PORTSC_Bitmap__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn device_removable(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<30usize, 1u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<30usize, 1u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_device_removable(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<30usize, 1u8>(val as u64)
         }
     }
@@ -4089,20 +4089,20 @@ impl usb_xhci_PORTSC_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn device_removable_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(
-                <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<30usize, 1u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
-                ) as u32,
-            )
+            ::core::mem::transmute(<__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<
+                30usize,
+                1u8,
+            >(::core::ptr::addr_of!((*this)._bitfield_1))
+                as u32)
         }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_device_removable_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_set_const::<30usize, 1u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -4110,13 +4110,13 @@ impl usb_xhci_PORTSC_Bitmap__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn warm_port_reset(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<31usize, 1u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<31usize, 1u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_warm_port_reset(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<31usize, 1u8>(val as u64)
         }
     }
@@ -4124,20 +4124,20 @@ impl usb_xhci_PORTSC_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn warm_port_reset_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(
-                <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<31usize, 1u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
-                ) as u32,
-            )
+            ::core::mem::transmute(<__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<
+                31usize,
+                1u8,
+            >(::core::ptr::addr_of!((*this)._bitfield_1))
+                as u32)
         }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_warm_port_reset_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_set_const::<31usize, 1u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -4171,102 +4171,102 @@ impl usb_xhci_PORTSC_Bitmap__bindgen_ty_1 {
         let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 4usize]> = Default::default();
         __bindgen_bitfield_unit.set_const::<0usize, 1u8>({
             let current_connect_status: u32 =
-                unsafe { ::std::mem::transmute(current_connect_status) };
+                unsafe { ::core::mem::transmute(current_connect_status) };
             current_connect_status as u64
         });
         __bindgen_bitfield_unit.set_const::<1usize, 1u8>({
             let port_enabled_disabled: u32 =
-                unsafe { ::std::mem::transmute(port_enabled_disabled) };
+                unsafe { ::core::mem::transmute(port_enabled_disabled) };
             port_enabled_disabled as u64
         });
         __bindgen_bitfield_unit.set_const::<3usize, 1u8>({
-            let over_current_active: u32 = unsafe { ::std::mem::transmute(over_current_active) };
+            let over_current_active: u32 = unsafe { ::core::mem::transmute(over_current_active) };
             over_current_active as u64
         });
         __bindgen_bitfield_unit.set_const::<4usize, 1u8>({
-            let port_reset: u32 = unsafe { ::std::mem::transmute(port_reset) };
+            let port_reset: u32 = unsafe { ::core::mem::transmute(port_reset) };
             port_reset as u64
         });
         __bindgen_bitfield_unit.set_const::<5usize, 4u8>({
-            let port_link_state: u32 = unsafe { ::std::mem::transmute(port_link_state) };
+            let port_link_state: u32 = unsafe { ::core::mem::transmute(port_link_state) };
             port_link_state as u64
         });
         __bindgen_bitfield_unit.set_const::<9usize, 1u8>({
-            let port_power: u32 = unsafe { ::std::mem::transmute(port_power) };
+            let port_power: u32 = unsafe { ::core::mem::transmute(port_power) };
             port_power as u64
         });
         __bindgen_bitfield_unit.set_const::<10usize, 4u8>({
-            let port_speed: u32 = unsafe { ::std::mem::transmute(port_speed) };
+            let port_speed: u32 = unsafe { ::core::mem::transmute(port_speed) };
             port_speed as u64
         });
         __bindgen_bitfield_unit.set_const::<14usize, 2u8>({
             let port_indicator_control: u32 =
-                unsafe { ::std::mem::transmute(port_indicator_control) };
+                unsafe { ::core::mem::transmute(port_indicator_control) };
             port_indicator_control as u64
         });
         __bindgen_bitfield_unit.set_const::<16usize, 1u8>({
             let port_link_state_write_strobe: u32 =
-                unsafe { ::std::mem::transmute(port_link_state_write_strobe) };
+                unsafe { ::core::mem::transmute(port_link_state_write_strobe) };
             port_link_state_write_strobe as u64
         });
         __bindgen_bitfield_unit.set_const::<17usize, 1u8>({
             let connect_status_change: u32 =
-                unsafe { ::std::mem::transmute(connect_status_change) };
+                unsafe { ::core::mem::transmute(connect_status_change) };
             connect_status_change as u64
         });
         __bindgen_bitfield_unit.set_const::<18usize, 1u8>({
             let port_enabled_disabled_change: u32 =
-                unsafe { ::std::mem::transmute(port_enabled_disabled_change) };
+                unsafe { ::core::mem::transmute(port_enabled_disabled_change) };
             port_enabled_disabled_change as u64
         });
         __bindgen_bitfield_unit.set_const::<19usize, 1u8>({
             let warm_port_reset_change: u32 =
-                unsafe { ::std::mem::transmute(warm_port_reset_change) };
+                unsafe { ::core::mem::transmute(warm_port_reset_change) };
             warm_port_reset_change as u64
         });
         __bindgen_bitfield_unit.set_const::<20usize, 1u8>({
-            let over_current_change: u32 = unsafe { ::std::mem::transmute(over_current_change) };
+            let over_current_change: u32 = unsafe { ::core::mem::transmute(over_current_change) };
             over_current_change as u64
         });
         __bindgen_bitfield_unit.set_const::<21usize, 1u8>({
-            let port_reset_change: u32 = unsafe { ::std::mem::transmute(port_reset_change) };
+            let port_reset_change: u32 = unsafe { ::core::mem::transmute(port_reset_change) };
             port_reset_change as u64
         });
         __bindgen_bitfield_unit.set_const::<22usize, 1u8>({
             let port_link_state_change: u32 =
-                unsafe { ::std::mem::transmute(port_link_state_change) };
+                unsafe { ::core::mem::transmute(port_link_state_change) };
             port_link_state_change as u64
         });
         __bindgen_bitfield_unit.set_const::<23usize, 1u8>({
             let port_config_error_change: u32 =
-                unsafe { ::std::mem::transmute(port_config_error_change) };
+                unsafe { ::core::mem::transmute(port_config_error_change) };
             port_config_error_change as u64
         });
         __bindgen_bitfield_unit.set_const::<24usize, 1u8>({
-            let cold_attach_status: u32 = unsafe { ::std::mem::transmute(cold_attach_status) };
+            let cold_attach_status: u32 = unsafe { ::core::mem::transmute(cold_attach_status) };
             cold_attach_status as u64
         });
         __bindgen_bitfield_unit.set_const::<25usize, 1u8>({
             let wake_on_connect_enable: u32 =
-                unsafe { ::std::mem::transmute(wake_on_connect_enable) };
+                unsafe { ::core::mem::transmute(wake_on_connect_enable) };
             wake_on_connect_enable as u64
         });
         __bindgen_bitfield_unit.set_const::<26usize, 1u8>({
             let wake_on_disconnect_enable: u32 =
-                unsafe { ::std::mem::transmute(wake_on_disconnect_enable) };
+                unsafe { ::core::mem::transmute(wake_on_disconnect_enable) };
             wake_on_disconnect_enable as u64
         });
         __bindgen_bitfield_unit.set_const::<27usize, 1u8>({
             let wake_on_over_current_enable: u32 =
-                unsafe { ::std::mem::transmute(wake_on_over_current_enable) };
+                unsafe { ::core::mem::transmute(wake_on_over_current_enable) };
             wake_on_over_current_enable as u64
         });
         __bindgen_bitfield_unit.set_const::<30usize, 1u8>({
-            let device_removable: u32 = unsafe { ::std::mem::transmute(device_removable) };
+            let device_removable: u32 = unsafe { ::core::mem::transmute(device_removable) };
             device_removable as u64
         });
         __bindgen_bitfield_unit.set_const::<31usize, 1u8>({
-            let warm_port_reset: u32 = unsafe { ::std::mem::transmute(warm_port_reset) };
+            let warm_port_reset: u32 = unsafe { ::core::mem::transmute(warm_port_reset) };
             warm_port_reset as u64
         });
         __bindgen_bitfield_unit
@@ -4287,13 +4287,13 @@ impl usb_xhci_PORTPMSC_Bitmap__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn u1_timeout(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<0usize, 8u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<0usize, 8u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_u1_timeout(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<0usize, 8u8>(val as u64)
         }
     }
@@ -4301,9 +4301,9 @@ impl usb_xhci_PORTPMSC_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn u1_timeout_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(
+            ::core::mem::transmute(
                 <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<0usize, 8u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
+                    ::core::ptr::addr_of!((*this)._bitfield_1),
                 ) as u32,
             )
         }
@@ -4312,9 +4312,9 @@ impl usb_xhci_PORTPMSC_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_u1_timeout_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_set_const::<0usize, 8u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -4322,13 +4322,13 @@ impl usb_xhci_PORTPMSC_Bitmap__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn u2_timeout(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<8usize, 8u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<8usize, 8u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_u2_timeout(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<8usize, 8u8>(val as u64)
         }
     }
@@ -4336,9 +4336,9 @@ impl usb_xhci_PORTPMSC_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn u2_timeout_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(
+            ::core::mem::transmute(
                 <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<8usize, 8u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
+                    ::core::ptr::addr_of!((*this)._bitfield_1),
                 ) as u32,
             )
         }
@@ -4347,9 +4347,9 @@ impl usb_xhci_PORTPMSC_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_u2_timeout_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_set_const::<8usize, 8u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -4357,13 +4357,13 @@ impl usb_xhci_PORTPMSC_Bitmap__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn force_link_pm_accept(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<16usize, 1u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<16usize, 1u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_force_link_pm_accept(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<16usize, 1u8>(val as u64)
         }
     }
@@ -4371,20 +4371,20 @@ impl usb_xhci_PORTPMSC_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn force_link_pm_accept_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(
-                <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<16usize, 1u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
-                ) as u32,
-            )
+            ::core::mem::transmute(<__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<
+                16usize,
+                1u8,
+            >(::core::ptr::addr_of!((*this)._bitfield_1))
+                as u32)
         }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_force_link_pm_accept_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_set_const::<16usize, 1u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -4398,15 +4398,15 @@ impl usb_xhci_PORTPMSC_Bitmap__bindgen_ty_1 {
     ) -> __BindgenBitfieldUnit<[u8; 4usize]> {
         let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 4usize]> = Default::default();
         __bindgen_bitfield_unit.set_const::<0usize, 8u8>({
-            let u1_timeout: u32 = unsafe { ::std::mem::transmute(u1_timeout) };
+            let u1_timeout: u32 = unsafe { ::core::mem::transmute(u1_timeout) };
             u1_timeout as u64
         });
         __bindgen_bitfield_unit.set_const::<8usize, 8u8>({
-            let u2_timeout: u32 = unsafe { ::std::mem::transmute(u2_timeout) };
+            let u2_timeout: u32 = unsafe { ::core::mem::transmute(u2_timeout) };
             u2_timeout as u64
         });
         __bindgen_bitfield_unit.set_const::<16usize, 1u8>({
-            let force_link_pm_accept: u32 = unsafe { ::std::mem::transmute(force_link_pm_accept) };
+            let force_link_pm_accept: u32 = unsafe { ::core::mem::transmute(force_link_pm_accept) };
             force_link_pm_accept as u64
         });
         __bindgen_bitfield_unit
@@ -4427,13 +4427,13 @@ impl usb_xhci_PORTLI_Bitmap__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn link_error_count(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<0usize, 16u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<0usize, 16u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_link_error_count(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<0usize, 16u8>(val as u64)
         }
     }
@@ -4441,20 +4441,20 @@ impl usb_xhci_PORTLI_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn link_error_count_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(
-                <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<0usize, 16u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
-                ) as u32,
-            )
+            ::core::mem::transmute(<__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<
+                0usize,
+                16u8,
+            >(::core::ptr::addr_of!((*this)._bitfield_1))
+                as u32)
         }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_link_error_count_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_set_const::<0usize, 16u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -4462,13 +4462,13 @@ impl usb_xhci_PORTLI_Bitmap__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn rx_lane_count(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<16usize, 4u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<16usize, 4u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_rx_lane_count(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<16usize, 4u8>(val as u64)
         }
     }
@@ -4476,20 +4476,20 @@ impl usb_xhci_PORTLI_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn rx_lane_count_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(
-                <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<16usize, 4u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
-                ) as u32,
-            )
+            ::core::mem::transmute(<__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<
+                16usize,
+                4u8,
+            >(::core::ptr::addr_of!((*this)._bitfield_1))
+                as u32)
         }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_rx_lane_count_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_set_const::<16usize, 4u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -4497,13 +4497,13 @@ impl usb_xhci_PORTLI_Bitmap__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn tx_lane_count(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<20usize, 4u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<20usize, 4u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_tx_lane_count(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<20usize, 4u8>(val as u64)
         }
     }
@@ -4511,20 +4511,20 @@ impl usb_xhci_PORTLI_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn tx_lane_count_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(
-                <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<20usize, 4u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
-                ) as u32,
-            )
+            ::core::mem::transmute(<__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<
+                20usize,
+                4u8,
+            >(::core::ptr::addr_of!((*this)._bitfield_1))
+                as u32)
         }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_tx_lane_count_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_set_const::<20usize, 4u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -4538,15 +4538,15 @@ impl usb_xhci_PORTLI_Bitmap__bindgen_ty_1 {
     ) -> __BindgenBitfieldUnit<[u8; 4usize]> {
         let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 4usize]> = Default::default();
         __bindgen_bitfield_unit.set_const::<0usize, 16u8>({
-            let link_error_count: u32 = unsafe { ::std::mem::transmute(link_error_count) };
+            let link_error_count: u32 = unsafe { ::core::mem::transmute(link_error_count) };
             link_error_count as u64
         });
         __bindgen_bitfield_unit.set_const::<16usize, 4u8>({
-            let rx_lane_count: u32 = unsafe { ::std::mem::transmute(rx_lane_count) };
+            let rx_lane_count: u32 = unsafe { ::core::mem::transmute(rx_lane_count) };
             rx_lane_count as u64
         });
         __bindgen_bitfield_unit.set_const::<20usize, 4u8>({
-            let tx_lane_count: u32 = unsafe { ::std::mem::transmute(tx_lane_count) };
+            let tx_lane_count: u32 = unsafe { ::core::mem::transmute(tx_lane_count) };
             tx_lane_count as u64
         });
         __bindgen_bitfield_unit
@@ -4567,13 +4567,13 @@ impl usb_xhci_PORTHLPMC_Bitmap__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn host_initiated_resume_duration_mode(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<0usize, 2u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<0usize, 2u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_host_initiated_resume_duration_mode(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<0usize, 2u8>(val as u64)
         }
     }
@@ -4581,9 +4581,9 @@ impl usb_xhci_PORTHLPMC_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn host_initiated_resume_duration_mode_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(
+            ::core::mem::transmute(
                 <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<0usize, 2u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
+                    ::core::ptr::addr_of!((*this)._bitfield_1),
                 ) as u32,
             )
         }
@@ -4592,9 +4592,9 @@ impl usb_xhci_PORTHLPMC_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_host_initiated_resume_duration_mode_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_set_const::<0usize, 2u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -4602,13 +4602,13 @@ impl usb_xhci_PORTHLPMC_Bitmap__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn l1_timeout(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<2usize, 8u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<2usize, 8u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_l1_timeout(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<2usize, 8u8>(val as u64)
         }
     }
@@ -4616,9 +4616,9 @@ impl usb_xhci_PORTHLPMC_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn l1_timeout_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(
+            ::core::mem::transmute(
                 <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<2usize, 8u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
+                    ::core::ptr::addr_of!((*this)._bitfield_1),
                 ) as u32,
             )
         }
@@ -4627,9 +4627,9 @@ impl usb_xhci_PORTHLPMC_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_l1_timeout_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_set_const::<2usize, 8u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -4637,13 +4637,13 @@ impl usb_xhci_PORTHLPMC_Bitmap__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn best_effort_service_latency_deep(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<10usize, 4u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<10usize, 4u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_best_effort_service_latency_deep(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<10usize, 4u8>(val as u64)
         }
     }
@@ -4651,20 +4651,20 @@ impl usb_xhci_PORTHLPMC_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn best_effort_service_latency_deep_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(
-                <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<10usize, 4u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
-                ) as u32,
-            )
+            ::core::mem::transmute(<__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<
+                10usize,
+                4u8,
+            >(::core::ptr::addr_of!((*this)._bitfield_1))
+                as u32)
         }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_best_effort_service_latency_deep_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_set_const::<10usize, 4u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -4679,16 +4679,16 @@ impl usb_xhci_PORTHLPMC_Bitmap__bindgen_ty_1 {
         let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 4usize]> = Default::default();
         __bindgen_bitfield_unit.set_const::<0usize, 2u8>({
             let host_initiated_resume_duration_mode: u32 =
-                unsafe { ::std::mem::transmute(host_initiated_resume_duration_mode) };
+                unsafe { ::core::mem::transmute(host_initiated_resume_duration_mode) };
             host_initiated_resume_duration_mode as u64
         });
         __bindgen_bitfield_unit.set_const::<2usize, 8u8>({
-            let l1_timeout: u32 = unsafe { ::std::mem::transmute(l1_timeout) };
+            let l1_timeout: u32 = unsafe { ::core::mem::transmute(l1_timeout) };
             l1_timeout as u64
         });
         __bindgen_bitfield_unit.set_const::<10usize, 4u8>({
             let best_effort_service_latency_deep: u32 =
-                unsafe { ::std::mem::transmute(best_effort_service_latency_deep) };
+                unsafe { ::core::mem::transmute(best_effort_service_latency_deep) };
             best_effort_service_latency_deep as u64
         });
         __bindgen_bitfield_unit
@@ -4718,13 +4718,13 @@ impl usb_xhci_IMAN_Bitmap__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn interrupt_pending(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<0usize, 1u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<0usize, 1u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_interrupt_pending(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<0usize, 1u8>(val as u64)
         }
     }
@@ -4732,9 +4732,9 @@ impl usb_xhci_IMAN_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn interrupt_pending_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(
+            ::core::mem::transmute(
                 <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<0usize, 1u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
+                    ::core::ptr::addr_of!((*this)._bitfield_1),
                 ) as u32,
             )
         }
@@ -4743,9 +4743,9 @@ impl usb_xhci_IMAN_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_interrupt_pending_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_set_const::<0usize, 1u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -4753,13 +4753,13 @@ impl usb_xhci_IMAN_Bitmap__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn interrupt_enable(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<1usize, 1u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<1usize, 1u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_interrupt_enable(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<1usize, 1u8>(val as u64)
         }
     }
@@ -4767,9 +4767,9 @@ impl usb_xhci_IMAN_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn interrupt_enable_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(
+            ::core::mem::transmute(
                 <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<1usize, 1u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
+                    ::core::ptr::addr_of!((*this)._bitfield_1),
                 ) as u32,
             )
         }
@@ -4778,9 +4778,9 @@ impl usb_xhci_IMAN_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_interrupt_enable_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_set_const::<1usize, 1u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -4793,11 +4793,11 @@ impl usb_xhci_IMAN_Bitmap__bindgen_ty_1 {
     ) -> __BindgenBitfieldUnit<[u8; 4usize]> {
         let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 4usize]> = Default::default();
         __bindgen_bitfield_unit.set_const::<0usize, 1u8>({
-            let interrupt_pending: u32 = unsafe { ::std::mem::transmute(interrupt_pending) };
+            let interrupt_pending: u32 = unsafe { ::core::mem::transmute(interrupt_pending) };
             interrupt_pending as u64
         });
         __bindgen_bitfield_unit.set_const::<1usize, 1u8>({
-            let interrupt_enable: u32 = unsafe { ::std::mem::transmute(interrupt_enable) };
+            let interrupt_enable: u32 = unsafe { ::core::mem::transmute(interrupt_enable) };
             interrupt_enable as u64
         });
         __bindgen_bitfield_unit
@@ -4818,13 +4818,13 @@ impl usb_xhci_IMOD_Bitmap__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn interrupt_moderation_interval(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<0usize, 16u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<0usize, 16u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_interrupt_moderation_interval(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<0usize, 16u8>(val as u64)
         }
     }
@@ -4832,20 +4832,20 @@ impl usb_xhci_IMOD_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn interrupt_moderation_interval_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(
-                <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<0usize, 16u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
-                ) as u32,
-            )
+            ::core::mem::transmute(<__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<
+                0usize,
+                16u8,
+            >(::core::ptr::addr_of!((*this)._bitfield_1))
+                as u32)
         }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_interrupt_moderation_interval_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_set_const::<0usize, 16u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -4853,13 +4853,13 @@ impl usb_xhci_IMOD_Bitmap__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn interrupt_moderation_counter(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<16usize, 16u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<16usize, 16u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_interrupt_moderation_counter(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<16usize, 16u8>(val as u64)
         }
     }
@@ -4867,10 +4867,10 @@ impl usb_xhci_IMOD_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn interrupt_moderation_counter_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(<__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<
+            ::core::mem::transmute(<__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<
                 16usize,
                 16u8,
-            >(::std::ptr::addr_of!((*this)._bitfield_1))
+            >(::core::ptr::addr_of!((*this)._bitfield_1))
                 as u32)
         }
     }
@@ -4878,9 +4878,9 @@ impl usb_xhci_IMOD_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_interrupt_moderation_counter_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_set_const::<16usize, 16u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -4894,12 +4894,12 @@ impl usb_xhci_IMOD_Bitmap__bindgen_ty_1 {
         let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 4usize]> = Default::default();
         __bindgen_bitfield_unit.set_const::<0usize, 16u8>({
             let interrupt_moderation_interval: u32 =
-                unsafe { ::std::mem::transmute(interrupt_moderation_interval) };
+                unsafe { ::core::mem::transmute(interrupt_moderation_interval) };
             interrupt_moderation_interval as u64
         });
         __bindgen_bitfield_unit.set_const::<16usize, 16u8>({
             let interrupt_moderation_counter: u32 =
-                unsafe { ::std::mem::transmute(interrupt_moderation_counter) };
+                unsafe { ::core::mem::transmute(interrupt_moderation_counter) };
             interrupt_moderation_counter as u64
         });
         __bindgen_bitfield_unit
@@ -4920,13 +4920,13 @@ impl usb_xhci_ERSTSZ_Bitmap__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn event_ring_segment_table_size(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<0usize, 16u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<0usize, 16u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_event_ring_segment_table_size(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<0usize, 16u8>(val as u64)
         }
     }
@@ -4934,20 +4934,20 @@ impl usb_xhci_ERSTSZ_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn event_ring_segment_table_size_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(
-                <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<0usize, 16u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
-                ) as u32,
-            )
+            ::core::mem::transmute(<__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<
+                0usize,
+                16u8,
+            >(::core::ptr::addr_of!((*this)._bitfield_1))
+                as u32)
         }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_event_ring_segment_table_size_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_set_const::<0usize, 16u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -4960,7 +4960,7 @@ impl usb_xhci_ERSTSZ_Bitmap__bindgen_ty_1 {
         let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 4usize]> = Default::default();
         __bindgen_bitfield_unit.set_const::<0usize, 16u8>({
             let event_ring_segment_table_size: u32 =
-                unsafe { ::std::mem::transmute(event_ring_segment_table_size) };
+                unsafe { ::core::mem::transmute(event_ring_segment_table_size) };
             event_ring_segment_table_size as u64
         });
         __bindgen_bitfield_unit
@@ -4981,13 +4981,13 @@ impl usb_xhci_ERSTBA_Bitmap__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn event_ring_segment_table_base_address(&self) -> u64 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<6usize, 58u8>() as u64) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<6usize, 58u8>() as u64) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_event_ring_segment_table_base_address(&mut self, val: u64) {
         unsafe {
-            let val: u64 = ::std::mem::transmute(val);
+            let val: u64 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<6usize, 58u8>(val as u64)
         }
     }
@@ -4995,20 +4995,20 @@ impl usb_xhci_ERSTBA_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn event_ring_segment_table_base_address_raw(this: *const Self) -> u64 {
         unsafe {
-            ::std::mem::transmute(
-                <__BindgenBitfieldUnit<[u8; 8usize]>>::raw_get_const::<6usize, 58u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
-                ) as u64,
-            )
+            ::core::mem::transmute(<__BindgenBitfieldUnit<[u8; 8usize]>>::raw_get_const::<
+                6usize,
+                58u8,
+            >(::core::ptr::addr_of!((*this)._bitfield_1))
+                as u64)
         }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_event_ring_segment_table_base_address_raw(this: *mut Self, val: u64) {
         unsafe {
-            let val: u64 = ::std::mem::transmute(val);
+            let val: u64 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 8usize]>>::raw_set_const::<6usize, 58u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -5021,7 +5021,7 @@ impl usb_xhci_ERSTBA_Bitmap__bindgen_ty_1 {
         let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 8usize]> = Default::default();
         __bindgen_bitfield_unit.set_const::<6usize, 58u8>({
             let event_ring_segment_table_base_address: u64 =
-                unsafe { ::std::mem::transmute(event_ring_segment_table_base_address) };
+                unsafe { ::core::mem::transmute(event_ring_segment_table_base_address) };
             event_ring_segment_table_base_address as u64
         });
         __bindgen_bitfield_unit
@@ -5042,13 +5042,13 @@ impl usb_xhci_ERDP_Bitmap__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn dequeue_erst_segment_index(&self) -> u64 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<0usize, 3u8>() as u64) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<0usize, 3u8>() as u64) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_dequeue_erst_segment_index(&mut self, val: u64) {
         unsafe {
-            let val: u64 = ::std::mem::transmute(val);
+            let val: u64 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<0usize, 3u8>(val as u64)
         }
     }
@@ -5056,9 +5056,9 @@ impl usb_xhci_ERDP_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn dequeue_erst_segment_index_raw(this: *const Self) -> u64 {
         unsafe {
-            ::std::mem::transmute(
+            ::core::mem::transmute(
                 <__BindgenBitfieldUnit<[u8; 8usize]>>::raw_get_const::<0usize, 3u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
+                    ::core::ptr::addr_of!((*this)._bitfield_1),
                 ) as u64,
             )
         }
@@ -5067,9 +5067,9 @@ impl usb_xhci_ERDP_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_dequeue_erst_segment_index_raw(this: *mut Self, val: u64) {
         unsafe {
-            let val: u64 = ::std::mem::transmute(val);
+            let val: u64 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 8usize]>>::raw_set_const::<0usize, 3u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -5077,13 +5077,13 @@ impl usb_xhci_ERDP_Bitmap__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn event_handler_busy(&self) -> u64 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<3usize, 1u8>() as u64) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<3usize, 1u8>() as u64) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_event_handler_busy(&mut self, val: u64) {
         unsafe {
-            let val: u64 = ::std::mem::transmute(val);
+            let val: u64 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<3usize, 1u8>(val as u64)
         }
     }
@@ -5091,9 +5091,9 @@ impl usb_xhci_ERDP_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn event_handler_busy_raw(this: *const Self) -> u64 {
         unsafe {
-            ::std::mem::transmute(
+            ::core::mem::transmute(
                 <__BindgenBitfieldUnit<[u8; 8usize]>>::raw_get_const::<3usize, 1u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
+                    ::core::ptr::addr_of!((*this)._bitfield_1),
                 ) as u64,
             )
         }
@@ -5102,9 +5102,9 @@ impl usb_xhci_ERDP_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_event_handler_busy_raw(this: *mut Self, val: u64) {
         unsafe {
-            let val: u64 = ::std::mem::transmute(val);
+            let val: u64 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 8usize]>>::raw_set_const::<3usize, 1u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -5112,13 +5112,13 @@ impl usb_xhci_ERDP_Bitmap__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn event_ring_dequeue_pointer(&self) -> u64 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<4usize, 60u8>() as u64) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<4usize, 60u8>() as u64) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_event_ring_dequeue_pointer(&mut self, val: u64) {
         unsafe {
-            let val: u64 = ::std::mem::transmute(val);
+            let val: u64 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<4usize, 60u8>(val as u64)
         }
     }
@@ -5126,20 +5126,20 @@ impl usb_xhci_ERDP_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn event_ring_dequeue_pointer_raw(this: *const Self) -> u64 {
         unsafe {
-            ::std::mem::transmute(
-                <__BindgenBitfieldUnit<[u8; 8usize]>>::raw_get_const::<4usize, 60u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
-                ) as u64,
-            )
+            ::core::mem::transmute(<__BindgenBitfieldUnit<[u8; 8usize]>>::raw_get_const::<
+                4usize,
+                60u8,
+            >(::core::ptr::addr_of!((*this)._bitfield_1))
+                as u64)
         }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_event_ring_dequeue_pointer_raw(this: *mut Self, val: u64) {
         unsafe {
-            let val: u64 = ::std::mem::transmute(val);
+            let val: u64 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 8usize]>>::raw_set_const::<4usize, 60u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -5154,16 +5154,16 @@ impl usb_xhci_ERDP_Bitmap__bindgen_ty_1 {
         let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 8usize]> = Default::default();
         __bindgen_bitfield_unit.set_const::<0usize, 3u8>({
             let dequeue_erst_segment_index: u64 =
-                unsafe { ::std::mem::transmute(dequeue_erst_segment_index) };
+                unsafe { ::core::mem::transmute(dequeue_erst_segment_index) };
             dequeue_erst_segment_index as u64
         });
         __bindgen_bitfield_unit.set_const::<3usize, 1u8>({
-            let event_handler_busy: u64 = unsafe { ::std::mem::transmute(event_handler_busy) };
+            let event_handler_busy: u64 = unsafe { ::core::mem::transmute(event_handler_busy) };
             event_handler_busy as u64
         });
         __bindgen_bitfield_unit.set_const::<4usize, 60u8>({
             let event_ring_dequeue_pointer: u64 =
-                unsafe { ::std::mem::transmute(event_ring_dequeue_pointer) };
+                unsafe { ::core::mem::transmute(event_ring_dequeue_pointer) };
             event_ring_dequeue_pointer as u64
         });
         __bindgen_bitfield_unit
@@ -5195,13 +5195,13 @@ impl usb_xhci_Doorbell_Bitmap__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn db_target(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<0usize, 8u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<0usize, 8u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_db_target(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<0usize, 8u8>(val as u64)
         }
     }
@@ -5209,9 +5209,9 @@ impl usb_xhci_Doorbell_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn db_target_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(
+            ::core::mem::transmute(
                 <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<0usize, 8u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
+                    ::core::ptr::addr_of!((*this)._bitfield_1),
                 ) as u32,
             )
         }
@@ -5220,9 +5220,9 @@ impl usb_xhci_Doorbell_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_db_target_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_set_const::<0usize, 8u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -5230,13 +5230,13 @@ impl usb_xhci_Doorbell_Bitmap__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn db_stream_id(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<16usize, 16u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<16usize, 16u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_db_stream_id(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<16usize, 16u8>(val as u64)
         }
     }
@@ -5244,10 +5244,10 @@ impl usb_xhci_Doorbell_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn db_stream_id_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(<__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<
+            ::core::mem::transmute(<__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<
                 16usize,
                 16u8,
-            >(::std::ptr::addr_of!((*this)._bitfield_1))
+            >(::core::ptr::addr_of!((*this)._bitfield_1))
                 as u32)
         }
     }
@@ -5255,9 +5255,9 @@ impl usb_xhci_Doorbell_Bitmap__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_db_stream_id_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_set_const::<16usize, 16u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -5270,11 +5270,11 @@ impl usb_xhci_Doorbell_Bitmap__bindgen_ty_1 {
     ) -> __BindgenBitfieldUnit<[u8; 4usize]> {
         let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 4usize]> = Default::default();
         __bindgen_bitfield_unit.set_const::<0usize, 8u8>({
-            let db_target: u32 = unsafe { ::std::mem::transmute(db_target) };
+            let db_target: u32 = unsafe { ::core::mem::transmute(db_target) };
             db_target as u64
         });
         __bindgen_bitfield_unit.set_const::<16usize, 16u8>({
-            let db_stream_id: u32 = unsafe { ::std::mem::transmute(db_stream_id) };
+            let db_stream_id: u32 = unsafe { ::core::mem::transmute(db_stream_id) };
             db_stream_id as u64
         });
         __bindgen_bitfield_unit
@@ -5301,13 +5301,13 @@ impl usb_xhci_SlotContext__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn route_string(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<0usize, 20u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<0usize, 20u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_route_string(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<0usize, 20u8>(val as u64)
         }
     }
@@ -5315,10 +5315,10 @@ impl usb_xhci_SlotContext__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn route_string_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(<__BindgenBitfieldUnit<[u8; 16usize]>>::raw_get_const::<
+            ::core::mem::transmute(<__BindgenBitfieldUnit<[u8; 16usize]>>::raw_get_const::<
                 0usize,
                 20u8,
-            >(::std::ptr::addr_of!((*this)._bitfield_1))
+            >(::core::ptr::addr_of!((*this)._bitfield_1))
                 as u32)
         }
     }
@@ -5326,9 +5326,9 @@ impl usb_xhci_SlotContext__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_route_string_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 16usize]>>::raw_set_const::<0usize, 20u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -5336,13 +5336,13 @@ impl usb_xhci_SlotContext__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn speed(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<20usize, 4u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<20usize, 4u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_speed(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<20usize, 4u8>(val as u64)
         }
     }
@@ -5350,10 +5350,10 @@ impl usb_xhci_SlotContext__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn speed_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(<__BindgenBitfieldUnit<[u8; 16usize]>>::raw_get_const::<
+            ::core::mem::transmute(<__BindgenBitfieldUnit<[u8; 16usize]>>::raw_get_const::<
                 20usize,
                 4u8,
-            >(::std::ptr::addr_of!((*this)._bitfield_1))
+            >(::core::ptr::addr_of!((*this)._bitfield_1))
                 as u32)
         }
     }
@@ -5361,9 +5361,9 @@ impl usb_xhci_SlotContext__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_speed_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 16usize]>>::raw_set_const::<20usize, 4u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -5371,13 +5371,13 @@ impl usb_xhci_SlotContext__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn mtt(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<25usize, 1u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<25usize, 1u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_mtt(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<25usize, 1u8>(val as u64)
         }
     }
@@ -5385,10 +5385,10 @@ impl usb_xhci_SlotContext__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn mtt_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(<__BindgenBitfieldUnit<[u8; 16usize]>>::raw_get_const::<
+            ::core::mem::transmute(<__BindgenBitfieldUnit<[u8; 16usize]>>::raw_get_const::<
                 25usize,
                 1u8,
-            >(::std::ptr::addr_of!((*this)._bitfield_1))
+            >(::core::ptr::addr_of!((*this)._bitfield_1))
                 as u32)
         }
     }
@@ -5396,9 +5396,9 @@ impl usb_xhci_SlotContext__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_mtt_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 16usize]>>::raw_set_const::<25usize, 1u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -5406,13 +5406,13 @@ impl usb_xhci_SlotContext__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn hub(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<26usize, 1u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<26usize, 1u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_hub(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<26usize, 1u8>(val as u64)
         }
     }
@@ -5420,10 +5420,10 @@ impl usb_xhci_SlotContext__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn hub_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(<__BindgenBitfieldUnit<[u8; 16usize]>>::raw_get_const::<
+            ::core::mem::transmute(<__BindgenBitfieldUnit<[u8; 16usize]>>::raw_get_const::<
                 26usize,
                 1u8,
-            >(::std::ptr::addr_of!((*this)._bitfield_1))
+            >(::core::ptr::addr_of!((*this)._bitfield_1))
                 as u32)
         }
     }
@@ -5431,9 +5431,9 @@ impl usb_xhci_SlotContext__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_hub_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 16usize]>>::raw_set_const::<26usize, 1u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -5441,13 +5441,13 @@ impl usb_xhci_SlotContext__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn context_entries(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<27usize, 5u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<27usize, 5u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_context_entries(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<27usize, 5u8>(val as u64)
         }
     }
@@ -5455,10 +5455,10 @@ impl usb_xhci_SlotContext__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn context_entries_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(<__BindgenBitfieldUnit<[u8; 16usize]>>::raw_get_const::<
+            ::core::mem::transmute(<__BindgenBitfieldUnit<[u8; 16usize]>>::raw_get_const::<
                 27usize,
                 5u8,
-            >(::std::ptr::addr_of!((*this)._bitfield_1))
+            >(::core::ptr::addr_of!((*this)._bitfield_1))
                 as u32)
         }
     }
@@ -5466,9 +5466,9 @@ impl usb_xhci_SlotContext__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_context_entries_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 16usize]>>::raw_set_const::<27usize, 5u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -5476,13 +5476,13 @@ impl usb_xhci_SlotContext__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn max_exit_latency(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<32usize, 16u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<32usize, 16u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_max_exit_latency(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<32usize, 16u8>(val as u64)
         }
     }
@@ -5490,10 +5490,10 @@ impl usb_xhci_SlotContext__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn max_exit_latency_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(<__BindgenBitfieldUnit<[u8; 16usize]>>::raw_get_const::<
+            ::core::mem::transmute(<__BindgenBitfieldUnit<[u8; 16usize]>>::raw_get_const::<
                 32usize,
                 16u8,
-            >(::std::ptr::addr_of!((*this)._bitfield_1))
+            >(::core::ptr::addr_of!((*this)._bitfield_1))
                 as u32)
         }
     }
@@ -5501,9 +5501,9 @@ impl usb_xhci_SlotContext__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_max_exit_latency_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 16usize]>>::raw_set_const::<32usize, 16u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -5511,13 +5511,13 @@ impl usb_xhci_SlotContext__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn root_hub_port_num(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<48usize, 8u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<48usize, 8u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_root_hub_port_num(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<48usize, 8u8>(val as u64)
         }
     }
@@ -5525,10 +5525,10 @@ impl usb_xhci_SlotContext__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn root_hub_port_num_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(<__BindgenBitfieldUnit<[u8; 16usize]>>::raw_get_const::<
+            ::core::mem::transmute(<__BindgenBitfieldUnit<[u8; 16usize]>>::raw_get_const::<
                 48usize,
                 8u8,
-            >(::std::ptr::addr_of!((*this)._bitfield_1))
+            >(::core::ptr::addr_of!((*this)._bitfield_1))
                 as u32)
         }
     }
@@ -5536,9 +5536,9 @@ impl usb_xhci_SlotContext__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_root_hub_port_num_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 16usize]>>::raw_set_const::<48usize, 8u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -5546,13 +5546,13 @@ impl usb_xhci_SlotContext__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn num_ports(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<56usize, 8u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<56usize, 8u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_num_ports(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<56usize, 8u8>(val as u64)
         }
     }
@@ -5560,10 +5560,10 @@ impl usb_xhci_SlotContext__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn num_ports_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(<__BindgenBitfieldUnit<[u8; 16usize]>>::raw_get_const::<
+            ::core::mem::transmute(<__BindgenBitfieldUnit<[u8; 16usize]>>::raw_get_const::<
                 56usize,
                 8u8,
-            >(::std::ptr::addr_of!((*this)._bitfield_1))
+            >(::core::ptr::addr_of!((*this)._bitfield_1))
                 as u32)
         }
     }
@@ -5571,9 +5571,9 @@ impl usb_xhci_SlotContext__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_num_ports_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 16usize]>>::raw_set_const::<56usize, 8u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -5581,13 +5581,13 @@ impl usb_xhci_SlotContext__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn tt_hub_slot_id(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<64usize, 8u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<64usize, 8u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_tt_hub_slot_id(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<64usize, 8u8>(val as u64)
         }
     }
@@ -5595,10 +5595,10 @@ impl usb_xhci_SlotContext__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn tt_hub_slot_id_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(<__BindgenBitfieldUnit<[u8; 16usize]>>::raw_get_const::<
+            ::core::mem::transmute(<__BindgenBitfieldUnit<[u8; 16usize]>>::raw_get_const::<
                 64usize,
                 8u8,
-            >(::std::ptr::addr_of!((*this)._bitfield_1))
+            >(::core::ptr::addr_of!((*this)._bitfield_1))
                 as u32)
         }
     }
@@ -5606,9 +5606,9 @@ impl usb_xhci_SlotContext__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_tt_hub_slot_id_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 16usize]>>::raw_set_const::<64usize, 8u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -5616,13 +5616,13 @@ impl usb_xhci_SlotContext__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn tt_port_num(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<72usize, 8u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<72usize, 8u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_tt_port_num(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<72usize, 8u8>(val as u64)
         }
     }
@@ -5630,10 +5630,10 @@ impl usb_xhci_SlotContext__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn tt_port_num_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(<__BindgenBitfieldUnit<[u8; 16usize]>>::raw_get_const::<
+            ::core::mem::transmute(<__BindgenBitfieldUnit<[u8; 16usize]>>::raw_get_const::<
                 72usize,
                 8u8,
-            >(::std::ptr::addr_of!((*this)._bitfield_1))
+            >(::core::ptr::addr_of!((*this)._bitfield_1))
                 as u32)
         }
     }
@@ -5641,9 +5641,9 @@ impl usb_xhci_SlotContext__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_tt_port_num_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 16usize]>>::raw_set_const::<72usize, 8u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -5651,13 +5651,13 @@ impl usb_xhci_SlotContext__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn ttt(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<80usize, 2u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<80usize, 2u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_ttt(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<80usize, 2u8>(val as u64)
         }
     }
@@ -5665,10 +5665,10 @@ impl usb_xhci_SlotContext__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn ttt_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(<__BindgenBitfieldUnit<[u8; 16usize]>>::raw_get_const::<
+            ::core::mem::transmute(<__BindgenBitfieldUnit<[u8; 16usize]>>::raw_get_const::<
                 80usize,
                 2u8,
-            >(::std::ptr::addr_of!((*this)._bitfield_1))
+            >(::core::ptr::addr_of!((*this)._bitfield_1))
                 as u32)
         }
     }
@@ -5676,9 +5676,9 @@ impl usb_xhci_SlotContext__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_ttt_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 16usize]>>::raw_set_const::<80usize, 2u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -5686,13 +5686,13 @@ impl usb_xhci_SlotContext__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn interrupter_target(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<86usize, 10u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<86usize, 10u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_interrupter_target(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<86usize, 10u8>(val as u64)
         }
     }
@@ -5700,10 +5700,10 @@ impl usb_xhci_SlotContext__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn interrupter_target_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(<__BindgenBitfieldUnit<[u8; 16usize]>>::raw_get_const::<
+            ::core::mem::transmute(<__BindgenBitfieldUnit<[u8; 16usize]>>::raw_get_const::<
                 86usize,
                 10u8,
-            >(::std::ptr::addr_of!((*this)._bitfield_1))
+            >(::core::ptr::addr_of!((*this)._bitfield_1))
                 as u32)
         }
     }
@@ -5711,9 +5711,9 @@ impl usb_xhci_SlotContext__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_interrupter_target_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 16usize]>>::raw_set_const::<86usize, 10u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -5721,13 +5721,13 @@ impl usb_xhci_SlotContext__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn usb_device_address(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<96usize, 8u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<96usize, 8u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_usb_device_address(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<96usize, 8u8>(val as u64)
         }
     }
@@ -5735,10 +5735,10 @@ impl usb_xhci_SlotContext__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn usb_device_address_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(<__BindgenBitfieldUnit<[u8; 16usize]>>::raw_get_const::<
+            ::core::mem::transmute(<__BindgenBitfieldUnit<[u8; 16usize]>>::raw_get_const::<
                 96usize,
                 8u8,
-            >(::std::ptr::addr_of!((*this)._bitfield_1))
+            >(::core::ptr::addr_of!((*this)._bitfield_1))
                 as u32)
         }
     }
@@ -5746,9 +5746,9 @@ impl usb_xhci_SlotContext__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_usb_device_address_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 16usize]>>::raw_set_const::<96usize, 8u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -5756,13 +5756,13 @@ impl usb_xhci_SlotContext__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn slot_state(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<123usize, 5u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<123usize, 5u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_slot_state(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<123usize, 5u8>(val as u64)
         }
     }
@@ -5770,10 +5770,10 @@ impl usb_xhci_SlotContext__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn slot_state_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(<__BindgenBitfieldUnit<[u8; 16usize]>>::raw_get_const::<
+            ::core::mem::transmute(<__BindgenBitfieldUnit<[u8; 16usize]>>::raw_get_const::<
                 123usize,
                 5u8,
-            >(::std::ptr::addr_of!((*this)._bitfield_1))
+            >(::core::ptr::addr_of!((*this)._bitfield_1))
                 as u32)
         }
     }
@@ -5781,9 +5781,9 @@ impl usb_xhci_SlotContext__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_slot_state_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 16usize]>>::raw_set_const::<123usize, 5u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -5808,59 +5808,59 @@ impl usb_xhci_SlotContext__bindgen_ty_1 {
     ) -> __BindgenBitfieldUnit<[u8; 16usize]> {
         let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 16usize]> = Default::default();
         __bindgen_bitfield_unit.set_const::<0usize, 20u8>({
-            let route_string: u32 = unsafe { ::std::mem::transmute(route_string) };
+            let route_string: u32 = unsafe { ::core::mem::transmute(route_string) };
             route_string as u64
         });
         __bindgen_bitfield_unit.set_const::<20usize, 4u8>({
-            let speed: u32 = unsafe { ::std::mem::transmute(speed) };
+            let speed: u32 = unsafe { ::core::mem::transmute(speed) };
             speed as u64
         });
         __bindgen_bitfield_unit.set_const::<25usize, 1u8>({
-            let mtt: u32 = unsafe { ::std::mem::transmute(mtt) };
+            let mtt: u32 = unsafe { ::core::mem::transmute(mtt) };
             mtt as u64
         });
         __bindgen_bitfield_unit.set_const::<26usize, 1u8>({
-            let hub: u32 = unsafe { ::std::mem::transmute(hub) };
+            let hub: u32 = unsafe { ::core::mem::transmute(hub) };
             hub as u64
         });
         __bindgen_bitfield_unit.set_const::<27usize, 5u8>({
-            let context_entries: u32 = unsafe { ::std::mem::transmute(context_entries) };
+            let context_entries: u32 = unsafe { ::core::mem::transmute(context_entries) };
             context_entries as u64
         });
         __bindgen_bitfield_unit.set_const::<32usize, 16u8>({
-            let max_exit_latency: u32 = unsafe { ::std::mem::transmute(max_exit_latency) };
+            let max_exit_latency: u32 = unsafe { ::core::mem::transmute(max_exit_latency) };
             max_exit_latency as u64
         });
         __bindgen_bitfield_unit.set_const::<48usize, 8u8>({
-            let root_hub_port_num: u32 = unsafe { ::std::mem::transmute(root_hub_port_num) };
+            let root_hub_port_num: u32 = unsafe { ::core::mem::transmute(root_hub_port_num) };
             root_hub_port_num as u64
         });
         __bindgen_bitfield_unit.set_const::<56usize, 8u8>({
-            let num_ports: u32 = unsafe { ::std::mem::transmute(num_ports) };
+            let num_ports: u32 = unsafe { ::core::mem::transmute(num_ports) };
             num_ports as u64
         });
         __bindgen_bitfield_unit.set_const::<64usize, 8u8>({
-            let tt_hub_slot_id: u32 = unsafe { ::std::mem::transmute(tt_hub_slot_id) };
+            let tt_hub_slot_id: u32 = unsafe { ::core::mem::transmute(tt_hub_slot_id) };
             tt_hub_slot_id as u64
         });
         __bindgen_bitfield_unit.set_const::<72usize, 8u8>({
-            let tt_port_num: u32 = unsafe { ::std::mem::transmute(tt_port_num) };
+            let tt_port_num: u32 = unsafe { ::core::mem::transmute(tt_port_num) };
             tt_port_num as u64
         });
         __bindgen_bitfield_unit.set_const::<80usize, 2u8>({
-            let ttt: u32 = unsafe { ::std::mem::transmute(ttt) };
+            let ttt: u32 = unsafe { ::core::mem::transmute(ttt) };
             ttt as u64
         });
         __bindgen_bitfield_unit.set_const::<86usize, 10u8>({
-            let interrupter_target: u32 = unsafe { ::std::mem::transmute(interrupter_target) };
+            let interrupter_target: u32 = unsafe { ::core::mem::transmute(interrupter_target) };
             interrupter_target as u64
         });
         __bindgen_bitfield_unit.set_const::<96usize, 8u8>({
-            let usb_device_address: u32 = unsafe { ::std::mem::transmute(usb_device_address) };
+            let usb_device_address: u32 = unsafe { ::core::mem::transmute(usb_device_address) };
             usb_device_address as u64
         });
         __bindgen_bitfield_unit.set_const::<123usize, 5u8>({
-            let slot_state: u32 = unsafe { ::std::mem::transmute(slot_state) };
+            let slot_state: u32 = unsafe { ::core::mem::transmute(slot_state) };
             slot_state as u64
         });
         __bindgen_bitfield_unit
@@ -5881,13 +5881,13 @@ impl usb_xhci_EndpointContext__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn ep_state(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<0usize, 3u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<0usize, 3u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_ep_state(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<0usize, 3u8>(val as u64)
         }
     }
@@ -5895,20 +5895,20 @@ impl usb_xhci_EndpointContext__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn ep_state_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(
-                <__BindgenBitfieldUnit<[u8; 20usize]>>::raw_get_const::<0usize, 3u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
-                ) as u32,
-            )
+            ::core::mem::transmute(<__BindgenBitfieldUnit<[u8; 20usize]>>::raw_get_const::<
+                0usize,
+                3u8,
+            >(::core::ptr::addr_of!((*this)._bitfield_1))
+                as u32)
         }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_ep_state_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 20usize]>>::raw_set_const::<0usize, 3u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -5916,13 +5916,13 @@ impl usb_xhci_EndpointContext__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn mult(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<8usize, 2u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<8usize, 2u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_mult(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<8usize, 2u8>(val as u64)
         }
     }
@@ -5930,20 +5930,20 @@ impl usb_xhci_EndpointContext__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn mult_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(
-                <__BindgenBitfieldUnit<[u8; 20usize]>>::raw_get_const::<8usize, 2u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
-                ) as u32,
-            )
+            ::core::mem::transmute(<__BindgenBitfieldUnit<[u8; 20usize]>>::raw_get_const::<
+                8usize,
+                2u8,
+            >(::core::ptr::addr_of!((*this)._bitfield_1))
+                as u32)
         }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_mult_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 20usize]>>::raw_set_const::<8usize, 2u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -5951,13 +5951,13 @@ impl usb_xhci_EndpointContext__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn max_primary_streams(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<10usize, 5u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<10usize, 5u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_max_primary_streams(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<10usize, 5u8>(val as u64)
         }
     }
@@ -5965,10 +5965,10 @@ impl usb_xhci_EndpointContext__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn max_primary_streams_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(<__BindgenBitfieldUnit<[u8; 20usize]>>::raw_get_const::<
+            ::core::mem::transmute(<__BindgenBitfieldUnit<[u8; 20usize]>>::raw_get_const::<
                 10usize,
                 5u8,
-            >(::std::ptr::addr_of!((*this)._bitfield_1))
+            >(::core::ptr::addr_of!((*this)._bitfield_1))
                 as u32)
         }
     }
@@ -5976,9 +5976,9 @@ impl usb_xhci_EndpointContext__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_max_primary_streams_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 20usize]>>::raw_set_const::<10usize, 5u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -5986,13 +5986,13 @@ impl usb_xhci_EndpointContext__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn linear_stream_array(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<15usize, 1u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<15usize, 1u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_linear_stream_array(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<15usize, 1u8>(val as u64)
         }
     }
@@ -6000,10 +6000,10 @@ impl usb_xhci_EndpointContext__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn linear_stream_array_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(<__BindgenBitfieldUnit<[u8; 20usize]>>::raw_get_const::<
+            ::core::mem::transmute(<__BindgenBitfieldUnit<[u8; 20usize]>>::raw_get_const::<
                 15usize,
                 1u8,
-            >(::std::ptr::addr_of!((*this)._bitfield_1))
+            >(::core::ptr::addr_of!((*this)._bitfield_1))
                 as u32)
         }
     }
@@ -6011,9 +6011,9 @@ impl usb_xhci_EndpointContext__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_linear_stream_array_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 20usize]>>::raw_set_const::<15usize, 1u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -6021,13 +6021,13 @@ impl usb_xhci_EndpointContext__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn interval(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<16usize, 8u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<16usize, 8u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_interval(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<16usize, 8u8>(val as u64)
         }
     }
@@ -6035,10 +6035,10 @@ impl usb_xhci_EndpointContext__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn interval_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(<__BindgenBitfieldUnit<[u8; 20usize]>>::raw_get_const::<
+            ::core::mem::transmute(<__BindgenBitfieldUnit<[u8; 20usize]>>::raw_get_const::<
                 16usize,
                 8u8,
-            >(::std::ptr::addr_of!((*this)._bitfield_1))
+            >(::core::ptr::addr_of!((*this)._bitfield_1))
                 as u32)
         }
     }
@@ -6046,9 +6046,9 @@ impl usb_xhci_EndpointContext__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_interval_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 20usize]>>::raw_set_const::<16usize, 8u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -6056,13 +6056,13 @@ impl usb_xhci_EndpointContext__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn max_esit_payload_hi(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<24usize, 8u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<24usize, 8u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_max_esit_payload_hi(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<24usize, 8u8>(val as u64)
         }
     }
@@ -6070,10 +6070,10 @@ impl usb_xhci_EndpointContext__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn max_esit_payload_hi_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(<__BindgenBitfieldUnit<[u8; 20usize]>>::raw_get_const::<
+            ::core::mem::transmute(<__BindgenBitfieldUnit<[u8; 20usize]>>::raw_get_const::<
                 24usize,
                 8u8,
-            >(::std::ptr::addr_of!((*this)._bitfield_1))
+            >(::core::ptr::addr_of!((*this)._bitfield_1))
                 as u32)
         }
     }
@@ -6081,9 +6081,9 @@ impl usb_xhci_EndpointContext__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_max_esit_payload_hi_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 20usize]>>::raw_set_const::<24usize, 8u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -6091,13 +6091,13 @@ impl usb_xhci_EndpointContext__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn error_count(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<33usize, 2u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<33usize, 2u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_error_count(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<33usize, 2u8>(val as u64)
         }
     }
@@ -6105,10 +6105,10 @@ impl usb_xhci_EndpointContext__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn error_count_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(<__BindgenBitfieldUnit<[u8; 20usize]>>::raw_get_const::<
+            ::core::mem::transmute(<__BindgenBitfieldUnit<[u8; 20usize]>>::raw_get_const::<
                 33usize,
                 2u8,
-            >(::std::ptr::addr_of!((*this)._bitfield_1))
+            >(::core::ptr::addr_of!((*this)._bitfield_1))
                 as u32)
         }
     }
@@ -6116,9 +6116,9 @@ impl usb_xhci_EndpointContext__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_error_count_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 20usize]>>::raw_set_const::<33usize, 2u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -6126,13 +6126,13 @@ impl usb_xhci_EndpointContext__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn ep_type(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<35usize, 3u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<35usize, 3u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_ep_type(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<35usize, 3u8>(val as u64)
         }
     }
@@ -6140,10 +6140,10 @@ impl usb_xhci_EndpointContext__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn ep_type_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(<__BindgenBitfieldUnit<[u8; 20usize]>>::raw_get_const::<
+            ::core::mem::transmute(<__BindgenBitfieldUnit<[u8; 20usize]>>::raw_get_const::<
                 35usize,
                 3u8,
-            >(::std::ptr::addr_of!((*this)._bitfield_1))
+            >(::core::ptr::addr_of!((*this)._bitfield_1))
                 as u32)
         }
     }
@@ -6151,9 +6151,9 @@ impl usb_xhci_EndpointContext__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_ep_type_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 20usize]>>::raw_set_const::<35usize, 3u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -6161,13 +6161,13 @@ impl usb_xhci_EndpointContext__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn host_initiate_disable(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<39usize, 1u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<39usize, 1u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_host_initiate_disable(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<39usize, 1u8>(val as u64)
         }
     }
@@ -6175,10 +6175,10 @@ impl usb_xhci_EndpointContext__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn host_initiate_disable_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(<__BindgenBitfieldUnit<[u8; 20usize]>>::raw_get_const::<
+            ::core::mem::transmute(<__BindgenBitfieldUnit<[u8; 20usize]>>::raw_get_const::<
                 39usize,
                 1u8,
-            >(::std::ptr::addr_of!((*this)._bitfield_1))
+            >(::core::ptr::addr_of!((*this)._bitfield_1))
                 as u32)
         }
     }
@@ -6186,9 +6186,9 @@ impl usb_xhci_EndpointContext__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_host_initiate_disable_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 20usize]>>::raw_set_const::<39usize, 1u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -6196,13 +6196,13 @@ impl usb_xhci_EndpointContext__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn max_burst_size(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<40usize, 8u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<40usize, 8u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_max_burst_size(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<40usize, 8u8>(val as u64)
         }
     }
@@ -6210,10 +6210,10 @@ impl usb_xhci_EndpointContext__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn max_burst_size_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(<__BindgenBitfieldUnit<[u8; 20usize]>>::raw_get_const::<
+            ::core::mem::transmute(<__BindgenBitfieldUnit<[u8; 20usize]>>::raw_get_const::<
                 40usize,
                 8u8,
-            >(::std::ptr::addr_of!((*this)._bitfield_1))
+            >(::core::ptr::addr_of!((*this)._bitfield_1))
                 as u32)
         }
     }
@@ -6221,9 +6221,9 @@ impl usb_xhci_EndpointContext__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_max_burst_size_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 20usize]>>::raw_set_const::<40usize, 8u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -6231,13 +6231,13 @@ impl usb_xhci_EndpointContext__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn max_packet_size(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<48usize, 16u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<48usize, 16u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_max_packet_size(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<48usize, 16u8>(val as u64)
         }
     }
@@ -6245,10 +6245,10 @@ impl usb_xhci_EndpointContext__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn max_packet_size_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(<__BindgenBitfieldUnit<[u8; 20usize]>>::raw_get_const::<
+            ::core::mem::transmute(<__BindgenBitfieldUnit<[u8; 20usize]>>::raw_get_const::<
                 48usize,
                 16u8,
-            >(::std::ptr::addr_of!((*this)._bitfield_1))
+            >(::core::ptr::addr_of!((*this)._bitfield_1))
                 as u32)
         }
     }
@@ -6256,9 +6256,9 @@ impl usb_xhci_EndpointContext__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_max_packet_size_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 20usize]>>::raw_set_const::<48usize, 16u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -6266,13 +6266,13 @@ impl usb_xhci_EndpointContext__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn dequeue_cycle_state(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<64usize, 1u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<64usize, 1u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_dequeue_cycle_state(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<64usize, 1u8>(val as u64)
         }
     }
@@ -6280,10 +6280,10 @@ impl usb_xhci_EndpointContext__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn dequeue_cycle_state_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(<__BindgenBitfieldUnit<[u8; 20usize]>>::raw_get_const::<
+            ::core::mem::transmute(<__BindgenBitfieldUnit<[u8; 20usize]>>::raw_get_const::<
                 64usize,
                 1u8,
-            >(::std::ptr::addr_of!((*this)._bitfield_1))
+            >(::core::ptr::addr_of!((*this)._bitfield_1))
                 as u32)
         }
     }
@@ -6291,9 +6291,9 @@ impl usb_xhci_EndpointContext__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_dequeue_cycle_state_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 20usize]>>::raw_set_const::<64usize, 1u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -6301,13 +6301,13 @@ impl usb_xhci_EndpointContext__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn tr_dequeue_pointer(&self) -> u64 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<68usize, 60u8>() as u64) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<68usize, 60u8>() as u64) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_tr_dequeue_pointer(&mut self, val: u64) {
         unsafe {
-            let val: u64 = ::std::mem::transmute(val);
+            let val: u64 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<68usize, 60u8>(val as u64)
         }
     }
@@ -6315,10 +6315,10 @@ impl usb_xhci_EndpointContext__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn tr_dequeue_pointer_raw(this: *const Self) -> u64 {
         unsafe {
-            ::std::mem::transmute(<__BindgenBitfieldUnit<[u8; 20usize]>>::raw_get_const::<
+            ::core::mem::transmute(<__BindgenBitfieldUnit<[u8; 20usize]>>::raw_get_const::<
                 68usize,
                 60u8,
-            >(::std::ptr::addr_of!((*this)._bitfield_1))
+            >(::core::ptr::addr_of!((*this)._bitfield_1))
                 as u64)
         }
     }
@@ -6326,9 +6326,9 @@ impl usb_xhci_EndpointContext__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_tr_dequeue_pointer_raw(this: *mut Self, val: u64) {
         unsafe {
-            let val: u64 = ::std::mem::transmute(val);
+            let val: u64 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 20usize]>>::raw_set_const::<68usize, 60u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -6336,13 +6336,13 @@ impl usb_xhci_EndpointContext__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn average_trb_length(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<128usize, 16u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<128usize, 16u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_average_trb_length(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<128usize, 16u8>(val as u64)
         }
     }
@@ -6350,10 +6350,10 @@ impl usb_xhci_EndpointContext__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn average_trb_length_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(<__BindgenBitfieldUnit<[u8; 20usize]>>::raw_get_const::<
+            ::core::mem::transmute(<__BindgenBitfieldUnit<[u8; 20usize]>>::raw_get_const::<
                 128usize,
                 16u8,
-            >(::std::ptr::addr_of!((*this)._bitfield_1))
+            >(::core::ptr::addr_of!((*this)._bitfield_1))
                 as u32)
         }
     }
@@ -6361,9 +6361,9 @@ impl usb_xhci_EndpointContext__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_average_trb_length_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 20usize]>>::raw_set_const::<128usize, 16u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -6371,13 +6371,13 @@ impl usb_xhci_EndpointContext__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn max_esit_payload_lo(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<144usize, 16u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<144usize, 16u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_max_esit_payload_lo(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<144usize, 16u8>(val as u64)
         }
     }
@@ -6385,10 +6385,10 @@ impl usb_xhci_EndpointContext__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn max_esit_payload_lo_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(<__BindgenBitfieldUnit<[u8; 20usize]>>::raw_get_const::<
+            ::core::mem::transmute(<__BindgenBitfieldUnit<[u8; 20usize]>>::raw_get_const::<
                 144usize,
                 16u8,
-            >(::std::ptr::addr_of!((*this)._bitfield_1))
+            >(::core::ptr::addr_of!((*this)._bitfield_1))
                 as u32)
         }
     }
@@ -6396,9 +6396,9 @@ impl usb_xhci_EndpointContext__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_max_esit_payload_lo_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 20usize]>>::raw_set_const::<144usize, 16u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -6424,64 +6424,64 @@ impl usb_xhci_EndpointContext__bindgen_ty_1 {
     ) -> __BindgenBitfieldUnit<[u8; 20usize]> {
         let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 20usize]> = Default::default();
         __bindgen_bitfield_unit.set_const::<0usize, 3u8>({
-            let ep_state: u32 = unsafe { ::std::mem::transmute(ep_state) };
+            let ep_state: u32 = unsafe { ::core::mem::transmute(ep_state) };
             ep_state as u64
         });
         __bindgen_bitfield_unit.set_const::<8usize, 2u8>({
-            let mult: u32 = unsafe { ::std::mem::transmute(mult) };
+            let mult: u32 = unsafe { ::core::mem::transmute(mult) };
             mult as u64
         });
         __bindgen_bitfield_unit.set_const::<10usize, 5u8>({
-            let max_primary_streams: u32 = unsafe { ::std::mem::transmute(max_primary_streams) };
+            let max_primary_streams: u32 = unsafe { ::core::mem::transmute(max_primary_streams) };
             max_primary_streams as u64
         });
         __bindgen_bitfield_unit.set_const::<15usize, 1u8>({
-            let linear_stream_array: u32 = unsafe { ::std::mem::transmute(linear_stream_array) };
+            let linear_stream_array: u32 = unsafe { ::core::mem::transmute(linear_stream_array) };
             linear_stream_array as u64
         });
         __bindgen_bitfield_unit.set_const::<16usize, 8u8>({
-            let interval: u32 = unsafe { ::std::mem::transmute(interval) };
+            let interval: u32 = unsafe { ::core::mem::transmute(interval) };
             interval as u64
         });
         __bindgen_bitfield_unit.set_const::<24usize, 8u8>({
-            let max_esit_payload_hi: u32 = unsafe { ::std::mem::transmute(max_esit_payload_hi) };
+            let max_esit_payload_hi: u32 = unsafe { ::core::mem::transmute(max_esit_payload_hi) };
             max_esit_payload_hi as u64
         });
         __bindgen_bitfield_unit.set_const::<33usize, 2u8>({
-            let error_count: u32 = unsafe { ::std::mem::transmute(error_count) };
+            let error_count: u32 = unsafe { ::core::mem::transmute(error_count) };
             error_count as u64
         });
         __bindgen_bitfield_unit.set_const::<35usize, 3u8>({
-            let ep_type: u32 = unsafe { ::std::mem::transmute(ep_type) };
+            let ep_type: u32 = unsafe { ::core::mem::transmute(ep_type) };
             ep_type as u64
         });
         __bindgen_bitfield_unit.set_const::<39usize, 1u8>({
             let host_initiate_disable: u32 =
-                unsafe { ::std::mem::transmute(host_initiate_disable) };
+                unsafe { ::core::mem::transmute(host_initiate_disable) };
             host_initiate_disable as u64
         });
         __bindgen_bitfield_unit.set_const::<40usize, 8u8>({
-            let max_burst_size: u32 = unsafe { ::std::mem::transmute(max_burst_size) };
+            let max_burst_size: u32 = unsafe { ::core::mem::transmute(max_burst_size) };
             max_burst_size as u64
         });
         __bindgen_bitfield_unit.set_const::<48usize, 16u8>({
-            let max_packet_size: u32 = unsafe { ::std::mem::transmute(max_packet_size) };
+            let max_packet_size: u32 = unsafe { ::core::mem::transmute(max_packet_size) };
             max_packet_size as u64
         });
         __bindgen_bitfield_unit.set_const::<64usize, 1u8>({
-            let dequeue_cycle_state: u32 = unsafe { ::std::mem::transmute(dequeue_cycle_state) };
+            let dequeue_cycle_state: u32 = unsafe { ::core::mem::transmute(dequeue_cycle_state) };
             dequeue_cycle_state as u64
         });
         __bindgen_bitfield_unit.set_const::<68usize, 60u8>({
-            let tr_dequeue_pointer: u64 = unsafe { ::std::mem::transmute(tr_dequeue_pointer) };
+            let tr_dequeue_pointer: u64 = unsafe { ::core::mem::transmute(tr_dequeue_pointer) };
             tr_dequeue_pointer as u64
         });
         __bindgen_bitfield_unit.set_const::<128usize, 16u8>({
-            let average_trb_length: u32 = unsafe { ::std::mem::transmute(average_trb_length) };
+            let average_trb_length: u32 = unsafe { ::core::mem::transmute(average_trb_length) };
             average_trb_length as u64
         });
         __bindgen_bitfield_unit.set_const::<144usize, 16u8>({
-            let max_esit_payload_lo: u32 = unsafe { ::std::mem::transmute(max_esit_payload_lo) };
+            let max_esit_payload_lo: u32 = unsafe { ::core::mem::transmute(max_esit_payload_lo) };
             max_esit_payload_lo as u64
         });
         __bindgen_bitfield_unit
@@ -6490,7 +6490,7 @@ impl usb_xhci_EndpointContext__bindgen_ty_1 {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct usb_xhci_DeviceContextIndex {
-    pub value: ::std::os::raw::c_int,
+    pub value: ::core::ffi::c_int,
 }
 #[repr(C, packed)]
 #[derive(Copy, Clone)]
@@ -6533,13 +6533,13 @@ impl usb_xhci_TRB__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn cycle_bit(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<0usize, 1u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<0usize, 1u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_cycle_bit(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<0usize, 1u8>(val as u64)
         }
     }
@@ -6547,9 +6547,9 @@ impl usb_xhci_TRB__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn cycle_bit_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(
+            ::core::mem::transmute(
                 <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<0usize, 1u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
+                    ::core::ptr::addr_of!((*this)._bitfield_1),
                 ) as u32,
             )
         }
@@ -6558,9 +6558,9 @@ impl usb_xhci_TRB__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_cycle_bit_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_set_const::<0usize, 1u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -6568,13 +6568,13 @@ impl usb_xhci_TRB__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn evaluate_next_trb(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<1usize, 1u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<1usize, 1u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_evaluate_next_trb(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<1usize, 1u8>(val as u64)
         }
     }
@@ -6582,9 +6582,9 @@ impl usb_xhci_TRB__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn evaluate_next_trb_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(
+            ::core::mem::transmute(
                 <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<1usize, 1u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
+                    ::core::ptr::addr_of!((*this)._bitfield_1),
                 ) as u32,
             )
         }
@@ -6593,9 +6593,9 @@ impl usb_xhci_TRB__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_evaluate_next_trb_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_set_const::<1usize, 1u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -6603,13 +6603,13 @@ impl usb_xhci_TRB__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn trb_type(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<10usize, 6u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<10usize, 6u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_trb_type(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<10usize, 6u8>(val as u64)
         }
     }
@@ -6617,20 +6617,20 @@ impl usb_xhci_TRB__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn trb_type_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(
-                <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<10usize, 6u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
-                ) as u32,
-            )
+            ::core::mem::transmute(<__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<
+                10usize,
+                6u8,
+            >(::core::ptr::addr_of!((*this)._bitfield_1))
+                as u32)
         }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_trb_type_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_set_const::<10usize, 6u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -6638,13 +6638,13 @@ impl usb_xhci_TRB__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn control(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<16usize, 16u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<16usize, 16u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_control(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<16usize, 16u8>(val as u64)
         }
     }
@@ -6652,10 +6652,10 @@ impl usb_xhci_TRB__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn control_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(<__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<
+            ::core::mem::transmute(<__BindgenBitfieldUnit<[u8; 4usize]>>::raw_get_const::<
                 16usize,
                 16u8,
-            >(::std::ptr::addr_of!((*this)._bitfield_1))
+            >(::core::ptr::addr_of!((*this)._bitfield_1))
                 as u32)
         }
     }
@@ -6663,9 +6663,9 @@ impl usb_xhci_TRB__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_control_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 4usize]>>::raw_set_const::<16usize, 16u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -6680,19 +6680,19 @@ impl usb_xhci_TRB__bindgen_ty_1 {
     ) -> __BindgenBitfieldUnit<[u8; 4usize]> {
         let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 4usize]> = Default::default();
         __bindgen_bitfield_unit.set_const::<0usize, 1u8>({
-            let cycle_bit: u32 = unsafe { ::std::mem::transmute(cycle_bit) };
+            let cycle_bit: u32 = unsafe { ::core::mem::transmute(cycle_bit) };
             cycle_bit as u64
         });
         __bindgen_bitfield_unit.set_const::<1usize, 1u8>({
-            let evaluate_next_trb: u32 = unsafe { ::std::mem::transmute(evaluate_next_trb) };
+            let evaluate_next_trb: u32 = unsafe { ::core::mem::transmute(evaluate_next_trb) };
             evaluate_next_trb as u64
         });
         __bindgen_bitfield_unit.set_const::<10usize, 6u8>({
-            let trb_type: u32 = unsafe { ::std::mem::transmute(trb_type) };
+            let trb_type: u32 = unsafe { ::core::mem::transmute(trb_type) };
             trb_type as u64
         });
         __bindgen_bitfield_unit.set_const::<16usize, 16u8>({
-            let control: u32 = unsafe { ::std::mem::transmute(control) };
+            let control: u32 = unsafe { ::core::mem::transmute(control) };
             control as u64
         });
         __bindgen_bitfield_unit
@@ -6713,13 +6713,13 @@ impl usb_xhci_SetupStageTRB__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn request_type(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<0usize, 8u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<0usize, 8u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_request_type(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<0usize, 8u8>(val as u64)
         }
     }
@@ -6727,20 +6727,20 @@ impl usb_xhci_SetupStageTRB__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn request_type_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(
-                <__BindgenBitfieldUnit<[u8; 16usize]>>::raw_get_const::<0usize, 8u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
-                ) as u32,
-            )
+            ::core::mem::transmute(<__BindgenBitfieldUnit<[u8; 16usize]>>::raw_get_const::<
+                0usize,
+                8u8,
+            >(::core::ptr::addr_of!((*this)._bitfield_1))
+                as u32)
         }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_request_type_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 16usize]>>::raw_set_const::<0usize, 8u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -6748,13 +6748,13 @@ impl usb_xhci_SetupStageTRB__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn request(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<8usize, 8u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<8usize, 8u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_request(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<8usize, 8u8>(val as u64)
         }
     }
@@ -6762,20 +6762,20 @@ impl usb_xhci_SetupStageTRB__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn request_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(
-                <__BindgenBitfieldUnit<[u8; 16usize]>>::raw_get_const::<8usize, 8u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
-                ) as u32,
-            )
+            ::core::mem::transmute(<__BindgenBitfieldUnit<[u8; 16usize]>>::raw_get_const::<
+                8usize,
+                8u8,
+            >(::core::ptr::addr_of!((*this)._bitfield_1))
+                as u32)
         }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_request_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 16usize]>>::raw_set_const::<8usize, 8u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -6783,13 +6783,13 @@ impl usb_xhci_SetupStageTRB__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn value(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<16usize, 16u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<16usize, 16u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_value(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<16usize, 16u8>(val as u64)
         }
     }
@@ -6797,10 +6797,10 @@ impl usb_xhci_SetupStageTRB__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn value_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(<__BindgenBitfieldUnit<[u8; 16usize]>>::raw_get_const::<
+            ::core::mem::transmute(<__BindgenBitfieldUnit<[u8; 16usize]>>::raw_get_const::<
                 16usize,
                 16u8,
-            >(::std::ptr::addr_of!((*this)._bitfield_1))
+            >(::core::ptr::addr_of!((*this)._bitfield_1))
                 as u32)
         }
     }
@@ -6808,9 +6808,9 @@ impl usb_xhci_SetupStageTRB__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_value_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 16usize]>>::raw_set_const::<16usize, 16u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -6818,13 +6818,13 @@ impl usb_xhci_SetupStageTRB__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn index(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<32usize, 16u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<32usize, 16u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_index(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<32usize, 16u8>(val as u64)
         }
     }
@@ -6832,10 +6832,10 @@ impl usb_xhci_SetupStageTRB__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn index_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(<__BindgenBitfieldUnit<[u8; 16usize]>>::raw_get_const::<
+            ::core::mem::transmute(<__BindgenBitfieldUnit<[u8; 16usize]>>::raw_get_const::<
                 32usize,
                 16u8,
-            >(::std::ptr::addr_of!((*this)._bitfield_1))
+            >(::core::ptr::addr_of!((*this)._bitfield_1))
                 as u32)
         }
     }
@@ -6843,9 +6843,9 @@ impl usb_xhci_SetupStageTRB__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_index_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 16usize]>>::raw_set_const::<32usize, 16u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -6853,13 +6853,13 @@ impl usb_xhci_SetupStageTRB__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn length(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<48usize, 16u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<48usize, 16u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_length(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<48usize, 16u8>(val as u64)
         }
     }
@@ -6867,10 +6867,10 @@ impl usb_xhci_SetupStageTRB__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn length_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(<__BindgenBitfieldUnit<[u8; 16usize]>>::raw_get_const::<
+            ::core::mem::transmute(<__BindgenBitfieldUnit<[u8; 16usize]>>::raw_get_const::<
                 48usize,
                 16u8,
-            >(::std::ptr::addr_of!((*this)._bitfield_1))
+            >(::core::ptr::addr_of!((*this)._bitfield_1))
                 as u32)
         }
     }
@@ -6878,9 +6878,9 @@ impl usb_xhci_SetupStageTRB__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_length_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 16usize]>>::raw_set_const::<48usize, 16u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -6888,13 +6888,13 @@ impl usb_xhci_SetupStageTRB__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn trb_transfer_length(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<64usize, 17u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<64usize, 17u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_trb_transfer_length(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<64usize, 17u8>(val as u64)
         }
     }
@@ -6902,10 +6902,10 @@ impl usb_xhci_SetupStageTRB__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn trb_transfer_length_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(<__BindgenBitfieldUnit<[u8; 16usize]>>::raw_get_const::<
+            ::core::mem::transmute(<__BindgenBitfieldUnit<[u8; 16usize]>>::raw_get_const::<
                 64usize,
                 17u8,
-            >(::std::ptr::addr_of!((*this)._bitfield_1))
+            >(::core::ptr::addr_of!((*this)._bitfield_1))
                 as u32)
         }
     }
@@ -6913,9 +6913,9 @@ impl usb_xhci_SetupStageTRB__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_trb_transfer_length_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 16usize]>>::raw_set_const::<64usize, 17u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -6923,13 +6923,13 @@ impl usb_xhci_SetupStageTRB__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn interrupter_target(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<86usize, 10u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<86usize, 10u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_interrupter_target(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<86usize, 10u8>(val as u64)
         }
     }
@@ -6937,10 +6937,10 @@ impl usb_xhci_SetupStageTRB__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn interrupter_target_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(<__BindgenBitfieldUnit<[u8; 16usize]>>::raw_get_const::<
+            ::core::mem::transmute(<__BindgenBitfieldUnit<[u8; 16usize]>>::raw_get_const::<
                 86usize,
                 10u8,
-            >(::std::ptr::addr_of!((*this)._bitfield_1))
+            >(::core::ptr::addr_of!((*this)._bitfield_1))
                 as u32)
         }
     }
@@ -6948,9 +6948,9 @@ impl usb_xhci_SetupStageTRB__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_interrupter_target_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 16usize]>>::raw_set_const::<86usize, 10u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -6958,13 +6958,13 @@ impl usb_xhci_SetupStageTRB__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn cycle_bit(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<96usize, 1u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<96usize, 1u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_cycle_bit(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<96usize, 1u8>(val as u64)
         }
     }
@@ -6972,10 +6972,10 @@ impl usb_xhci_SetupStageTRB__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn cycle_bit_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(<__BindgenBitfieldUnit<[u8; 16usize]>>::raw_get_const::<
+            ::core::mem::transmute(<__BindgenBitfieldUnit<[u8; 16usize]>>::raw_get_const::<
                 96usize,
                 1u8,
-            >(::std::ptr::addr_of!((*this)._bitfield_1))
+            >(::core::ptr::addr_of!((*this)._bitfield_1))
                 as u32)
         }
     }
@@ -6983,9 +6983,9 @@ impl usb_xhci_SetupStageTRB__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_cycle_bit_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 16usize]>>::raw_set_const::<96usize, 1u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -6993,13 +6993,13 @@ impl usb_xhci_SetupStageTRB__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn interrupt_on_completion(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<101usize, 1u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<101usize, 1u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_interrupt_on_completion(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<101usize, 1u8>(val as u64)
         }
     }
@@ -7007,10 +7007,10 @@ impl usb_xhci_SetupStageTRB__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn interrupt_on_completion_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(<__BindgenBitfieldUnit<[u8; 16usize]>>::raw_get_const::<
+            ::core::mem::transmute(<__BindgenBitfieldUnit<[u8; 16usize]>>::raw_get_const::<
                 101usize,
                 1u8,
-            >(::std::ptr::addr_of!((*this)._bitfield_1))
+            >(::core::ptr::addr_of!((*this)._bitfield_1))
                 as u32)
         }
     }
@@ -7018,9 +7018,9 @@ impl usb_xhci_SetupStageTRB__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_interrupt_on_completion_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 16usize]>>::raw_set_const::<101usize, 1u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -7028,13 +7028,13 @@ impl usb_xhci_SetupStageTRB__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn immediate_data(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<102usize, 1u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<102usize, 1u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_immediate_data(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<102usize, 1u8>(val as u64)
         }
     }
@@ -7042,10 +7042,10 @@ impl usb_xhci_SetupStageTRB__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn immediate_data_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(<__BindgenBitfieldUnit<[u8; 16usize]>>::raw_get_const::<
+            ::core::mem::transmute(<__BindgenBitfieldUnit<[u8; 16usize]>>::raw_get_const::<
                 102usize,
                 1u8,
-            >(::std::ptr::addr_of!((*this)._bitfield_1))
+            >(::core::ptr::addr_of!((*this)._bitfield_1))
                 as u32)
         }
     }
@@ -7053,9 +7053,9 @@ impl usb_xhci_SetupStageTRB__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_immediate_data_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 16usize]>>::raw_set_const::<102usize, 1u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -7063,13 +7063,13 @@ impl usb_xhci_SetupStageTRB__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn trb_type(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<106usize, 6u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<106usize, 6u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_trb_type(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<106usize, 6u8>(val as u64)
         }
     }
@@ -7077,10 +7077,10 @@ impl usb_xhci_SetupStageTRB__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn trb_type_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(<__BindgenBitfieldUnit<[u8; 16usize]>>::raw_get_const::<
+            ::core::mem::transmute(<__BindgenBitfieldUnit<[u8; 16usize]>>::raw_get_const::<
                 106usize,
                 6u8,
-            >(::std::ptr::addr_of!((*this)._bitfield_1))
+            >(::core::ptr::addr_of!((*this)._bitfield_1))
                 as u32)
         }
     }
@@ -7088,9 +7088,9 @@ impl usb_xhci_SetupStageTRB__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_trb_type_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 16usize]>>::raw_set_const::<106usize, 6u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -7098,13 +7098,13 @@ impl usb_xhci_SetupStageTRB__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn transfer_type(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<112usize, 2u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<112usize, 2u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_transfer_type(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<112usize, 2u8>(val as u64)
         }
     }
@@ -7112,10 +7112,10 @@ impl usb_xhci_SetupStageTRB__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn transfer_type_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(<__BindgenBitfieldUnit<[u8; 16usize]>>::raw_get_const::<
+            ::core::mem::transmute(<__BindgenBitfieldUnit<[u8; 16usize]>>::raw_get_const::<
                 112usize,
                 2u8,
-            >(::std::ptr::addr_of!((*this)._bitfield_1))
+            >(::core::ptr::addr_of!((*this)._bitfield_1))
                 as u32)
         }
     }
@@ -7123,9 +7123,9 @@ impl usb_xhci_SetupStageTRB__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_transfer_type_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 16usize]>>::raw_set_const::<112usize, 2u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -7148,61 +7148,61 @@ impl usb_xhci_SetupStageTRB__bindgen_ty_1 {
     ) -> __BindgenBitfieldUnit<[u8; 16usize]> {
         let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 16usize]> = Default::default();
         __bindgen_bitfield_unit.set_const::<0usize, 8u8>({
-            let request_type: u32 = unsafe { ::std::mem::transmute(request_type) };
+            let request_type: u32 = unsafe { ::core::mem::transmute(request_type) };
             request_type as u64
         });
         __bindgen_bitfield_unit.set_const::<8usize, 8u8>({
-            let request: u32 = unsafe { ::std::mem::transmute(request) };
+            let request: u32 = unsafe { ::core::mem::transmute(request) };
             request as u64
         });
         __bindgen_bitfield_unit.set_const::<16usize, 16u8>({
-            let value: u32 = unsafe { ::std::mem::transmute(value) };
+            let value: u32 = unsafe { ::core::mem::transmute(value) };
             value as u64
         });
         __bindgen_bitfield_unit.set_const::<32usize, 16u8>({
-            let index: u32 = unsafe { ::std::mem::transmute(index) };
+            let index: u32 = unsafe { ::core::mem::transmute(index) };
             index as u64
         });
         __bindgen_bitfield_unit.set_const::<48usize, 16u8>({
-            let length: u32 = unsafe { ::std::mem::transmute(length) };
+            let length: u32 = unsafe { ::core::mem::transmute(length) };
             length as u64
         });
         __bindgen_bitfield_unit.set_const::<64usize, 17u8>({
-            let trb_transfer_length: u32 = unsafe { ::std::mem::transmute(trb_transfer_length) };
+            let trb_transfer_length: u32 = unsafe { ::core::mem::transmute(trb_transfer_length) };
             trb_transfer_length as u64
         });
         __bindgen_bitfield_unit.set_const::<86usize, 10u8>({
-            let interrupter_target: u32 = unsafe { ::std::mem::transmute(interrupter_target) };
+            let interrupter_target: u32 = unsafe { ::core::mem::transmute(interrupter_target) };
             interrupter_target as u64
         });
         __bindgen_bitfield_unit.set_const::<96usize, 1u8>({
-            let cycle_bit: u32 = unsafe { ::std::mem::transmute(cycle_bit) };
+            let cycle_bit: u32 = unsafe { ::core::mem::transmute(cycle_bit) };
             cycle_bit as u64
         });
         __bindgen_bitfield_unit.set_const::<101usize, 1u8>({
             let interrupt_on_completion: u32 =
-                unsafe { ::std::mem::transmute(interrupt_on_completion) };
+                unsafe { ::core::mem::transmute(interrupt_on_completion) };
             interrupt_on_completion as u64
         });
         __bindgen_bitfield_unit.set_const::<102usize, 1u8>({
-            let immediate_data: u32 = unsafe { ::std::mem::transmute(immediate_data) };
+            let immediate_data: u32 = unsafe { ::core::mem::transmute(immediate_data) };
             immediate_data as u64
         });
         __bindgen_bitfield_unit.set_const::<106usize, 6u8>({
-            let trb_type: u32 = unsafe { ::std::mem::transmute(trb_type) };
+            let trb_type: u32 = unsafe { ::core::mem::transmute(trb_type) };
             trb_type as u64
         });
         __bindgen_bitfield_unit.set_const::<112usize, 2u8>({
-            let transfer_type: u32 = unsafe { ::std::mem::transmute(transfer_type) };
+            let transfer_type: u32 = unsafe { ::core::mem::transmute(transfer_type) };
             transfer_type as u64
         });
         __bindgen_bitfield_unit
     }
 }
-pub const usb_xhci_SetupStageTRB_Type: ::std::os::raw::c_uint = 2;
-pub const usb_xhci_SetupStageTRB_kNoDataStage: ::std::os::raw::c_uint = 0;
-pub const usb_xhci_SetupStageTRB_kOutDataStage: ::std::os::raw::c_uint = 2;
-pub const usb_xhci_SetupStageTRB_kInDataStage: ::std::os::raw::c_uint = 3;
+pub const usb_xhci_SetupStageTRB_Type: ::core::ffi::c_uint = 2;
+pub const usb_xhci_SetupStageTRB_kNoDataStage: ::core::ffi::c_uint = 0;
+pub const usb_xhci_SetupStageTRB_kOutDataStage: ::core::ffi::c_uint = 2;
+pub const usb_xhci_SetupStageTRB_kInDataStage: ::core::ffi::c_uint = 3;
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub union usb_xhci_TransferEventTRB {
@@ -7218,13 +7218,13 @@ impl usb_xhci_TransferEventTRB__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn trb_pointer(&self) -> u64 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<0usize, 64u8>() as u64) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<0usize, 64u8>() as u64) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_trb_pointer(&mut self, val: u64) {
         unsafe {
-            let val: u64 = ::std::mem::transmute(val);
+            let val: u64 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<0usize, 64u8>(val as u64)
         }
     }
@@ -7232,10 +7232,10 @@ impl usb_xhci_TransferEventTRB__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn trb_pointer_raw(this: *const Self) -> u64 {
         unsafe {
-            ::std::mem::transmute(<__BindgenBitfieldUnit<[u8; 16usize]>>::raw_get_const::<
+            ::core::mem::transmute(<__BindgenBitfieldUnit<[u8; 16usize]>>::raw_get_const::<
                 0usize,
                 64u8,
-            >(::std::ptr::addr_of!((*this)._bitfield_1))
+            >(::core::ptr::addr_of!((*this)._bitfield_1))
                 as u64)
         }
     }
@@ -7243,9 +7243,9 @@ impl usb_xhci_TransferEventTRB__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_trb_pointer_raw(this: *mut Self, val: u64) {
         unsafe {
-            let val: u64 = ::std::mem::transmute(val);
+            let val: u64 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 16usize]>>::raw_set_const::<0usize, 64u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -7253,13 +7253,13 @@ impl usb_xhci_TransferEventTRB__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn trb_transfer_length(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<64usize, 24u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<64usize, 24u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_trb_transfer_length(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<64usize, 24u8>(val as u64)
         }
     }
@@ -7267,10 +7267,10 @@ impl usb_xhci_TransferEventTRB__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn trb_transfer_length_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(<__BindgenBitfieldUnit<[u8; 16usize]>>::raw_get_const::<
+            ::core::mem::transmute(<__BindgenBitfieldUnit<[u8; 16usize]>>::raw_get_const::<
                 64usize,
                 24u8,
-            >(::std::ptr::addr_of!((*this)._bitfield_1))
+            >(::core::ptr::addr_of!((*this)._bitfield_1))
                 as u32)
         }
     }
@@ -7278,9 +7278,9 @@ impl usb_xhci_TransferEventTRB__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_trb_transfer_length_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 16usize]>>::raw_set_const::<64usize, 24u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -7288,13 +7288,13 @@ impl usb_xhci_TransferEventTRB__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn completion_code(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<88usize, 8u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<88usize, 8u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_completion_code(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<88usize, 8u8>(val as u64)
         }
     }
@@ -7302,10 +7302,10 @@ impl usb_xhci_TransferEventTRB__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn completion_code_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(<__BindgenBitfieldUnit<[u8; 16usize]>>::raw_get_const::<
+            ::core::mem::transmute(<__BindgenBitfieldUnit<[u8; 16usize]>>::raw_get_const::<
                 88usize,
                 8u8,
-            >(::std::ptr::addr_of!((*this)._bitfield_1))
+            >(::core::ptr::addr_of!((*this)._bitfield_1))
                 as u32)
         }
     }
@@ -7313,9 +7313,9 @@ impl usb_xhci_TransferEventTRB__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_completion_code_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 16usize]>>::raw_set_const::<88usize, 8u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -7323,13 +7323,13 @@ impl usb_xhci_TransferEventTRB__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn cycle_bit(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<96usize, 1u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<96usize, 1u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_cycle_bit(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<96usize, 1u8>(val as u64)
         }
     }
@@ -7337,10 +7337,10 @@ impl usb_xhci_TransferEventTRB__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn cycle_bit_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(<__BindgenBitfieldUnit<[u8; 16usize]>>::raw_get_const::<
+            ::core::mem::transmute(<__BindgenBitfieldUnit<[u8; 16usize]>>::raw_get_const::<
                 96usize,
                 1u8,
-            >(::std::ptr::addr_of!((*this)._bitfield_1))
+            >(::core::ptr::addr_of!((*this)._bitfield_1))
                 as u32)
         }
     }
@@ -7348,9 +7348,9 @@ impl usb_xhci_TransferEventTRB__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_cycle_bit_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 16usize]>>::raw_set_const::<96usize, 1u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -7358,13 +7358,13 @@ impl usb_xhci_TransferEventTRB__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn event_data(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<98usize, 1u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<98usize, 1u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_event_data(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<98usize, 1u8>(val as u64)
         }
     }
@@ -7372,10 +7372,10 @@ impl usb_xhci_TransferEventTRB__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn event_data_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(<__BindgenBitfieldUnit<[u8; 16usize]>>::raw_get_const::<
+            ::core::mem::transmute(<__BindgenBitfieldUnit<[u8; 16usize]>>::raw_get_const::<
                 98usize,
                 1u8,
-            >(::std::ptr::addr_of!((*this)._bitfield_1))
+            >(::core::ptr::addr_of!((*this)._bitfield_1))
                 as u32)
         }
     }
@@ -7383,9 +7383,9 @@ impl usb_xhci_TransferEventTRB__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_event_data_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 16usize]>>::raw_set_const::<98usize, 1u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -7393,13 +7393,13 @@ impl usb_xhci_TransferEventTRB__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn trb_type(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<106usize, 6u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<106usize, 6u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_trb_type(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<106usize, 6u8>(val as u64)
         }
     }
@@ -7407,10 +7407,10 @@ impl usb_xhci_TransferEventTRB__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn trb_type_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(<__BindgenBitfieldUnit<[u8; 16usize]>>::raw_get_const::<
+            ::core::mem::transmute(<__BindgenBitfieldUnit<[u8; 16usize]>>::raw_get_const::<
                 106usize,
                 6u8,
-            >(::std::ptr::addr_of!((*this)._bitfield_1))
+            >(::core::ptr::addr_of!((*this)._bitfield_1))
                 as u32)
         }
     }
@@ -7418,9 +7418,9 @@ impl usb_xhci_TransferEventTRB__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_trb_type_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 16usize]>>::raw_set_const::<106usize, 6u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -7428,13 +7428,13 @@ impl usb_xhci_TransferEventTRB__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn endpoint_id(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<112usize, 5u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<112usize, 5u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_endpoint_id(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<112usize, 5u8>(val as u64)
         }
     }
@@ -7442,10 +7442,10 @@ impl usb_xhci_TransferEventTRB__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn endpoint_id_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(<__BindgenBitfieldUnit<[u8; 16usize]>>::raw_get_const::<
+            ::core::mem::transmute(<__BindgenBitfieldUnit<[u8; 16usize]>>::raw_get_const::<
                 112usize,
                 5u8,
-            >(::std::ptr::addr_of!((*this)._bitfield_1))
+            >(::core::ptr::addr_of!((*this)._bitfield_1))
                 as u32)
         }
     }
@@ -7453,9 +7453,9 @@ impl usb_xhci_TransferEventTRB__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_endpoint_id_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 16usize]>>::raw_set_const::<112usize, 5u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -7463,13 +7463,13 @@ impl usb_xhci_TransferEventTRB__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn slot_id(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<120usize, 8u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<120usize, 8u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_slot_id(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<120usize, 8u8>(val as u64)
         }
     }
@@ -7477,10 +7477,10 @@ impl usb_xhci_TransferEventTRB__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn slot_id_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(<__BindgenBitfieldUnit<[u8; 16usize]>>::raw_get_const::<
+            ::core::mem::transmute(<__BindgenBitfieldUnit<[u8; 16usize]>>::raw_get_const::<
                 120usize,
                 8u8,
-            >(::std::ptr::addr_of!((*this)._bitfield_1))
+            >(::core::ptr::addr_of!((*this)._bitfield_1))
                 as u32)
         }
     }
@@ -7488,9 +7488,9 @@ impl usb_xhci_TransferEventTRB__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_slot_id_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 16usize]>>::raw_set_const::<120usize, 8u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -7509,41 +7509,41 @@ impl usb_xhci_TransferEventTRB__bindgen_ty_1 {
     ) -> __BindgenBitfieldUnit<[u8; 16usize]> {
         let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 16usize]> = Default::default();
         __bindgen_bitfield_unit.set_const::<0usize, 64u8>({
-            let trb_pointer: u64 = unsafe { ::std::mem::transmute(trb_pointer) };
+            let trb_pointer: u64 = unsafe { ::core::mem::transmute(trb_pointer) };
             trb_pointer as u64
         });
         __bindgen_bitfield_unit.set_const::<64usize, 24u8>({
-            let trb_transfer_length: u32 = unsafe { ::std::mem::transmute(trb_transfer_length) };
+            let trb_transfer_length: u32 = unsafe { ::core::mem::transmute(trb_transfer_length) };
             trb_transfer_length as u64
         });
         __bindgen_bitfield_unit.set_const::<88usize, 8u8>({
-            let completion_code: u32 = unsafe { ::std::mem::transmute(completion_code) };
+            let completion_code: u32 = unsafe { ::core::mem::transmute(completion_code) };
             completion_code as u64
         });
         __bindgen_bitfield_unit.set_const::<96usize, 1u8>({
-            let cycle_bit: u32 = unsafe { ::std::mem::transmute(cycle_bit) };
+            let cycle_bit: u32 = unsafe { ::core::mem::transmute(cycle_bit) };
             cycle_bit as u64
         });
         __bindgen_bitfield_unit.set_const::<98usize, 1u8>({
-            let event_data: u32 = unsafe { ::std::mem::transmute(event_data) };
+            let event_data: u32 = unsafe { ::core::mem::transmute(event_data) };
             event_data as u64
         });
         __bindgen_bitfield_unit.set_const::<106usize, 6u8>({
-            let trb_type: u32 = unsafe { ::std::mem::transmute(trb_type) };
+            let trb_type: u32 = unsafe { ::core::mem::transmute(trb_type) };
             trb_type as u64
         });
         __bindgen_bitfield_unit.set_const::<112usize, 5u8>({
-            let endpoint_id: u32 = unsafe { ::std::mem::transmute(endpoint_id) };
+            let endpoint_id: u32 = unsafe { ::core::mem::transmute(endpoint_id) };
             endpoint_id as u64
         });
         __bindgen_bitfield_unit.set_const::<120usize, 8u8>({
-            let slot_id: u32 = unsafe { ::std::mem::transmute(slot_id) };
+            let slot_id: u32 = unsafe { ::core::mem::transmute(slot_id) };
             slot_id as u64
         });
         __bindgen_bitfield_unit
     }
 }
-pub const usb_xhci_TransferEventTRB_Type: ::std::os::raw::c_uint = 32;
+pub const usb_xhci_TransferEventTRB_Type: ::core::ffi::c_uint = 32;
 #[doc = " @brief Command/Transfer Ring を表すクラス．"]
 #[repr(C)]
 #[derive(Debug)]
@@ -7590,13 +7590,13 @@ impl usb_xhci_EventRingSegmentTableEntry__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn ring_segment_size(&self) -> u32 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<0usize, 16u8>() as u32) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<0usize, 16u8>() as u32) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_ring_segment_size(&mut self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<0usize, 16u8>(val as u64)
         }
     }
@@ -7604,20 +7604,20 @@ impl usb_xhci_EventRingSegmentTableEntry__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn ring_segment_size_raw(this: *const Self) -> u32 {
         unsafe {
-            ::std::mem::transmute(
-                <__BindgenBitfieldUnit<[u8; 8usize]>>::raw_get_const::<0usize, 16u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
-                ) as u32,
-            )
+            ::core::mem::transmute(<__BindgenBitfieldUnit<[u8; 8usize]>>::raw_get_const::<
+                0usize,
+                16u8,
+            >(::core::ptr::addr_of!((*this)._bitfield_1))
+                as u32)
         }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_ring_segment_size_raw(this: *mut Self, val: u32) {
         unsafe {
-            let val: u32 = ::std::mem::transmute(val);
+            let val: u32 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 8usize]>>::raw_set_const::<0usize, 16u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -7627,7 +7627,7 @@ impl usb_xhci_EventRingSegmentTableEntry__bindgen_ty_1 {
     pub fn new_bitfield_1(ring_segment_size: u32) -> __BindgenBitfieldUnit<[u8; 8usize]> {
         let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 8usize]> = Default::default();
         __bindgen_bitfield_unit.set_const::<0usize, 16u8>({
-            let ring_segment_size: u32 = unsafe { ::std::mem::transmute(ring_segment_size) };
+            let ring_segment_size: u32 = unsafe { ::core::mem::transmute(ring_segment_size) };
             ring_segment_size as u64
         });
         __bindgen_bitfield_unit
@@ -7707,7 +7707,7 @@ unsafe extern "C" {
 }
 unsafe extern "C" {
     #[link_name = "\u{1}_ZNK3usb4xhci4Port5SpeedEv"]
-    pub fn usb_xhci_Port_Speed(this: *const usb_xhci_Port) -> ::std::os::raw::c_int;
+    pub fn usb_xhci_Port_Speed(this: *const usb_xhci_Port) -> ::core::ffi::c_int;
 }
 unsafe extern "C" {
     #[link_name = "\u{1}_ZN3usb4xhci4Port5ResetEv"]
@@ -7739,7 +7739,7 @@ impl usb_xhci_Port {
         usb_xhci_Port_IsPortResetChanged(self)
     }
     #[inline]
-    pub unsafe fn Speed(&self) -> ::std::os::raw::c_int {
+    pub unsafe fn Speed(&self) -> ::core::ffi::c_int {
         usb_xhci_Port_Speed(self)
     }
     #[inline]
@@ -7769,13 +7769,13 @@ pub const usb_xhci_Device_State_kInvalid: usb_xhci_Device_State = 0;
 pub const usb_xhci_Device_State_kBlank: usb_xhci_Device_State = 1;
 pub const usb_xhci_Device_State_kSlotAssigning: usb_xhci_Device_State = 2;
 pub const usb_xhci_Device_State_kSlotAssigned: usb_xhci_Device_State = 3;
-pub type usb_xhci_Device_State = ::std::os::raw::c_int;
-pub type usb_xhci_Device_OnTransferredCallbackType = ::std::option::Option<
+pub type usb_xhci_Device_State = ::core::ffi::c_int;
+pub type usb_xhci_Device_OnTransferredCallbackType = ::core::option::Option<
     unsafe extern "C" fn(
         dev: *mut usb_xhci_Device,
         dci: usb_xhci_DeviceContextIndex,
-        completion_code: ::std::os::raw::c_int,
-        trb_transfer_length: ::std::os::raw::c_int,
+        completion_code: ::core::ffi::c_int,
+        trb_transfer_length: ::core::ffi::c_int,
         issue_trb: *mut usb_xhci_TRB,
     ),
 >;
@@ -7836,7 +7836,7 @@ impl usb_xhci_Device {
     }
     #[inline]
     pub unsafe fn new(slot_id: u8, dbreg: *mut usb_xhci_DoorbellRegister) -> Self {
-        let mut __bindgen_tmp = ::std::mem::MaybeUninit::uninit();
+        let mut __bindgen_tmp = ::core::mem::MaybeUninit::uninit();
         usb_xhci_Device_Device(__bindgen_tmp.as_mut_ptr(), slot_id, dbreg);
         __bindgen_tmp.assume_init()
     }
@@ -7844,41 +7844,41 @@ impl usb_xhci_Device {
 unsafe extern "C" {
     #[link_name = "\u{1}_ZN3usb4xhci6Device9ControlInENS_10EndpointIDENS_9SetupDataEPviPNS_11ClassDriverE"]
     pub fn usb_xhci_Device_ControlIn(
-        this: *mut ::std::os::raw::c_void,
+        this: *mut ::core::ffi::c_void,
         ep_id: usb_EndpointID,
         setup_data: usb_SetupData,
-        buf: *mut ::std::os::raw::c_void,
-        len: ::std::os::raw::c_int,
+        buf: *mut ::core::ffi::c_void,
+        len: ::core::ffi::c_int,
         issuer: *mut usb_ClassDriver,
     ) -> Error;
 }
 unsafe extern "C" {
     #[link_name = "\u{1}_ZN3usb4xhci6Device10ControlOutENS_10EndpointIDENS_9SetupDataEPKviPNS_11ClassDriverE"]
     pub fn usb_xhci_Device_ControlOut(
-        this: *mut ::std::os::raw::c_void,
+        this: *mut ::core::ffi::c_void,
         ep_id: usb_EndpointID,
         setup_data: usb_SetupData,
-        buf: *const ::std::os::raw::c_void,
-        len: ::std::os::raw::c_int,
+        buf: *const ::core::ffi::c_void,
+        len: ::core::ffi::c_int,
         issuer: *mut usb_ClassDriver,
     ) -> Error;
 }
 unsafe extern "C" {
     #[link_name = "\u{1}_ZN3usb4xhci6Device11InterruptInENS_10EndpointIDEPvi"]
     pub fn usb_xhci_Device_InterruptIn(
-        this: *mut ::std::os::raw::c_void,
+        this: *mut ::core::ffi::c_void,
         ep_id: usb_EndpointID,
-        buf: *mut ::std::os::raw::c_void,
-        len: ::std::os::raw::c_int,
+        buf: *mut ::core::ffi::c_void,
+        len: ::core::ffi::c_int,
     ) -> Error;
 }
 unsafe extern "C" {
     #[link_name = "\u{1}_ZN3usb4xhci6Device12InterruptOutENS_10EndpointIDEPvi"]
     pub fn usb_xhci_Device_InterruptOut(
-        this: *mut ::std::os::raw::c_void,
+        this: *mut ::core::ffi::c_void,
         ep_id: usb_EndpointID,
-        buf: *mut ::std::os::raw::c_void,
-        len: ::std::os::raw::c_int,
+        buf: *mut ::core::ffi::c_void,
+        len: ::core::ffi::c_int,
     ) -> Error;
 }
 #[repr(C)]
@@ -8026,7 +8026,7 @@ impl usb_xhci_Controller {
     }
     #[inline]
     pub unsafe fn new(mmio_base: usize) -> Self {
-        let mut __bindgen_tmp = ::std::mem::MaybeUninit::uninit();
+        let mut __bindgen_tmp = ::core::mem::MaybeUninit::uninit();
         usb_xhci_Controller_Controller(__bindgen_tmp.as_mut_ptr(), mmio_base);
         __bindgen_tmp.assume_init()
     }
@@ -8035,11 +8035,11 @@ pub const usb_EndpointType_kControl: usb_EndpointType = 0;
 pub const usb_EndpointType_kIsochronous: usb_EndpointType = 1;
 pub const usb_EndpointType_kBulk: usb_EndpointType = 2;
 pub const usb_EndpointType_kInterrupt: usb_EndpointType = 3;
-pub type usb_EndpointType = ::std::os::raw::c_int;
+pub type usb_EndpointType = ::core::ffi::c_int;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct usb_EndpointID {
-    pub addr_: ::std::os::raw::c_int,
+    pub addr_: ::core::ffi::c_int,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -8049,9 +8049,9 @@ pub struct usb_EndpointConfig {
     #[doc = " このエンドポイントの種別"]
     pub ep_type: usb_EndpointType,
     #[doc = " このエンドポイントの最大パケットサイズ（バイト）"]
-    pub max_packet_size: ::std::os::raw::c_int,
+    pub max_packet_size: ::core::ffi::c_int,
     #[doc = " このエンドポイントの制御周期（125*2^(interval-1) マイクロ秒）"]
-    pub interval: ::std::os::raw::c_int,
+    pub interval: ::core::ffi::c_int,
 }
 #[repr(C, packed)]
 #[derive(Copy, Clone)]
@@ -8077,13 +8077,13 @@ impl usb_SetupData__bindgen_ty_1__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn recipient(&self) -> u8 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<0usize, 5u8>() as u8) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<0usize, 5u8>() as u8) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_recipient(&mut self, val: u8) {
         unsafe {
-            let val: u8 = ::std::mem::transmute(val);
+            let val: u8 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<0usize, 5u8>(val as u64)
         }
     }
@@ -8091,9 +8091,9 @@ impl usb_SetupData__bindgen_ty_1__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn recipient_raw(this: *const Self) -> u8 {
         unsafe {
-            ::std::mem::transmute(
+            ::core::mem::transmute(
                 <__BindgenBitfieldUnit<[u8; 1usize]>>::raw_get_const::<0usize, 5u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
+                    ::core::ptr::addr_of!((*this)._bitfield_1),
                 ) as u8,
             )
         }
@@ -8102,9 +8102,9 @@ impl usb_SetupData__bindgen_ty_1__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_recipient_raw(this: *mut Self, val: u8) {
         unsafe {
-            let val: u8 = ::std::mem::transmute(val);
+            let val: u8 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 1usize]>>::raw_set_const::<0usize, 5u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -8112,13 +8112,13 @@ impl usb_SetupData__bindgen_ty_1__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn type_(&self) -> u8 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<5usize, 2u8>() as u8) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<5usize, 2u8>() as u8) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_type(&mut self, val: u8) {
         unsafe {
-            let val: u8 = ::std::mem::transmute(val);
+            let val: u8 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<5usize, 2u8>(val as u64)
         }
     }
@@ -8126,9 +8126,9 @@ impl usb_SetupData__bindgen_ty_1__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn type__raw(this: *const Self) -> u8 {
         unsafe {
-            ::std::mem::transmute(
+            ::core::mem::transmute(
                 <__BindgenBitfieldUnit<[u8; 1usize]>>::raw_get_const::<5usize, 2u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
+                    ::core::ptr::addr_of!((*this)._bitfield_1),
                 ) as u8,
             )
         }
@@ -8137,9 +8137,9 @@ impl usb_SetupData__bindgen_ty_1__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_type_raw(this: *mut Self, val: u8) {
         unsafe {
-            let val: u8 = ::std::mem::transmute(val);
+            let val: u8 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 1usize]>>::raw_set_const::<5usize, 2u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -8147,13 +8147,13 @@ impl usb_SetupData__bindgen_ty_1__bindgen_ty_1 {
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn direction(&self) -> u8 {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get_const::<7usize, 1u8>() as u8) }
+        unsafe { ::core::mem::transmute(self._bitfield_1.get_const::<7usize, 1u8>() as u8) }
     }
     #[inline]
     #[allow(unnecessary_transmutes)]
     pub fn set_direction(&mut self, val: u8) {
         unsafe {
-            let val: u8 = ::std::mem::transmute(val);
+            let val: u8 = ::core::mem::transmute(val);
             self._bitfield_1.set_const::<7usize, 1u8>(val as u64)
         }
     }
@@ -8161,9 +8161,9 @@ impl usb_SetupData__bindgen_ty_1__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn direction_raw(this: *const Self) -> u8 {
         unsafe {
-            ::std::mem::transmute(
+            ::core::mem::transmute(
                 <__BindgenBitfieldUnit<[u8; 1usize]>>::raw_get_const::<7usize, 1u8>(
-                    ::std::ptr::addr_of!((*this)._bitfield_1),
+                    ::core::ptr::addr_of!((*this)._bitfield_1),
                 ) as u8,
             )
         }
@@ -8172,9 +8172,9 @@ impl usb_SetupData__bindgen_ty_1__bindgen_ty_1 {
     #[allow(unnecessary_transmutes)]
     pub unsafe fn set_direction_raw(this: *mut Self, val: u8) {
         unsafe {
-            let val: u8 = ::std::mem::transmute(val);
+            let val: u8 = ::core::mem::transmute(val);
             <__BindgenBitfieldUnit<[u8; 1usize]>>::raw_set_const::<7usize, 1u8>(
-                ::std::ptr::addr_of_mut!((*this)._bitfield_1),
+                ::core::ptr::addr_of_mut!((*this)._bitfield_1),
                 val as u64,
             )
         }
@@ -8188,15 +8188,15 @@ impl usb_SetupData__bindgen_ty_1__bindgen_ty_1 {
     ) -> __BindgenBitfieldUnit<[u8; 1usize]> {
         let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 1usize]> = Default::default();
         __bindgen_bitfield_unit.set_const::<0usize, 5u8>({
-            let recipient: u8 = unsafe { ::std::mem::transmute(recipient) };
+            let recipient: u8 = unsafe { ::core::mem::transmute(recipient) };
             recipient as u64
         });
         __bindgen_bitfield_unit.set_const::<5usize, 2u8>({
-            let type_: u8 = unsafe { ::std::mem::transmute(type_) };
+            let type_: u8 = unsafe { ::core::mem::transmute(type_) };
             type_ as u64
         });
         __bindgen_bitfield_unit.set_const::<7usize, 1u8>({
-            let direction: u8 = unsafe { ::std::mem::transmute(direction) };
+            let direction: u8 = unsafe { ::core::mem::transmute(direction) };
             direction as u64
         });
         __bindgen_bitfield_unit
@@ -8208,7 +8208,7 @@ pub struct usb_ClassDriver {
     _unused: [u8; 0],
 }
 #[repr(C)]
-pub struct usb_Device__bindgen_vtable(::std::os::raw::c_void);
+pub struct usb_Device__bindgen_vtable(::core::ffi::c_void);
 #[repr(C)]
 #[derive(Debug)]
 pub struct usb_Device {
@@ -8219,9 +8219,9 @@ pub struct usb_Device {
     pub num_configurations_: u8,
     pub config_index_: u8,
     pub is_initialized_: bool,
-    pub initialize_phase_: ::std::os::raw::c_int,
+    pub initialize_phase_: ::core::ffi::c_int,
     pub ep_configs_: __BindgenOpaqueArray<[u32; 64usize]>,
-    pub num_ep_configs_: ::std::os::raw::c_int,
+    pub num_ep_configs_: ::core::ffi::c_int,
     #[doc = " OnControlCompleted の中で要求の発行元を特定するためのマップ構造．\n ControlOut または ControlIn を発行したときに発行元が登録される．"]
     pub event_waiters_: __BindgenOpaqueArray8<[u8; 96usize]>,
 }
@@ -8239,8 +8239,8 @@ unsafe extern "C" {
         this: *mut usb_Device,
         ep_id: usb_EndpointID,
         setup_data: usb_SetupData,
-        buf: *const ::std::os::raw::c_void,
-        len: ::std::os::raw::c_int,
+        buf: *const ::core::ffi::c_void,
+        len: ::core::ffi::c_int,
     ) -> Error;
 }
 unsafe extern "C" {
@@ -8248,8 +8248,8 @@ unsafe extern "C" {
     pub fn usb_Device_OnInterruptCompleted(
         this: *mut usb_Device,
         ep_id: usb_EndpointID,
-        buf: *const ::std::os::raw::c_void,
-        len: ::std::os::raw::c_int,
+        buf: *const ::core::ffi::c_void,
+        len: ::core::ffi::c_int,
     ) -> Error;
 }
 impl usb_Device {
@@ -8266,8 +8266,8 @@ impl usb_Device {
         &mut self,
         ep_id: usb_EndpointID,
         setup_data: usb_SetupData,
-        buf: *const ::std::os::raw::c_void,
-        len: ::std::os::raw::c_int,
+        buf: *const ::core::ffi::c_void,
+        len: ::core::ffi::c_int,
     ) -> Error {
         usb_Device_OnControlCompleted(self, ep_id, setup_data, buf, len)
     }
@@ -8275,8 +8275,8 @@ impl usb_Device {
     pub unsafe fn OnInterruptCompleted(
         &mut self,
         ep_id: usb_EndpointID,
-        buf: *const ::std::os::raw::c_void,
-        len: ::std::os::raw::c_int,
+        buf: *const ::core::ffi::c_void,
+        len: ::core::ffi::c_int,
     ) -> Error {
         usb_Device_OnInterruptCompleted(self, ep_id, buf, len)
     }
@@ -8288,40 +8288,40 @@ unsafe extern "C" {
 unsafe extern "C" {
     #[link_name = "\u{1}_ZN3usb6Device9ControlInENS_10EndpointIDENS_9SetupDataEPviPNS_11ClassDriverE"]
     pub fn usb_Device_ControlIn(
-        this: *mut ::std::os::raw::c_void,
+        this: *mut ::core::ffi::c_void,
         ep_id: usb_EndpointID,
         setup_data: usb_SetupData,
-        buf: *mut ::std::os::raw::c_void,
-        len: ::std::os::raw::c_int,
+        buf: *mut ::core::ffi::c_void,
+        len: ::core::ffi::c_int,
         issuer: *mut usb_ClassDriver,
     ) -> Error;
 }
 unsafe extern "C" {
     #[link_name = "\u{1}_ZN3usb6Device10ControlOutENS_10EndpointIDENS_9SetupDataEPKviPNS_11ClassDriverE"]
     pub fn usb_Device_ControlOut(
-        this: *mut ::std::os::raw::c_void,
+        this: *mut ::core::ffi::c_void,
         ep_id: usb_EndpointID,
         setup_data: usb_SetupData,
-        buf: *const ::std::os::raw::c_void,
-        len: ::std::os::raw::c_int,
+        buf: *const ::core::ffi::c_void,
+        len: ::core::ffi::c_int,
         issuer: *mut usb_ClassDriver,
     ) -> Error;
 }
 unsafe extern "C" {
     #[link_name = "\u{1}_ZN3usb6Device11InterruptInENS_10EndpointIDEPvi"]
     pub fn usb_Device_InterruptIn(
-        this: *mut ::std::os::raw::c_void,
+        this: *mut ::core::ffi::c_void,
         ep_id: usb_EndpointID,
-        buf: *mut ::std::os::raw::c_void,
-        len: ::std::os::raw::c_int,
+        buf: *mut ::core::ffi::c_void,
+        len: ::core::ffi::c_int,
     ) -> Error;
 }
 unsafe extern "C" {
     #[link_name = "\u{1}_ZN3usb6Device12InterruptOutENS_10EndpointIDEPvi"]
     pub fn usb_Device_InterruptOut(
-        this: *mut ::std::os::raw::c_void,
+        this: *mut ::core::ffi::c_void,
         ep_id: usb_EndpointID,
-        buf: *mut ::std::os::raw::c_void,
-        len: ::std::os::raw::c_int,
+        buf: *mut ::core::ffi::c_void,
+        len: ::core::ffi::c_int,
     ) -> Error;
 }
