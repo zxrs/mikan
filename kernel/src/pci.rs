@@ -134,10 +134,8 @@ pub fn is_single_function_device(header_type: u8) -> bool {
 }
 
 pub fn scan_all_bus() -> Result<()> {
-    let mut num_device = 0;
-
     let header_type = read_header_type(0, 0, 0);
-    if (is_single_function_device(header_type)) {
+    if is_single_function_device(header_type) {
         return scan_bus(0);
     }
 
