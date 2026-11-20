@@ -154,6 +154,16 @@ pub fn read_bus_numbers(bus: u8, device: u8, function: u8) -> u32 {
     read_data()
 }
 
+pub fn read_conf_reg(device: &Device, reg_addr: u8) -> u32 {
+    write_address(make_address(
+        device.bus,
+        device.device,
+        device.function,
+        reg_addr,
+    ));
+    read_data()
+}
+
 pub fn is_single_function_device(header_type: u8) -> bool {
     (header_type & 0x80) == 0
 }
@@ -165,4 +175,28 @@ pub fn scan_all_bus() -> Result<()> {
     }
 
     Ok(())
+}
+
+pub fn calc_bar_address(bar_index: u32) -> u8 {
+    0x10 + 4 * bar_index as u8
+}
+
+pub fn read_bar(device: &Device, bar_index: u32) -> Result<u64> {
+    if bar_index >= 6 {
+        return Err("index is out of range");
+    }
+
+    let addr = calc_bar_address(bar_index);
+    let bar = read_conf_reg(device, addr);
+
+    if (bar & 4) == 0 {
+        return Ok(bar as _);
+    }
+
+    if (bar_index >= 5) {
+        return Err("index is out of range (2)");
+    }
+
+    let bar_upper = read_conf_reg(device, addr + 4);
+    Ok(bar as u64 | (bar_upper as u64) << 32)
 }

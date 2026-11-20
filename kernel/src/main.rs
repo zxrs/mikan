@@ -13,7 +13,7 @@ use share::{frame_buffer::FrameBufferConfig, x86};
 use crate::{
     console::CONSOLE,
     graphics::{PixelColor, PixelWriter},
-    pci::{DEVICES, read_class_code, read_vendor_id, scan_all_bus, usb::Controller},
+    pci::{DEVICES, read_bar, read_class_code, read_vendor_id, scan_all_bus, usb::Controller},
 };
 
 type Result<T> = core::result::Result<T, &'static str>;
@@ -92,6 +92,9 @@ extern "C" fn kernel_main(config: &'static mut FrameBufferConfig) -> ! {
             None
         })
         .unwrap();
+
+    let xhc_bar = read_bar(&device, 0).unwrap();
+    println!("xhc_bar: {xhc_bar}");
 
     // Controller::new(mmio_base);
 
