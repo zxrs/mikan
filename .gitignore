@@ -2,4 +2,5 @@ ovmf
 disk.img
 mnt
 xhci_bindings.rs
-kernel/lib
+kernel/lib/
+
