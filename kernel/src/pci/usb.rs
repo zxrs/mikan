@@ -56,6 +56,20 @@
 //! #![no_std]
 //! ```
 //!
+//! - Add kernel/usb/lib.cpp
+//!
+//! ```
+//! #include "./classdriver/mouse.hpp"
+//!
+//! typedef void (*mouse_observer)(int8_t, int8_t);
+//!
+//! extern "C" {
+//!   void RegisterMouseObserver(mouse_observer mouse_observer) {
+//!     usb::HIDMouseDriver::default_observer = mouse_observer;
+//!   }
+//! }
+//! ```
+//!
 //! - Add build.rs
 //!
 //! ```
@@ -65,6 +79,7 @@
 //!     println!("cargo:rustc-link-lib=c");
 //!
 //!     let files = [
+//!         "./kernel/usb/lib.cpp",
 //!         // "./kernel/pci.cpp",
 //!         // "./kernel/libcxx_support.cpp",
 //!         "./kernel/usb/memory.cpp",
@@ -121,8 +136,8 @@
 //! ```
 
 use crate::{
-    Result,
     pci::usb::xhci::{usb_xhci_Controller, usb_xhci_Controller_Initialize},
+    Result,
 };
 
 mod xhci;
