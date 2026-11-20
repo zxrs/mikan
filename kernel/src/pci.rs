@@ -21,9 +21,31 @@ pub struct Device {
     pub device: u8,
     pub function: u8,
     pub header_type: u8,
+    pub class_code: ClassCode,
 }
 
-pub fn add_device(bus: u8, device: u8, function: u8, header_type: u8) -> Result<()> {
+#[derive(Debug, Clone, Copy)]
+pub struct ClassCode {
+    pub base: u8,
+    pub sub: u8,
+    pub interface: u8,
+}
+
+impl ClassCode {
+    pub fn match_base(&self, base: u8) -> bool {
+        self.base == base
+    }
+
+    pub fn match_base_sub(&self, base: u8, sub: u8) -> bool {
+        self.match_base(base) && self.sub == sub
+    }
+
+    pub fn match_base_sub_interface(&self, base: u8, sub: u8, interface: u8) -> bool {
+        self.match_base_sub(base, sub) && self.interface == interface
+    }
+}
+
+pub fn add_device(device: Device) -> Result<()> {
     let Some(ref mut devices) = *DEVICES.inner.borrow_mut() else {
         return Err("failed to get devices");
     };
@@ -31,12 +53,6 @@ pub fn add_device(bus: u8, device: u8, function: u8, header_type: u8) -> Result<
         return Err("DEVICES is full");
     }
 
-    let device = Device {
-        bus,
-        device,
-        function,
-        header_type,
-    };
     devices.rotate_left(1);
     if let Some(last) = devices.last_mut() {
         *last = Some(device);
@@ -52,14 +68,18 @@ pub fn make_address(bus: u8, device: u8, function: u8, reg_addr: u8) -> u32 {
 }
 
 pub fn scan_function(bus: u8, device: u8, function: u8) -> Result<()> {
-    let header_type = read_header_type(bus, device, function);
-    add_device(bus, device, function, header_type)?;
-
     let class_code = read_class_code(bus, device, function);
-    let base = ((class_code >> 24) & 0xff) as u8;
-    let sub = ((class_code >> 16) & 0xff) as u8;
+    let header_type = read_header_type(bus, device, function);
+    let dev = Device {
+        bus,
+        device,
+        function,
+        header_type,
+        class_code,
+    };
+    add_device(dev)?;
 
-    if base == 0x06 && sub == 0x04 {
+    if class_code.match_base_sub(0x06, 0x04) {
         let bus_numbers = read_bus_numbers(bus, device, function);
         let secondary_bus = ((bus_numbers >> 8) & 0xff) as u8;
         return scan_bus(secondary_bus);
@@ -119,9 +139,14 @@ pub fn read_header_type(bus: u8, device: u8, function: u8) -> u8 {
     ((read_data() >> 16) & 0xff) as _
 }
 
-pub fn read_class_code(bus: u8, device: u8, function: u8) -> u32 {
+pub fn read_class_code(bus: u8, device: u8, function: u8) -> ClassCode {
     write_address(make_address(bus, device, function, 0x08));
-    read_data()
+    let reg = read_data();
+    ClassCode {
+        base: (reg >> 24) as _,
+        sub: (reg >> 16) as _,
+        interface: (reg >> 8) as _,
+    }
 }
 
 pub fn read_bus_numbers(bus: u8, device: u8, function: u8) -> u32 {

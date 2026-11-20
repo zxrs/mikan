@@ -13,7 +13,7 @@ use share::{frame_buffer::FrameBufferConfig, x86};
 use crate::{
     console::CONSOLE,
     graphics::{PixelColor, PixelWriter},
-    pci::{DEVICES, read_vendor_id, scan_all_bus, usb::Controller},
+    pci::{DEVICES, read_class_code, read_vendor_id, scan_all_bus, usb::Controller},
 };
 
 type Result<T> = core::result::Result<T, &'static str>;
@@ -51,10 +51,6 @@ extern "C" fn kernel_main(config: &'static mut FrameBufferConfig) -> ! {
     console::init(pixel_writer);
     pci::init();
 
-    for i in 0..26 {
-        println!("line: {i}");
-    }
-
     MOUSE_CURSOR_SHAPE.iter().enumerate().for_each(|(dy, row)| {
         row.chars().enumerate().for_each(|(dx, c)| {
             if c == '@' {
@@ -76,8 +72,26 @@ extern "C" fn kernel_main(config: &'static mut FrameBufferConfig) -> ! {
 
     devices.iter().filter_map(|d| d.as_ref()).for_each(|d| {
         let vendor_id = read_vendor_id(d.bus, d.device, d.function);
-        println!("0x{:x}", vendor_id);
+        let class_code = read_class_code(d.bus, d.device, d.function);
+        println!(
+            "vendor id: 0x{:x}, class code: 0x{:x}, 0x{:x}, 0x{:x}",
+            vendor_id, class_code.base, class_code.sub, class_code.interface
+        );
     });
+
+    let device = devices
+        .iter()
+        .find_map(|d| {
+            let d = d.as_ref()?;
+            if d.class_code.match_base_sub_interface(0x0c, 0x03, 0x30)
+                && read_vendor_id(d.bus, d.device, d.function) == 0x1033
+            // for QEMU nec-usb-xhci
+            {
+                return Some(d);
+            }
+            None
+        })
+        .unwrap();
 
     // Controller::new(mmio_base);
 
