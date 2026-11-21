@@ -9,14 +9,21 @@ mod pci;
 
 use core::fmt::Write;
 use share::{frame_buffer::FrameBufferConfig, x86};
+use usb::Controller;
 
 use crate::{
     console::CONSOLE,
     graphics::{PixelColor, PixelWriter},
-    pci::{DEVICES, read_bar, read_class_code, read_vendor_id, scan_all_bus, usb::Controller},
+    pci::{DEVICES, read_bar, read_class_code, read_vendor_id, scan_all_bus},
 };
 
 type Result<T> = core::result::Result<T, &'static str>;
+
+type MouseObserver = extern "C" fn(i8, i8);
+
+unsafe extern "C" {
+    fn RegisterMouseObserver(cb: MouseObserver);
+}
 
 const MOUSE_CURSOR_SHAPE: [&str; 24] = [
     "@              ",
@@ -44,6 +51,10 @@ const MOUSE_CURSOR_SHAPE: [&str; 24] = [
     "         @.@   ",
     "         @@@   ",
 ];
+
+extern "C" fn mouse_observer(x: i8, y: i8) {
+    println!("x: {x}, y: {y}");
+}
 
 #[unsafe(no_mangle)]
 extern "C" fn kernel_main(config: &'static mut FrameBufferConfig) -> ! {
@@ -93,10 +104,17 @@ extern "C" fn kernel_main(config: &'static mut FrameBufferConfig) -> ! {
         })
         .unwrap();
 
-    let xhc_bar = read_bar(&device, 0).unwrap();
-    println!("xhc_bar: {xhc_bar}");
+    let xhc_bar = read_bar(device, 0).unwrap();
+    println!("xhc_bar: {:b}", xhc_bar);
 
-    // Controller::new(mmio_base);
+    let mmio_base = xhc_bar & !0xf;
+    println!("mmio_base: {:b}", mmio_base);
+
+    let mut xhc = Controller::new(mmio_base as _);
+    xhc.initialize().unwrap();
+    xhc.run().unwrap();
+
+    unsafe { RegisterMouseObserver(mouse_observer) };
 
     loop {
         x86::halt();

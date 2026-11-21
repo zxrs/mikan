@@ -4,7 +4,7 @@ use share::{
     x86::{io_in32, io_out32},
 };
 
-pub mod usb;
+// pub mod usb;
 
 pub const CONFIG_ADDRESS: u16 = 0x0cf8;
 pub const CONFIG_DATA: u16 = 0x0cfc;
